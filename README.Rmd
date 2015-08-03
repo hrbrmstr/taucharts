@@ -18,7 +18,7 @@ taucharts is an R htmlwidget interface to the TauCharts javascript library
 
 Take a look at the [TODO list](https://github.com/hrbrmstr/taucharts/issues/1) and chip in!
 
-Right now, you can make & customize (including manual color scales & ordered factors + legends):
+Right now, you can make & customize (including manual color scales & ordered factors + legends + tooltips):
 
 - scatterplots
 - scatterplot matrices
@@ -41,6 +41,7 @@ The following functions are implemented:
 - `tau_guide_y`:	Control y-axis padding, label, scale & tick format
 - `tau_color_manual`:	Specify the colors used in the charts
 - `tau_legend`:	Add a TauCharts tooltip
+- `tau_tooltip`:	Add a TauCharts tooltip
 
 ### News
 

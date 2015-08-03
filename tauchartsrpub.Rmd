@@ -138,6 +138,15 @@ tauchart(car_dat) %>%
   tau_legend()
 ```
 
+### tooltips!
+
+```{r chart_tips}
+tauchart(car_dat) %>%
+  tau_point("power", "co2", color="euroEco") %>%
+  tau_legend() %>%
+  tau_tooltip()
+```
+
 ### basic facets!
 
 ```{r charts_3}
