@@ -11,19 +11,11 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br/>
-
 An R [htmlwidget](http://htmlwidgets.org/) interface to [TauCharts](http://www.taucharts.com/).
-
-<br/>
 
 [On GitHub](http://github.com/hrbrmstr/taucharts)
 
-<br/>
-
 Re-create TauCharts web site examples, starting with the data needed for the charts:
-
-<br/>
 
 ```{r init}
 # devtools::install_github("hrbrmstr/taucharts")
@@ -51,28 +43,55 @@ bar_dat <- structure(list(team = c("d", "d", "d", "d", "l", "l", "l", "l",
 5L, 8L, 3L), priority = c("low", "low", "medium", "high", "low", 
 "low", "medium", "high", "low", "low", "medium", "high")), .Names = c("team", 
 "cycleTime", "effort", "count", "priority"), class = "data.frame", row.names = c(NA, 12L))
+
+car_dat <- structure(list(car = c("Toyota Prius+", "Volvo S60", "BMV X5", 
+"Infinity FX", "Mercedes Vito", "Peugeot 3008", "Subaru Forester", 
+"Lexus RX", "Bentley Continental"), co2 = c(96L, 135L, 197L, 
+238L, 203L, 155L, 186L, 233L, 246L), hp = c(99L, 150L, 306L, 
+238L, 95L, 120L, 150L, 188L, 507L), euroEco = c("eco", "eco", 
+"non-eco", "non-eco", "non-eco", "non-eco", "non-eco", "non-eco", 
+"non-eco"), power = c("low", "normal", "high", "high", "low", 
+"low", "normal", "normal", "high")), .Names = c("car", "co2", 
+"hp", "euroEco", "power"), class = "data.frame", row.names = c(NA, 9L))
 ```
 
-<br/>
+Now, mimic a good chunk of section 5 (and some others) of the [TauCharts basic examples](http://api.taucharts.com/basic/index.html). Interestingly enough, faceted charts work without any real code changes:
 
-Now, mimic a good chunk of section 5 (and some others) of the [TauCharts basic examples](http://api.taucharts.com/basic/index.html)
+```{r charts_1}
+tauchart(scatter_dat) %>% 
+  tau_point("cycleTime", "effort", "team", "count")
+```
 
-<br/>
+### custom colors!
 
-```{r charts}
-taucharts() %>% 
-  tau_point(scatter_dat, "cycleTime", "effort", "team", "count")
+```{r charts_2}
+tauchart(scatter_dat) %>% 
+  tau_point("cycleTime", "effort", "team", "count") %>% 
+  tau_color_manual(c("orange", "green", "black"))
 
-taucharts() %>% 
-  tau_line(line_dat, "date", "count", "type") %>% 
+tauchart(line_dat) %>% 
+  tau_line("date", "count", "type") %>% 
   tau_guide_x(label="Month") %>% 
   tau_guide_y(label="Count of completed entities", label_padding=50) %>% 
   tau_guide_padding(70, 70, 10, 10)
-taucharts() %>% tau_bar(bar_dat, "team", "effort")
 
-taucharts() %>% tau_bar(bar_dat, "team", "effort", "priority")
+tauchart(bar_dat) %>% tau_bar("team", "effort")
 
-taucharts() %>% tau_bar(bar_dat, "effort", "team", horizontal=TRUE)
+tauchart(bar_dat) %>% tau_bar("team", "effort", "priority")
 
-taucharts() %>% tau_bar(bar_dat, "effort", "team", "priority", horizontal=TRUE)
+tauchart(bar_dat) %>% tau_bar("effort", "team", horizontal=TRUE)
+
+tauchart(bar_dat) %>% tau_bar("effort", "team", "priority", horizontal=TRUE)
 ```
+
+### basic facets!
+
+```{r charts_3}
+print(car_dat)
+
+tauchart(car_dat) %>% 
+  tau_point(c('euroEco', 'co2'), c('power', 'hp'))
+```
+
+
+FIN

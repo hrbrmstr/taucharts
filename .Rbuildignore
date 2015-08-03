@@ -8,3 +8,4 @@
 ^tauchartsrpub\.html$
 ^tauchartsrpub\.Rmd$
 \.bower\.json
+^rsconnect$

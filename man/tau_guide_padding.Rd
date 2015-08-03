@@ -7,6 +7,8 @@
 tau_guide_padding(tau, bottom = 0, left = 0, top = 0, right = 0)
 }
 \arguments{
+\item{tau}{taucharts object}
+
 \item{bottom,top,left,right}{amount of padding}
 }
 \description{

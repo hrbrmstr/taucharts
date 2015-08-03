@@ -4,12 +4,10 @@
 \alias{tau_line}
 \title{Create a TauCharts line chart}
 \usage{
-tau_line(tau, data, x, y, color = NULL, size = NULL)
+tau_line(tau, x, y, color = NULL, size = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
-
-\item{data}{data.frame}
 
 \item{x}{quoted name of \code{data} column to use for x-axis values}
 

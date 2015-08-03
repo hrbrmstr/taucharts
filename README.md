@@ -7,7 +7,7 @@ Have a look [on RPubs](http://rpubs.com/hrbrmstr/taucharts).
 
 The following functions are implemented:
 
--   `taucharts`: Create a new TauChart
+-   `tauchart`: Create a new TauChart
 -   `tau_line`: Create a TauCharts line chart
 -   `tau_point`: Create a TauCharts scatterplot
 -   `tau_bar`: Create a TauCharts bar chart (horizontal or vertical)
@@ -15,9 +15,11 @@ The following functions are implemented:
 -   `tau_guide_padding`: Set overall chart padding
 -   `tau_guide_x`: Control x-axis padding, label, scale & tick format
 -   `tau_guide_y`: Control y-axis padding, label, scale & tick format
+-   `tau_color_manual`: Specify the colors used in the charts
 
 ### News
 
+-   Version 0.0.1.9000 released : auto-detects column classes, can add manual colors & faceted plots are now working (see the Rpub for an example)
 -   Version 0.0.0.9000 released
 
 ### Installation
@@ -33,7 +35,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.0.0.9000'
+#> [1] '0.0.1.9000'
 ```
 
 ### Test Results
@@ -43,7 +45,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Mon Aug  3 05:23:32 2015"
+#> [1] "Mon Aug  3 12:45:12 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

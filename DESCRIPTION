@@ -1,8 +1,8 @@
 Package: taucharts
 Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
+Version: 0.0.1.9000
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
-Description: What the package does (one paragraph).
+Description: taucharts is an R htmlwidget interface to the TauCharts javascript library
 Depends: R (>= 3.2.1)
 License: MIT + file LICENSE
 LazyData: true

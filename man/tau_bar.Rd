@@ -4,12 +4,10 @@
 \alias{tau_bar}
 \title{Create a TauCharts bar chart (horizontal or vertical)}
 \usage{
-tau_bar(tau, data, x, y, color = NULL, size = NULL, horizontal = FALSE)
+tau_bar(tau, x, y, color = NULL, size = NULL, horizontal = FALSE)
 }
 \arguments{
 \item{tau}{taucharts object}
-
-\item{data}{data.frame}
 
 \item{x}{quoted name of \code{data} column to use for x-axis values}
 

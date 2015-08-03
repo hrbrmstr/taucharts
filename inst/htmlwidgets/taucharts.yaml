@@ -12,5 +12,5 @@ dependencies:
   src: htmlwidgets/lib/taucharts
   script: tauCharts.min.js
   stylesheet:
-    - tauCharts.normalize.min.css
     - tauCharts.min.css
+#    - tauCharts.normalize.min.css

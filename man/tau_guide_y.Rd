@@ -8,6 +8,8 @@ tau_guide_y(tau, padding = NULL, label = NULL, label_padding = NULL,
   auto_scale = TRUE, tick_period = NULL, tick_format = NULL)
 }
 \arguments{
+\item{tau}{taucharts object}
+
 \item{padding}{space between axis ticks and chart panel}
 
 \item{label}{text of label for axis (overrides default use of variable name)}
@@ -22,6 +24,8 @@ information.}
 
 \item{tick_format}{can be any
 \href{https://github.com/mbostock/d3/wiki/Formatting#d3_format}{D3 format specifier}}
+
+\item{padding}{space between axis ticks and chart panel}
 }
 \description{
 Control y-axis padding, label, scale & tick format

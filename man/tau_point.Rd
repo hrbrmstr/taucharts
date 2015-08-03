@@ -4,12 +4,10 @@
 \alias{tau_point}
 \title{Create a TauCharts scatterplot}
 \usage{
-tau_point(tau, data, x, y, color = NULL, size = NULL)
+tau_point(tau, x, y, color = NULL, size = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
-
-\item{data}{data.frame}
 
 \item{x}{quoted name of \code{data} column to use for x-axis values}
 

@@ -1,6 +1,6 @@
 #' An \code{htmlwidget} interface to the
 #' \href{http://www.taucharts.com/}{TauCharts} D3 chart library
-#' @name taucharts-package
+#' @name taucharts
 #' @docType package
 #' @author Bob Rudis (@@hrbrmstr)
 #' @import htmltools

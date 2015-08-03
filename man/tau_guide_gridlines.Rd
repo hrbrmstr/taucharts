@@ -7,6 +7,8 @@
 tau_guide_gridlines(tau, show_x = TRUE, show_y = TRUE)
 }
 \arguments{
+\item{tau}{taucharts object}
+
 \item{show_x,show_y}{if \code{TRUE}, show the gridline}
 }
 \description{

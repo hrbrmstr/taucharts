@@ -3,21 +3,51 @@
 #' Performs basic widget setup and returns an object suitable for
 #' use with the other \code{tau_} functions.
 #'
+#' @param data data.frame
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 #'   string and have \code{'px'} appended.
 #' @references \url{http://api.taucharts.com/}
 #' @export
-taucharts <- function(width = NULL, height = NULL) {
+tauchart <- function(data, width = NULL, height = NULL) {
 
   # forward options using x
   x <- list(
-    datasource=NULL,
+    datasource=data,
     x=NULL,
     y=NULL,
     padding=NULL,
-    guide=list(x=NULL, y=NULL, padding=NULL, color=NULL)
+    guide=list(x=NULL, y=NULL, padding=NULL, color=NULL),
+    forCSS=NULL
   )
+
+  # try to determine the associated tau-type based on
+  # column type/class.
+  #
+  # TODO: this is far from robust. amongst other things
+  # it should figure out the date/time better if a character
+  # and it should add the ordering of ordered factors
+
+  x$dimensions <- lapply(data, function(v) {
+
+    list(`type` =
+           switch(typeof(v),
+                  double={ ifelse(inherits(v, "Date"),
+                                  "order",
+                                  "measure")
+                  },
+                  integer={ ifelse(inherits(v, "factor"),
+                                   ifelse(inherits(v, "ordered"),
+                                          "order",
+                                          "category"),
+                                   "measure")
+                  },
+                  logical="category",
+                  character="category",
+                  "measure")
+    )
+
+  })
 
   # create widget
   htmlwidgets::createWidget(
@@ -32,15 +62,13 @@ taucharts <- function(width = NULL, height = NULL) {
 #' Create a TauCharts scatterplot
 #'
 #' @param tau taucharts object
-#' @param data data.frame
 #' @param x quoted name of \code{data} column to use for x-axis values
 #' @param y quoted name of \code{data} column to use for y-axis values
 #' @param color quoted name of \code{data} column to map color aesthetic to
 #' @param size quoted name of \code{data} column to make size aesthetic to
 #' @references \url{http://api.taucharts.com/basic/scatterplot.html}
 #' @export
-tau_point <- function(tau, data, x, y, color=NULL, size=NULL) {
-  tau$x$datasource <- data
+tau_point <- function(tau, x, y, color=NULL, size=NULL) {
   tau$x$x <- x
   tau$x$y <- y
   tau$x$color <- color
@@ -52,7 +80,6 @@ tau_point <- function(tau, data, x, y, color=NULL, size=NULL) {
 #' Create a TauCharts bar chart (horizontal or vertical)
 #'
 #' @param tau taucharts object
-#' @param data data.frame
 #' @param x quoted name of \code{data} column to use for x-axis values
 #' @param y quoted name of \code{data} column to use for y-axis values
 #' @param color quoted name of \code{data} column to map color aesthetic to
@@ -60,8 +87,7 @@ tau_point <- function(tau, data, x, y, color=NULL, size=NULL) {
 #' @param horizontal should the bar chart be horizontal? (default: \code{FALSE} (no))
 #' @references \url{http://api.taucharts.com/basic/line.html}
 #' @export
-tau_bar <- function(tau, data, x, y, color=NULL, size=NULL, horizontal=FALSE) {
-  tau$x$datasource <- data
+tau_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
   tau$x$x <- x
   tau$x$y <- y
   tau$x$color <- color
@@ -75,7 +101,6 @@ tau_bar <- function(tau, data, x, y, color=NULL, size=NULL, horizontal=FALSE) {
 #' Create a TauCharts line chart
 #'
 #' @param tau taucharts object
-#' @param data data.frame
 #' @param x quoted name of \code{data} column to use for x-axis values
 #' @param y quoted name of \code{data} column to use for y-axis values
 #' @param color quoted name of \code{data} column to map color aesthetic to
@@ -83,8 +108,7 @@ tau_bar <- function(tau, data, x, y, color=NULL, size=NULL, horizontal=FALSE) {
 #' @references \url{http://api.taucharts.com/basic/bar.html},
 #'             \url{http://api.taucharts.com/basic/horizontal-bar.html}
 #' @export
-tau_line <- function(tau, data, x, y, color=NULL, size=NULL) {
-  tau$x$datasource <- data
+tau_line <- function(tau, x, y, color=NULL, size=NULL) {
   tau$x$x <- x
   tau$x$y <- y
   tau$x$color <- color
@@ -96,6 +120,7 @@ tau_line <- function(tau, data, x, y, color=NULL, size=NULL) {
 
 #' Set overall chart padding
 #'
+#' @param tau taucharts object
 #' @param bottom,top,left,right amount of padding
 #' @references \url{http://api.taucharts.com/basic/guide.html}
 #' @export
@@ -107,6 +132,7 @@ tau_guide_padding <- function(tau, bottom=0, left=0, top=0, right=0) {
 
 #' Control showing of axis gridlines
 #'
+#' @param tau taucharts object
 #' @param show_x,show_y if \code{TRUE}, show the gridline
 #' @references \url{http://api.taucharts.com/basic/guide.html}
 #' @export
@@ -121,6 +147,7 @@ tau_guide_gridlines <- function(tau, show_x=TRUE, show_y=TRUE) {
 
 #' Control x-axis padding, label, scale & tick format
 #'
+#' @param tau taucharts object
 #' @param padding space between axis ticks and chart panel
 #' @param label text of label for axis (overrides default use of variable name)
 #' @param label_padding space between axis ticks and axis label (can be negative)
@@ -140,13 +167,15 @@ tau_guide_x <- function(tau, padding=NULL,
   if (!is.null(label_padding)) tau$x$guide$x$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$x$label$text <- label
   if (!is.null(tick_format)) tau$x$guide$x$tickFormat <- tick_format
-  if (!is.null(tick_perid)) tau$x$guide$y$tickPeriod <- tick_period
+  if (!is.null(tick_period)) tau$x$guide$y$tickPeriod <- tick_period
   if (!is.null(padding)) tau$x$guide$x$padding <- padding
   tau
 }
 
 #' Control y-axis padding, label, scale & tick format
 #'
+#' @param tau taucharts object
+#' @param padding space between axis ticks and chart panel
 #' @param padding space between axis ticks and chart panel
 #' @param label text of label for axis (overrides default use of variable name)
 #' @param label_padding space between axis ticks and axis label (can be negative)
@@ -165,9 +194,25 @@ tau_guide_y <- function(tau, padding=NULL,
   tau$x$guide$y$autoScale <- auto_scale
   if (!is.null(label_padding)) tau$x$guide$y$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$y$label$text <- label
-  if (!is.null(tick_perid)) tau$x$guide$y$tickPeriod <- tick_period
+  if (!is.null(tick_period)) tau$x$guide$y$tickPeriod <- tick_period
   if (!is.null(tick_format)) tau$x$guide$y$tickFormat <- tick_format
   if (!is.null(padding)) tau$x$guide$y$padding <- padding
+  tau
+}
+
+#' Specify the colors used in the charts
+#'
+#' @param tau taucharts object
+#' @param vector of colors, ideally names (e.g. "\code{black}") or
+#'        hex-format (e.g. "\code{#ffeeaa}")
+#' @references \url{http://api.taucharts.com/advanced/encoding.html}
+#' @export
+tau_color_manual <- function(tau, values=NULL) {
+  if (is.null(values)) return(tau)
+  eids <- sapply(1:length(values), function(i) { sprintf("tau-fill-%d-%s", i,
+                 paste(sample(c(letters[1:6], 0:9), 6, replace=TRUE), collapse="")) })
+  tau$x$guide$color$brewer <- eids ;
+  tau$x$forCSS <- sprintf(".%s { fill: %s; }", eids, values)
   tau
 }
 
