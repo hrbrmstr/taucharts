@@ -34,6 +34,26 @@ HTMLWidgets.widget({
       x.forCSS.map(function(v) { sheet.insertRule('#'+el.id+" "+v, sheet.cssRules.length);  });
     }
 
+    // work with plugins
+    var plugins = [];
+    if(typeof(x.plugins) !== "undefined" && x.plugins.length){
+      x.plugins.map( function(plugin) {
+        if( plugin.type === "tooltip" ) {
+          plugin.fields = Array.isArray(plugin.fields) ? plugin.fields : [plugin.fields]
+          plugins.push(
+            tauCharts.api.plugins.get('tooltip')(
+              {fields: plugin.fields}
+            )
+          )
+        }
+
+        if( plugin.type === "legend" ){
+          plugins.push(tauCharts.api.plugins.get('legend')());
+        }
+      })
+    }
+
+
     var chart = new tauCharts.Chart({
       data: datasource,
       type: x.type,
@@ -42,7 +62,8 @@ HTMLWidgets.widget({
       x: x.x,
       y: x.y,
       color: x.color,
-      dimensions: x.dimensions
+      dimensions: x.dimensions,
+      plugins: plugins
     });
 
     dbg_chart = chart ;
