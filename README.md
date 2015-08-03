@@ -3,7 +3,7 @@ taucharts is an R htmlwidget interface to the TauCharts javascript library
 
 Take a look at the [TODO list](https://github.com/hrbrmstr/taucharts/issues/1) and chip in!
 
-Right now, you can make & customize (including manual color scales):
+Right now, you can make & customize (including manual color scales & ordered factors):
 
 -   scatterplots
 -   scatterplot matrices
@@ -44,7 +44,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.0.1.9001'
+#> [1] '0.0.1.9002'
 ```
 
 ### Test Results
@@ -54,7 +54,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Mon Aug  3 13:53:17 2015"
+#> [1] "Mon Aug  3 14:55:41 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

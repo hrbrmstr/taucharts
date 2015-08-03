@@ -95,6 +95,20 @@ tauchart(scatter_dat) %>%
   tau_point("cycleTime", "effort", "team", "count")
 ```
 
+### ordered factors!
+
+```{r charts_ordered}
+scatter_dat %>%
+  {
+    data.frame(
+      .
+      ,cycleTimeFactor = factor(.$cycleTime,levels=rev(unique(.$cycleTime)),ordered=T)
+    )
+  } %>%
+  tauchart %>%
+  tau_point("cycleTimeFactor", "effort", "team", "count")
+```
+
 ### custom colors!
 
 ```{r charts_2}

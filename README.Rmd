@@ -18,7 +18,7 @@ taucharts is an R htmlwidget interface to the TauCharts javascript library
 
 Take a look at the [TODO list](https://github.com/hrbrmstr/taucharts/issues/1) and chip in!
 
-Right now, you can make & customize (including manual color scales):
+Right now, you can make & customize (including manual color scales & ordered factors):
 
 - scatterplots
 - scatterplot matrices

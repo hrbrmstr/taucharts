@@ -1,7 +1,14 @@
 Package: taucharts
 Title: What the Package Does (one line, title case)
-Version: 0.0.1.9001
-Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
+Version: 0.0.1.9002
+Authors@R: c(
+    person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
+    person("Kent", "Russell", email = "kent.russell@timelyportfolio.com", role = c("aut", "ctb")),
+    person("Mike", "Bostock", role = c("aut", "cph"), comment = "d3.js library in htmlwidgets/lib, http://d3js.org"),
+    person("Jeremy", "Ashkenas", role = c("aut", "cph"), comment = "underscore.js library in htmlwidgets/lib, http://underscorejs.org"),
+    person("Vladimir", "Petriko", role = c("aut", "cph"), comment = "taucharts.js library in htmlwidgets/lib, http://taucharts.com/")
+  )
+Maintainer: Bob Rudis <bob@rudis.net>
 Description: taucharts is an R htmlwidget interface to the TauCharts javascript library
 Depends: R (>= 3.0.0)
 License: MIT + file LICENSE

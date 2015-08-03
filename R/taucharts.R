@@ -29,39 +29,27 @@ tauchart <- function(data, width = NULL, height = NULL) {
   # and it should add the ordering of ordered factors
 
   x$dimensions <- lapply(data, function(v) {
+    # if factor handle separately
+    if(inherits(v, "factor")) {
+      if(inherits(v, "ordered")){
+        list(type = "order", order = levels(v) )
+      } else {
+        list(type = "category")
+      }
+    } else {
+      list(`type` =
+             switch(typeof(v),
+                    double={ ifelse(inherits(v, "Date"),
+                                    "order",
+                                    "measure")
+                    },
+                    integer="measure",
+                    logical="category",
+                    character="category",
+                    "measure")
+      )
 
-    list(`type` =
-           switch(typeof(v),
-                  double={ ifelse(inherits(v, "Date"),
-                                  "order",
-                                  "measure")
-                  },
-                  integer={ ifelse(inherits(v, "factor"),
-                                   ifelse(inherits(v, "ordered"),
-                                          "order",
-                                          "category"),
-                                   "measure")
-                  },
-                  logical="category",
-                  character="category",
-                  "measure"),
-
-         `scale` =
-            switch(typeof(v),
-                  double={ ifelse(inherits(v, "Date"),
-                                  "period",
-                                  "linear")
-                  },
-                  integer={ ifelse(inherits(v, "factor"),
-                                   ifelse(inherits(v, "ordered"),
-                                          "ordinal",
-                                          "ordinal"),
-                                   "linear")
-                  },
-                  logical="ordinal",
-                  character="ordinal",
-                  "linear")
-   )
+    }
 
   })
 
@@ -183,7 +171,7 @@ tau_guide_x <- function(tau, padding=NULL,
   if (!is.null(label_padding)) tau$x$guide$x$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$x$label$text <- label
   if (!is.null(tick_format)) tau$x$guide$x$tickFormat <- tick_format
-  if (!is.null(tick_period)) tau$x$guide$x$tickPeriod <- tick_period
+  if (!is.null(tick_period)) tau$x$guide$y$tickPeriod <- tick_period
   if (!is.null(padding)) tau$x$guide$x$padding <- padding
   tau
 }
