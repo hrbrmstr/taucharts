@@ -45,6 +45,8 @@ HTMLWidgets.widget({
       dimensions: x.dimensions
     });
 
+    dbg_chart = chart ;
+
     chart.renderTo('#'+el.id);
 
   },
