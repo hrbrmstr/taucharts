@@ -29,23 +29,27 @@ tauchart <- function(data, width = NULL, height = NULL) {
   # and it should add the ordering of ordered factors
 
   x$dimensions <- lapply(data, function(v) {
+    # if factor handle separately
+    if(inherits(v, "factor")) {
+      if(inherits(v, "ordered")){
+        list(type = "order", order = levels(v) )
+      } else {
+        list(type = "category")
+      }
+    } else {
+      list(`type` =
+             switch(typeof(v),
+                    double={ ifelse(inherits(v, "Date"),
+                                    "order",
+                                    "measure")
+                    },
+                    integer="measure",
+                    logical="category",
+                    character="category",
+                    "measure")
+      )
 
-    list(`type` =
-           switch(typeof(v),
-                  double={ ifelse(inherits(v, "Date"),
-                                  "order",
-                                  "measure")
-                  },
-                  integer={ ifelse(inherits(v, "factor"),
-                                   ifelse(inherits(v, "ordered"),
-                                          "order",
-                                          "category"),
-                                   "measure")
-                  },
-                  logical="category",
-                  character="category",
-                  "measure")
-    )
+    }
 
   })
 
