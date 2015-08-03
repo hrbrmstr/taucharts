@@ -5,7 +5,7 @@
 \title{Control x-axis padding, label, scale & tick format}
 \usage{
 tau_guide_x(tau, padding = NULL, label = NULL, label_padding = NULL,
-  auto_scale = TRUE, tick_format = NULL)
+  auto_scale = TRUE, tick_period = NULL, tick_format = NULL)
 }
 \arguments{
 \item{padding}{space between axis ticks and chart panel}
@@ -15,6 +15,10 @@ tau_guide_x(tau, padding = NULL, label = NULL, label_padding = NULL,
 \item{label_padding}{space between axis ticks and axis label (can be negative)}
 
 \item{auto_scale}{auto-pick "best" scale for axis? (default: \code{TRUE} (yes))}
+
+\item{tick_period}{if axis is auto-determined to be a "period scale",
+this allows specification of the period size. See \code{References} for more
+information.}
 
 \item{tick_format}{can be any
 \href{https://github.com/mbostock/d3/wiki/Formatting#d3_format}{D3 format specifier}}

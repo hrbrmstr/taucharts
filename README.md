@@ -1,66 +1,57 @@
----
-output:
-  md_document:
-    variant: markdown_github
----
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+taucharts is an R htmlwidget interface to the TauCharts javascript library
 
+NOTE: Only basic scatterplots, bar charts and line charts are working and even then there's no custom color support yet. Most of the "guide" functionality is, however, working. The plan is to support all the features of the TauCharts library.
 
-
-[![Build Status](https://travis-ci.org/hrbrmstr/taucharts.svg)](https://travis-ci.org/hrbrmstr/taucharts) 
-![Project Status: Concept - Minimal or no implementation has been done yet.](http://www.repostatus.org/badges/0.1.0/concept.svg)](http://www.repostatus.org/#concept)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/taucharts)](http://cran.r-project.org/web/packages/taucharts) 
-![downloads](http://cranlogs.r-pkg.org/badges/grand-total/taucharts)
-
-taucharts is ...
+Have a look [on RPubs](http://rpubs.com/hrbrmstr/taucharts).
 
 The following functions are implemented:
 
-The following data sets are included:
+-   `taucharts`: Create a new TauChart
+-   `tau_line`: Create a TauCharts line chart
+-   `tau_point`: Create a TauCharts scatterplot
+-   `tau_bar`: Create a TauCharts bar chart (horizontal or vertical)
+-   `tau_guide_gridlines`: Control showing of axis gridlines
+-   `tau_guide_padding`: Set overall chart padding
+-   `tau_guide_x`: Control x-axis padding, label, scale & tick format
+-   `tau_guide_y`: Control y-axis padding, label, scale & tick format
 
 ### News
 
-- Version  released
+-   Version 0.0.0.9000 released
 
 ### Installation
 
-
-```r
+``` r
 devtools::install_github("hrbrmstr/taucharts")
 ```
 
-
-
 ### Usage
 
-
-```r
+``` r
 library(taucharts)
-#> Error in library(taucharts): there is no package called 'taucharts'
 
 # current verison
 packageVersion("taucharts")
-#> Error in packageVersion("taucharts"): package 'taucharts' not found
+#> [1] '0.0.0.9000'
 ```
 
 ### Test Results
 
-
-```r
+``` r
 library(taucharts)
-#> Error in library(taucharts): there is no package called 'taucharts'
 library(testthat)
-#> Loading required package: methods
 
 date()
-#> [1] "Sun Aug  2 21:28:17 2015"
+#> [1] "Mon Aug  3 05:23:32 2015"
 
 test_dir("tests/")
-#> Error in library(taucharts): there is no package called 'taucharts'
+#> testthat results ========================================================================================================
+#> OK: 0 SKIPPED: 0 FAILED: 0
+#> 
+#> DONE
 ```
 
 ### Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
-By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

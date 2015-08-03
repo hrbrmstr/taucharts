@@ -125,6 +125,9 @@ tau_guide_gridlines <- function(tau, show_x=TRUE, show_y=TRUE) {
 #' @param label text of label for axis (overrides default use of variable name)
 #' @param label_padding space between axis ticks and axis label (can be negative)
 #' @param auto_scale auto-pick "best" scale for axis? (default: \code{TRUE} (yes))
+#' @param tick_period if axis is auto-determined to be a "period scale",
+#'        this allows specification of the period size. See \code{References} for more
+#'        information.
 #' @param tick_format can be any
 #'   \href{https://github.com/mbostock/d3/wiki/Formatting#d3_format}{D3 format specifier}
 #' @references \url{http://api.taucharts.com/basic/guide.html},
@@ -132,11 +135,12 @@ tau_guide_gridlines <- function(tau, show_x=TRUE, show_y=TRUE) {
 #' @export
 tau_guide_x <- function(tau, padding=NULL,
                         label=NULL, label_padding=NULL,
-                        auto_scale=TRUE, tick_format=NULL) {
+                        auto_scale=TRUE, tick_period=NULL, tick_format=NULL) {
   tau$x$guide$x$autoScale <- auto_scale
   if (!is.null(label_padding)) tau$x$guide$x$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$x$label$text <- label
   if (!is.null(tick_format)) tau$x$guide$x$tickFormat <- tick_format
+  if (!is.null(tick_perid)) tau$x$guide$y$tickPeriod <- tick_period
   if (!is.null(padding)) tau$x$guide$x$padding <- padding
   tau
 }
@@ -147,6 +151,9 @@ tau_guide_x <- function(tau, padding=NULL,
 #' @param label text of label for axis (overrides default use of variable name)
 #' @param label_padding space between axis ticks and axis label (can be negative)
 #' @param auto_scale auto-pick "best" scale for axis? (default: \code{TRUE} (yes))
+#' @param tick_period if axis is auto-determined to be a "period scale",
+#'        this allows specification of the period size. See \code{References} for more
+#'        information.
 #' @param tick_format can be any
 #'   \href{https://github.com/mbostock/d3/wiki/Formatting#d3_format}{D3 format specifier}
 #' @references \url{http://api.taucharts.com/basic/guide.html},
@@ -154,10 +161,11 @@ tau_guide_x <- function(tau, padding=NULL,
 #' @export
 tau_guide_y <- function(tau, padding=NULL,
                         label=NULL, label_padding=NULL,
-                        auto_scale=TRUE, tick_format=NULL) {
+                        auto_scale=TRUE, tick_period=NULL, tick_format=NULL) {
   tau$x$guide$y$autoScale <- auto_scale
   if (!is.null(label_padding)) tau$x$guide$y$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$y$label$text <- label
+  if (!is.null(tick_perid)) tau$x$guide$y$tickPeriod <- tick_period
   if (!is.null(tick_format)) tau$x$guide$y$tickFormat <- tick_format
   if (!is.null(padding)) tau$x$guide$y$padding <- padding
   tau
