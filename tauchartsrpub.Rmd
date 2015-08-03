@@ -1,7 +1,6 @@
 ---
 title: "TauCharts htmlwidget"
 author: "Bob Rudis (@hrbrmstr)"
-date: "August 3, 2015"
 output:
   html_document:
     theme: cosmo
@@ -129,6 +128,14 @@ tauchart(bar_dat) %>% tau_bar("team", "effort", "priority")
 tauchart(bar_dat) %>% tau_bar("effort", "team", horizontal=TRUE)
 
 tauchart(bar_dat) %>% tau_bar("effort", "team", "priority", horizontal=TRUE)
+```
+
+### legendary!
+
+```{r chart_leg}
+tauchart(car_dat) %>%
+  tau_point("power", "co2", color="euroEco") %>%
+  tau_legend()
 ```
 
 ### basic facets!
