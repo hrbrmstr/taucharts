@@ -1,0 +1,78 @@
+---
+title: "TauCharts htmlwidget"
+author: "Bob Rudis (@hrbrmstr)"
+date: "August 3, 2015"
+output:
+  html_document:
+    theme: cosmo
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br/>
+
+An R [htmlwidget](http://htmlwidgets.org/) interface to [TauCharts](http://www.taucharts.com/).
+
+<br/>
+
+[On GitHub](http://github.com/hrbrmstr/taucharts)
+
+<br/>
+
+Re-create TauCharts web site examples, starting with the data needed for the charts:
+
+<br/>
+
+```{r init}
+# devtools::install_github("hrbrmstr/taucharts")
+library(taucharts)
+
+scatter_dat <- structure(list(team = c("d", "d", "d", "d", "l", "l", "l", "l", 
+"k", "k", "k", "k"), cycleTime = c(1L, 2L, 3L, 4L, 2L, 3L, 4L, 
+5L, 2L, 3L, 4L, 5L), effort = c(1L, 2L, 3L, 4L, 1L, 2L, 3L, 4L, 
+4L, 5L, 6L, 8L), count = c(1L, 5L, 8L, 3L, 1L, 5L, 8L, 3L, 1L, 
+5L, 8L, 3L), priority = c("low", "low", "medium", "high", "low", 
+"low", "medium", "high", "low", "low", "medium", "high")), .Names = c("team", 
+"cycleTime", "effort", "count", "priority"), class = "data.frame", row.names = c(NA, 12L))
+
+line_dat <- structure(list(type = c("us", "us", "us", "us", "us", "us", "bug", 
+"bug", "bug", "bug", "bug"), count = c(0L, 10L, 15L, 12L, 16L, 
+13L, 21L, 19L, 23L, 26L, 23L), date = c("12-2013", "01-2014", 
+"02-2014", "03-2014", "04-2014", "05-2014", "01-2014", "02-2014", 
+"03-2014", "04-2014", "05-2014")), .Names = c("type", "count", 
+"date"), class = "data.frame", row.names = c(NA, 11L))
+
+bar_dat <- structure(list(team = c("d", "d", "d", "d", "l", "l", "l", "l", 
+"k", "k", "k", "k"), cycleTime = c(1L, 2L, 3L, 4L, 2L, 3L, 4L, 
+5L, 2L, 3L, 4L, 5L), effort = c(1L, 2L, 3L, 4L, 1L, 2L, 3L, 4L, 
+4L, 5L, 6L, 8L), count = c(1L, 5L, 8L, 3L, 1L, 5L, 8L, 3L, 1L, 
+5L, 8L, 3L), priority = c("low", "low", "medium", "high", "low", 
+"low", "medium", "high", "low", "low", "medium", "high")), .Names = c("team", 
+"cycleTime", "effort", "count", "priority"), class = "data.frame", row.names = c(NA, 12L))
+```
+
+<br/>
+
+Now, mimic a good chunk of section 5 (and some others) of the [TauCharts basic examples](http://api.taucharts.com/basic/index.html)
+
+<br/>
+
+```{r charts}
+taucharts() %>% 
+  tau_point(scatter_dat, "cycleTime", "effort", "team", "count")
+
+taucharts() %>% 
+  tau_line(line_dat, "date", "count", "type") %>% 
+  tau_guide_x(label="Month") %>% 
+  tau_guide_y(label="Count of completed entities", label_padding=50) %>% 
+  tau_guide_padding(70, 70, 10, 10)
+taucharts() %>% tau_bar(bar_dat, "team", "effort")
+
+taucharts() %>% tau_bar(bar_dat, "team", "effort", "priority")
+
+taucharts() %>% tau_bar(bar_dat, "effort", "team", horizontal=TRUE)
+
+taucharts() %>% tau_bar(bar_dat, "effort", "team", "priority", horizontal=TRUE)
+```

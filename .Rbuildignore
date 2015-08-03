@@ -1,2 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
+^README-.*\.png$
+^\.travis\.yml$
+^CONDUCT\.md$
+^README\.md$
+^tauchartsrpub\.html$
+^tauchartsrpub\.Rmd$
+\.bower\.json

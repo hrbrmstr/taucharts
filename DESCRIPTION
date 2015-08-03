@@ -6,3 +6,5 @@ Description: What the package does (one paragraph).
 Depends: R (>= 3.2.1)
 License: MIT + file LICENSE
 LazyData: true
+Suggests: testthat
+Imports: htmlwidgets, htmltools, magrittr
