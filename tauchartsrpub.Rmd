@@ -53,6 +53,39 @@ car_dat <- structure(list(car = c("Toyota Prius+", "Volvo S60", "BMV X5",
 "non-eco"), power = c("low", "normal", "high", "high", "low", 
 "low", "normal", "normal", "high")), .Names = c("car", "co2", 
 "hp", "euroEco", "power"), class = "data.frame", row.names = c(NA, 9L))
+
+splom_dat <- structure(list(param1 = c("hp", "hp", "hp", "co2", "co2", "co2", 
+"mpg", "mpg", "mpg", "hp", "hp", "hp", "co2", "co2", "co2", "mpg", 
+"mpg", "mpg", "hp", "hp", "hp", "co2", "co2", "co2", "mpg", "mpg", 
+"mpg", "hp", "hp", "hp", "co2", "co2", "co2", "mpg", "mpg", "mpg", 
+"hp", "hp", "hp", "co2", "co2", "co2", "mpg", "mpg", "mpg", "hp", 
+"hp", "hp", "co2", "co2", "co2", "mpg", "mpg", "mpg", "hp", "hp", 
+"hp", "co2", "co2", "co2", "mpg", "mpg", "mpg", "hp", "hp", "hp", 
+"co2", "co2", "co2", "mpg", "mpg", "mpg", "hp", "hp", "hp", "co2", 
+"co2", "co2", "mpg", "mpg", "mpg"), param2 = c("hp", "co2", "mpg", 
+"hp", "co2", "mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", "hp", 
+"co2", "mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", "hp", "co2", 
+"mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", 
+"hp", "co2", "mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", "hp", 
+"co2", "mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", "hp", "co2", 
+"mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", 
+"hp", "co2", "mpg", "hp", "co2", "mpg", "hp", "co2", "mpg", "hp", 
+"co2", "mpg", "hp", "co2", "mpg", "hp", "co2", "mpg"), value1 = c(99, 
+99, 99, 96, 96, 96, 3.8, 3.8, 3.8, 150, 150, 150, 135, 135, 135, 
+7.4, 7.4, 7.4, 306, 306, 306, 197, 197, 197, 11.2, 11.2, 11.2, 
+238, 238, 238, 238, 238, 238, 11.2, 11.2, 11.2, 95, 95, 95, 203, 
+203, 203, 9.4, 9.4, 9.4, 120, 120, 120, 155, 155, 155, 9.2, 9.2, 
+9.2, 150, 150, 150, 186, 186, 186, 10.4, 10.4, 10.4, 188, 188, 
+188, 233, 233, 233, 13.3, 13.3, 13.3, 507, 507, 507, 246, 246, 
+246, 15.4, 15.4, 15.4), value2 = c(99, 96, 3.8, 99, 96, 3.8, 
+99, 96, 3.8, 150, 135, 7.4, 150, 135, 7.4, 150, 135, 7.4, 306, 
+197, 11.2, 306, 197, 11.2, 306, 197, 11.2, 238, 238, 11.2, 238, 
+238, 11.2, 238, 238, 11.2, 95, 203, 9.4, 95, 203, 9.4, 95, 203, 
+9.4, 120, 155, 9.2, 120, 155, 9.2, 120, 155, 9.2, 150, 186, 10.4, 
+150, 186, 10.4, 150, 186, 10.4, 188, 233, 13.3, 188, 233, 13.3, 
+188, 233, 13.3, 507, 246, 15.4, 507, 246, 15.4, 507, 246, 15.4
+)), .Names = c("param1", "param2", "value1", "value2"), class = "data.frame", row.names = c(NA, 
+81L))
 ```
 
 Now, mimic a good chunk of section 5 (and some others) of the [TauCharts basic examples](http://api.taucharts.com/basic/index.html). Interestingly enough, faceted charts work without any real code changes:
@@ -93,5 +126,11 @@ tauchart(car_dat) %>%
   tau_point(c('euroEco', 'co2'), c('power', 'hp'))
 ```
 
+### scatterplot matrices!
+
+```{r charts_4}
+tauchart(splom_dat) %>% 
+  tau_point(c("param1", "value1"), c("param2", "value2"))
+```
 
 FIN
