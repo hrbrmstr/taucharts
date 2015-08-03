@@ -16,9 +16,18 @@ knitr::opts_chunk$set(
 
 taucharts is an R htmlwidget interface to the TauCharts javascript library
 
-NOTE: Only basic scatterplots, bar charts and line charts are working and even then there's no custom color support yet. Most of the "guide" functionality is, however, working. The plan is to support all the features of the TauCharts library.
+Take a look at the [TODO list](https://github.com/hrbrmstr/taucharts/issues/1) and chip in!
 
-Have a look [on RPubs](http://rpubs.com/hrbrmstr/taucharts).
+Right now, you can make & customize (including manual color scales):
+
+- scatterplots
+- scatterplot matrices
+- line charts
+- bar charts (veritical & horizontal)
+
+Composite plots are on the road map for support but not in the R package yet.
+
+Have a look [on RPubs](http://rpubs.com/hrbrmstr/taucharts) to see what `taucharts` can do!
 
 The following functions are implemented:
 
