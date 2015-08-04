@@ -21,10 +21,13 @@ tauchart <- function(data, width = NULL, height = NULL) {
     )
   }
 
+  # this takes care of silly tbl_df/tbl_dt/data.table issues
+  data <- data.frame(data)
+
   # try to handle dates smoothly between JS and R
   #   this is very much a work in progress
   date_columns <- which(sapply(data,function(x) inherits(x,c("Date","POSIXct","date","yearmon","yearqtr"))))
-  if(length(date_columns)>0){
+  if (length(date_columns) > 0) {
     data[,date_columns] <- asISO8601Time(data[,date_columns])
     # temporarily set class to iso8601 for dimension logic below
     class(data[,date_columns]) <- "iso8601"
@@ -237,7 +240,7 @@ tau_guide_y <- function(tau, padding=NULL,
 tau_color_manual <- function(tau, values=NULL) {
   if (is.null(values)) return(tau)
   eids <- sapply(1:length(values), function(i) { sprintf("tau-fill-%d-%s", i,
-                 paste(sample(c(letters[1:6], 0:9), 6, replace=TRUE), collapse="")) })
+                                                         paste(sample(c(letters[1:6], 0:9), 6, replace=TRUE), collapse="")) })
   tau$x$guide$color$brewer <- eids ;
   tau$x$forCSS <- sprintf(".%s { fill: %s; }", eids, values)
   tau
