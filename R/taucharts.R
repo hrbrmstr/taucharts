@@ -11,15 +11,22 @@
 #' @export
 tauchart <- function(data, width = NULL, height = NULL) {
 
-  # forward options using x
-  x <- list(
-    datasource=data,
-    x=NULL,
-    y=NULL,
-    padding=NULL,
-    guide=list(x=NULL, y=NULL, padding=NULL, color=NULL),
-    forCSS=NULL
-  )
+  # try to accomodate xts objects
+  #  but this will require a dependency on xts
+  if( xts::is.xts(data) ){
+    data <- data.frame(
+      "Date" = index(data)
+      ,xts:::as.data.frame.xts(data)
+      ,stringsAsFactors = FALSE
+    )
+  }
+
+  # try to handle dates smoothly between JS and R
+  #   this is very much a work in progress
+  date_columns <- which(sapply(data,function(x) inherits(x,"Date")))
+  data[,date_columns] <- asISO8601Time(data[,date_columns])
+  # temporarily set class to iso8601 for dimension logic below
+  class(data[,date_columns]) <- "iso8601"
 
   # try to determine the associated tau-type based on
   # column type/class.
@@ -28,7 +35,7 @@ tauchart <- function(data, width = NULL, height = NULL) {
   # it should figure out the date/time better if a character
   # and it should add the ordering of ordered factors
 
-  x$dimensions <- lapply(data, function(v) {
+  dimensions <- lapply(data, function(v) {
     # if factor handle separately
     if(inherits(v, "factor")) {
       if(inherits(v, "ordered")){
@@ -36,13 +43,13 @@ tauchart <- function(data, width = NULL, height = NULL) {
       } else {
         list(type = "category")
       }
+    } else if(inherits(v, c("Date","iso8601"))) {
+      # some crude handling of dates
+      list( type = "order", scale = "time" )
     } else {
       list(`type` =
              switch(typeof(v),
-                    double={ ifelse(inherits(v, "Date"),
-                                    "order",
-                                    "measure")
-                    },
+                    double= "measure",
                     integer="measure",
                     logical="category",
                     character="category",
@@ -52,6 +59,20 @@ tauchart <- function(data, width = NULL, height = NULL) {
     }
 
   })
+
+  # remove our temporary iso8601 class
+  class(data[,which(sapply(data,function(x) inherits(x,"iso8601")))]) <- "character"
+
+  # forward options using x
+  x <- list(
+    datasource=data,
+    dimensions=dimensions,
+    x=NULL,
+    y=NULL,
+    padding=NULL,
+    guide=list(x=NULL, y=NULL, padding=NULL, color=NULL),
+    forCSS=NULL
+  )
 
   # create widget
   htmlwidgets::createWidget(
