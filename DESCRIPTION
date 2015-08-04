@@ -14,4 +14,4 @@ Depends: R (>= 3.0.0)
 License: MIT + file LICENSE
 LazyData: true
 Suggests: testthat
-Imports: htmlwidgets, htmltools, magrittr, xts
+Imports: htmlwidgets, htmltools, magrittr

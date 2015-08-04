@@ -13,17 +13,17 @@ tauchart <- function(data, width = NULL, height = NULL) {
 
   # try to accomodate xts objects
   #  but this will require a dependency on xts
-  if( xts::is.xts(data) ){
+  if( inherits( data, "xts" ) ){
     data <- data.frame(
       "Date" = index(data)
-      ,xts:::as.data.frame.xts(data)
+      ,as.data.frame(data)
       ,stringsAsFactors = FALSE
     )
   }
 
   # try to handle dates smoothly between JS and R
   #   this is very much a work in progress
-  date_columns <- which(sapply(data,function(x) inherits(x,"Date")))
+  date_columns <- which(sapply(data,function(x) inherits(x,c("Date","POSIXct"))))
   data[,date_columns] <- asISO8601Time(data[,date_columns])
   # temporarily set class to iso8601 for dimension logic below
   class(data[,date_columns]) <- "iso8601"
