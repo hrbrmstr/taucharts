@@ -10,10 +10,10 @@ dependencies:
 - name: tauCharts
   version: 0.5.0
   src: htmlwidgets/lib/taucharts
-  script: #tauCharts.min.js
-    - tauCharts.js
-    - plugins/tauCharts.tooltip.js
-    - plugins/tauCharts.legend.js
+  script: tauCharts.min.js
+#    - tauCharts.js
+#    - plugins/tauCharts.tooltip.js
+#    - plugins/tauCharts.legend.js
   stylesheet:
     - tauCharts.min.css
 #    - tauCharts.normalize.min.css
