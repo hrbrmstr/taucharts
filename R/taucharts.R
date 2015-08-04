@@ -23,7 +23,12 @@ tauchart <- function(data, width = NULL, height = NULL) {
 
   # try to handle dates smoothly between JS and R
   #   this is very much a work in progress
-  date_columns <- which(sapply(data,function(x) inherits(x,c("Date","POSIXct"))))
+  date_columns <- which(
+    sapply(
+      data
+      ,function(x) inherits(x,c("Date","POSIXct","yearmon","date","yearqtr"))
+    )
+  )
   data[,date_columns] <- asISO8601Time(data[,date_columns])
   # temporarily set class to iso8601 for dimension logic below
   class(data[,date_columns]) <- "iso8601"
