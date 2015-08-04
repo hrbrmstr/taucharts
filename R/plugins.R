@@ -1,14 +1,22 @@
 #' Add a TauCharts tooltip
 #'
 #' @param tau taucharts object
+#' @param fields character vector of fields to display in the tooltip
+#'        (default is to use all columns in \code{data})
+#' @seealso \code{\link{cars_data}} dataset
 #' @export
+#' @examples
+#' data(cars_data)
+#' tauchart(cars_data) %>%
+#'   tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
 tau_tooltip <- function(tau, fields = NULL) {
 
-  if(is.null(fields)){
+  if (is.null(fields)){
     fields <- colnames(tau$x$datasource)
   }
 
-  if(is.null(tau$x$plugins)){
+  if (is.null(tau$x$plugins)){
     tau$x$plugins = list()
   }
 
@@ -24,6 +32,12 @@ tau_tooltip <- function(tau, fields = NULL) {
 #'
 #' @param tau taucharts object
 #' @export
+#' @seealso \code{\link{cars_data}} dataset
+#' @examples
+#' data(cars_data)
+#' tauchart(cars_data) %>%
+#'   tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_legend()
 tau_legend <- function(tau) {
 
   if(is.null(tau$x$plugins)){
@@ -36,7 +50,6 @@ tau_legend <- function(tau) {
 
   tau
 }
-
 
 #' Add a TauCharts trendline
 #'
@@ -59,7 +72,13 @@ tau_legend <- function(tau) {
 #'                would like to change the order of the options, then you can do
 #'                \code{models = c("logarithmic","exponential")}, and the first provided
 #'                will be the initial model type used.
+#' @seealso \code{\link{cars_data}} dataset
 #' @export
+#' @examples
+#' data(cars_data)
+#' tauchart(cars_data) %>%
+#'   tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_trendline()
 tau_trendline <- function(
   tau,
   type = 'linear',

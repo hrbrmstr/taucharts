@@ -12,4 +12,13 @@ tau_legend(tau)
 \description{
 Add a TauCharts legend
 }
+\examples{
+data(cars_data)
+tauchart(cars_data) \%>\%
+  tau_point("milespergallon", c("class", "price"), color="class") \%>\%
+  tau_legend()
+}
+\seealso{
+\code{\link{cars_data}} dataset
+}
 

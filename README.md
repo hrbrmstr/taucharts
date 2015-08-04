@@ -29,6 +29,10 @@ The following functions are implemented:
 -   `tau_tooltip`: Add a TauCharts tooltip
 -   `tau_trendline`: Add a TauCharts trendline
 
+The following datasets are included:
+
+-   `cars_data`: statistics on cars released from 1997 through 2013 (a data frame with 135 rows and 7 variables)
+
 ### News
 
 -   Version 0.1.0 released : trendline, tooltips & dev fork (prod is pretty much stable & functional)
@@ -49,7 +53,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.1.0'
+#> [1] '0.2.0.9000'
 ```
 
 ### Test Results
@@ -59,7 +63,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Tue Aug  4 15:24:59 2015"
+#> [1] "Tue Aug  4 17:44:08 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

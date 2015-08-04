@@ -207,5 +207,15 @@ tauchart(how_good) %>%
   tau_guide_y(tick_format="%")
 ```
 
+### the whole shebang!
+
+```{r shebang}
+data(cars_data)
+tauchart(cars_data) %>% 
+  tau_point("milespergallon", c("class", "price"), color="class") %>% 
+  tau_legend() %>% 
+  tau_trendline() %>% 
+  tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
+```
 
 FIN
