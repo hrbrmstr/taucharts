@@ -207,5 +207,27 @@ tauchart(how_good) %>%
   tau_guide_y(tick_format="%")
 ```
 
+### better dates!
+
+```{r better_dates}
+library(quantmod)
+
+spy <- getSymbols("SPY",auto.assign=F)
+
+tauchart( spy ) %>% tau_line( "Date", "SPY.Close" )
+
+# test with as.POSIXct
+index(spy) <- as.POSIXct(index(spy))
+tauchart(spy) %>% tau_line("Date","SPY.Close") %>% tau_guide_x( tick_format = "%Y")
+
+
+data.frame(
+  date = seq.Date( as.Date("2000-01-01"), as.Date("2000-12-31"), by = "month" )
+  ,value = runif(12,0,100)
+) %>%
+  tauchart() %>%
+  tau_point("date","value") %>%
+  tau_guide_x( tick_format = "%b %y" )
+```
 
 FIN
