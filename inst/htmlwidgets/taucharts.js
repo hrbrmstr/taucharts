@@ -50,6 +50,13 @@ HTMLWidgets.widget({
         if( plugin.type === "legend" ){
           plugins.push(tauCharts.api.plugins.get('legend')());
         }
+
+        if( plugin.type === "trendline" ){
+          if (!Array.isArray(plugin.settings.models)){
+            plugin.settings.models = [plugin.settings.models];
+          }
+          plugins.push(tauCharts.api.plugins.get('trendline')(plugin.settings));
+        }
       })
     }
 
