@@ -3,7 +3,7 @@ taucharts is an R htmlwidget interface to the TauCharts javascript library
 
 Take a look at the [TODO list](https://github.com/hrbrmstr/taucharts/issues/1) and chip in!
 
-Right now, you can make & customize (including manual color scales & ordered factors + legends + tooltips):
+Right now, you can make & customize (including manual color scales & ordered factors + legends + tooltips + trendlines):
 
 -   scatterplots
 -   scatterplot matrices
@@ -27,9 +27,11 @@ The following functions are implemented:
 -   `tau_color_manual`: Specify the colors used in the charts
 -   `tau_legend`: Add a TauCharts tooltip
 -   `tau_tooltip`: Add a TauCharts tooltip
+-   `tau_trendline`: Add a TauCharts trendline
 
 ### News
 
+-   Version 0.1.0 released : trendline, tooltips & dev fork (prod is pretty much stable & functional)
 -   Version 0.0.1.9003 released : facet-based ordering + legends
 -   Version 0.0.1.9000 released : auto-detects column classes, can add manual colors & faceted plots are now working (see the Rpub for an example)
 -   Version 0.0.0.9000 released
@@ -47,7 +49,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.0.1.9004'
+#> [1] '0.1.0'
 ```
 
 ### Test Results
@@ -57,7 +59,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Mon Aug  3 18:31:24 2015"
+#> [1] "Tue Aug  4 15:24:09 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
