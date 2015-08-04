@@ -8,6 +8,12 @@ brewers <- c("BrBG", "PiYG", "PRGn", "PuOr", "RdBu", "RdGy", "RdYlBu", "RdYlGn",
 # from rstudio/dygraphs https://github.com/rstudio/dygraphs
 asISO8601Time <- function(x) {
   if (!inherits(x, "POSIXct"))
-    x <- as.POSIXct(x, tz = "GMT")
-  format(x, format="%04Y-%m-%dT%H:%M:%SZ", tz='GMT')
+    x <- try({as.POSIXct(x, tz = "GMT")})
+  # if posix conversion worked
+  if (inherits(x, "POSIXct")) {
+    format(x, format="%04Y-%m-%dT%H:%M:%SZ", tz='GMT')
+  } else {
+    # if not just return x and keep pluggin away
+    x
+  }
 }
