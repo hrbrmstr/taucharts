@@ -188,4 +188,24 @@ tc %>%
   tau_trendline( showPanel = FALSE )
 ```
 
+## Now do some other things outside the examples
+
+### customize y axis labels!
+
+```{r custom_1}
+how_good <- structure(list(
+      Ranking = structure(
+        1:5, .Label = c("Bottom", "Bellow Average",
+                        "Average", "Above Average", "Top"), class = "factor"
+      ), Prob = c(30L, 10L, 15L, 40L, 5L)/100
+    ), .Names = c("Ranking", "Prob"), row.names = c(NA,-5L), class = "data.frame")
+
+# NOTE my division by 100 in Prob above
+
+tauchart(how_good) %>% 
+  tau_bar(x="Ranking", y="Prob") %>% 
+  tau_guide_y(tick_format="%")
+```
+
+
 FIN
