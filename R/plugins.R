@@ -1,11 +1,6 @@
 #' Add a TauCharts tooltip
 #'
 #' @param tau taucharts object
-<<<<<<< HEAD
-#' @param fields \code{vector} of fields you would like to see in the tooltip.
-#'          If \code{NULL} then will assume all fields.
-=======
->>>>>>> pr/6
 #' @export
 tau_tooltip <- function(tau, fields = NULL) {
 
@@ -25,19 +20,6 @@ tau_tooltip <- function(tau, fields = NULL) {
   tau
 }
 
-<<<<<<< HEAD
-#' Add a TauCharts tooltip
-#'
-#' @param tau taucharts object
-#' @importFrom jsonlite toJSON
-#' @export
-tau_legend <- function(tau, fields = NULL) {
-
-  if(is.null(fields)){
-    fields <- colnames(tau$x$datasource)
-  }
-
-=======
 #' Add a TauCharts legend
 #'
 #' @param tau taucharts object
@@ -87,15 +69,11 @@ tau_trendline <- function(
   models = c('linear', 'exponential', 'logarithmic')
 ) {
 
->>>>>>> pr/6
   if(is.null(tau$x$plugins)){
     tau$x$plugins = list()
   }
 
   tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
-<<<<<<< HEAD
-    type = "legend"
-=======
     type = "trendline"
     ,settings = list(
       type = 'linear',
@@ -104,7 +82,6 @@ tau_trendline <- function(
       showTrend = showTrend,
       models = models
     )
->>>>>>> pr/6
   )
 
   tau

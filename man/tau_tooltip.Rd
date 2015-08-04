@@ -8,9 +8,6 @@ tau_tooltip(tau, fields = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
-
-\item{fields}{\code{vector} of fields you would like to see in the tooltip.
-If \code{NULL} then will assume all fields.}
 }
 \description{
 Add a TauCharts tooltip

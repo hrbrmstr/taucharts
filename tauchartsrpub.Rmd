@@ -163,4 +163,29 @@ tauchart(splom_dat) %>%
   tau_point(c("param1", "value1"), c("param2", "value2"))
 ```
 
+### trends!
+
+```{r trends}
+tc <- tauchart(car_dat) %>%
+  tau_point( "hp", c("euroEco","co2"), color = "euroEco" ) %>%
+  tau_legend( ) %>%
+  tau_tooltip( )
+
+tc %>%
+  tau_trendline( )  #using defaults
+
+tc %>%
+  #type does not seem to work as expected
+  # so use models instead to change default type or order of dropdown
+  tau_trendline( models = c( "logarithmic", "exponential" ) )
+
+tc %>%
+  # start with unclicked TREND LINE
+  tau_trendline( showTrend = FALSE )
+
+tc %>%
+  #take the fun away from the user
+  tau_trendline( showPanel = FALSE )
+```
+
 FIN

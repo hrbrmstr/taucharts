@@ -2,14 +2,14 @@
 % Please edit documentation in R/plugins.R
 \name{tau_legend}
 \alias{tau_legend}
-\title{Add a TauCharts tooltip}
+\title{Add a TauCharts legend}
 \usage{
-tau_legend(tau, fields = NULL)
+tau_legend(tau)
 }
 \arguments{
 \item{tau}{taucharts object}
 }
 \description{
-Add a TauCharts tooltip
+Add a TauCharts legend
 }
 
