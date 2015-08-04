@@ -1,6 +1,6 @@
 Package: taucharts
 Title: Create Interactive Charts with the JavaScript 'TauCharts' Library
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
     person("Kent", "Russell", email = "kent.russell@timelyportfolio.com", role = c("aut", "ctb")),
