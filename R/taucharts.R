@@ -26,7 +26,6 @@ tauchart <- function(data, width = NULL, height = NULL) {
 
   # try to handle dates smoothly between JS and R
   #   this is very much a work in progress
-<<<<<<< HEAD
   date_columns <- which(
     sapply(
       data
@@ -36,14 +35,6 @@ tauchart <- function(data, width = NULL, height = NULL) {
   data[,date_columns] <- asISO8601Time(data[,date_columns])
   # temporarily set class to iso8601 for dimension logic below
   class(data[,date_columns]) <- "iso8601"
-=======
-  date_columns <- which(sapply(data,function(x) inherits(x,c("Date","POSIXct"))))
-  if (length(date_columns) > 0) {
-    data[,date_columns] <- asISO8601Time(data[,date_columns])
-    # temporarily set class to iso8601 for dimension logic below
-    class(data[,date_columns]) <- "iso8601"
-  }
->>>>>>> 0098d1ebfd5c4a86853f91e93047a5b3d761b1eb
 
   # try to determine the associated tau-type based on
   # column type/class.
