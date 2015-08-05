@@ -51,6 +51,7 @@ The following datasets are included:
 
 ### News
 
+-   Version 0.3.1 released : removed R 3.2 dependency (switched a bit of dependent code)
 -   Version 0.3.0 released : color palettes galore!
 -   Version 0.3.0.9000 released : `?tau_add_css_rule` (add CSS rules to a chart)
 -   Version 0.2.6.9000 released : `?tau_tasks` (add JavaScript to a chart)
@@ -84,7 +85,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Wed Aug  5 15:13:17 2015"
+#> [1] "Wed Aug  5 16:00:19 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
