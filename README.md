@@ -36,6 +36,7 @@ The following datasets are included:
 
 ### News
 
+-   Version 0.2.0.9000 released : stacked bar charts
 -   Version 0.1.0 released : trendline, tooltips & dev fork (prod is pretty much stable & functional)
 -   Version 0.0.1.9003 released : facet-based ordering + legends
 -   Version 0.0.1.9000 released : auto-detects column classes, can add manual colors & faceted plots are now working (see the Rpub for an example)
@@ -54,7 +55,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.2.0.9000'
+#> [1] '0.2.0.9001'
 ```
 
 ### Test Results
@@ -64,7 +65,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Tue Aug  4 21:10:02 2015"
+#> [1] "Tue Aug  4 21:21:36 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
