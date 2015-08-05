@@ -11,6 +11,6 @@ An \code{htmlwidget} interface to the
 \href{http://www.taucharts.com/}{TauCharts} D3 chart library
 }
 \author{
-Bob Rudis (@hrbrmstr)
+Bob Rudis (@hrbrmstr), Kent Russell (@timelyportfolio)
 }
 

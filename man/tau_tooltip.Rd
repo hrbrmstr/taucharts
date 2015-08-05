@@ -8,8 +8,20 @@ tau_tooltip(tau, fields = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
+
+\item{fields}{character vector of fields to display in the tooltip
+(default is to use all columns in \code{data})}
 }
 \description{
 Add a TauCharts tooltip
+}
+\examples{
+data(cars_data)
+tauchart(cars_data) \%>\%
+  tau_point("milespergallon", c("class", "price"), color="class") \%>\%
+  tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
+}
+\seealso{
+\code{\link{cars_data}} dataset
 }
 

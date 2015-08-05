@@ -1,17 +1,17 @@
 Package: taucharts
 Title: Create Interactive Charts with the JavaScript 'TauCharts' Library
-Version: 0.1.0
+Version: 0.3.0
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
     person("Kent", "Russell", email = "kent.russell@timelyportfolio.com", role = c("aut", "ctb")),
+    person("Tho", "Nguyen", role = "ctb"),
     person("Mike", "Bostock", role = c("aut", "cph"), comment = "d3.js library in htmlwidgets/lib, http://d3js.org"),
     person("Jeremy", "Ashkenas", role = c("aut", "cph"), comment = "underscore.js library in htmlwidgets/lib, http://underscorejs.org"),
     person("Vladimir", "Petriko", role = c("aut", "cph"), comment = "taucharts.js library in htmlwidgets/lib, http://taucharts.com/")
   )
 Maintainer: Bob Rudis <bob@rudis.net>
 Description: taucharts is an R htmlwidget interface to the TauCharts javascript library
-Depends: R (>= 3.0.0)
+Depends: R (>= 3.2.0)
 License: MIT + file LICENSE
-LazyData: true
-Suggests: testthat
-Imports: htmlwidgets, htmltools, magrittr
+Suggests: testthat, ggplot2, dplyr, tidyr, shiny
+Imports: htmlwidgets, htmltools, magrittr, RColorBrewer, ggthemes

@@ -2,7 +2,7 @@
 #' \href{http://www.taucharts.com/}{TauCharts} D3 chart library
 #' @name taucharts
 #' @docType package
-#' @author Bob Rudis (@@hrbrmstr)
+#' @author Bob Rudis (@@hrbrmstr), Kent Russell (@@timelyportfolio)
 #' @import htmltools
 NULL
 
