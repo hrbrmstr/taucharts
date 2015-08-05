@@ -31,7 +31,10 @@ HTMLWidgets.widget({
     document.head.appendChild(sheet_element) ;
     var sheet = sheet_element.sheet;
     if (x.forCSS !== null) {
-      x.forCSS.map(function(v) { sheet.insertRule('#'+el.id+" "+v, sheet.cssRules.length);  });
+      x.forCSS.map(function(v) {
+        v = v.replace("{{ID}}", '#'+el.id+' ');
+        sheet.insertRule(v, sheet.cssRules.length);
+      });
     }
 
     // work with plugins

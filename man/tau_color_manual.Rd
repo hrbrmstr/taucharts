@@ -15,6 +15,11 @@ hex-format (e.g. "\code{#ffeeaa}")}
 \description{
 Specify the colors used in the charts
 }
+\examples{
+tauchart(mtcars) \%>\%
+  tau_point("wt", "mpg", color="cyl") \%>\%
+  tau_color_manual(c("blue", "maroon", "black"))
+}
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}
 }
