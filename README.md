@@ -31,6 +31,7 @@ The following functions are implemented:
 -   `tau_trendline`: Add a TauCharts trendline
 -   `run_tau_app`: Run a built-in example Shiny app
 -   `tau_tasks`: Add post-render JavaScript tasks to taucharts
+-   `tau_add_css_rule`: Add a CSS rule to the rendered htmlwidget
 
 The following datasets are included:
 
@@ -38,6 +39,7 @@ The following datasets are included:
 
 ### News
 
+-   Version 0.3.0.9000 released : `?tau_add_css_rule`
 -   Version 0.2.6.9000 released : `?tau_tasks`
 -   Version 0.2.5.9000 released : list & run example Shiny apps - see `?run_tau_app` for more info
 -   Version 0.2.5.9000 released : stacked bar charts
@@ -59,7 +61,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.2.6.9000'
+#> [1] '0.3.0.9000'
 ```
 
 ### Test Results
@@ -69,7 +71,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Wed Aug  5 11:35:47 2015"
+#> [1] "Wed Aug  5 13:53:16 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
