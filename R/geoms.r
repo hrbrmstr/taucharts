@@ -62,6 +62,33 @@ tau_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
   tau
 }
 
+#' Create a TauCharts stacked bar chart (experimental)
+#'
+#' The API supports it but it's not documented at all
+#'
+#' @param tau taucharts object
+#' @param x quoted name of \code{data} column to use for x-axis values
+#' @param y quoted name of \code{data} column to use for y-axis values
+#' @param color quoted name of \code{data} column to map color aesthetic to.
+#'        NOTE that the parameter to this is what really defines the stacking.
+#' @param size quoted name of \code{data} column to make size aesthetic to
+#' @references \url{http://api.taucharts.com/basic/line.html}
+#' @export
+#' @examples
+#' data(mpg, package="ggplot2")
+#' tauchart(dplyr::count(mpg, class, drv)) %>%
+#'   tau_stacked_bar("class", "n", "drv") %>%
+#'   tau_guide_gridlines(FALSE, FALSE) %>%
+#'   tau_tooltip()
+tau_stacked_bar <- function(tau, x, y, color=NULL, size=NULL) {
+  tau$x$x <- x
+  tau$x$y <- y
+  tau$x$color <- color
+  tau$x$size <- size
+  tau$x$type <- "stacked-bar"
+  tau
+}
+
 #' Create a TauCharts line chart
 #'
 #' @param tau taucharts object

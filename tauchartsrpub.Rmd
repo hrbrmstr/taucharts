@@ -100,8 +100,10 @@ tauchart(scatter_dat) %>%
 scatter_dat %>%
   {
     data.frame(
-      .
-      ,cycleTimeFactor = factor(.$cycleTime,levels=rev(unique(.$cycleTime)),ordered=T)
+      ., 
+      cycleTimeFactor =factor(.$cycleTime,
+                              levels=rev(unique(.$cycleTime)),
+                              ordered=TRUE)
     )
   } %>%
   tauchart %>%

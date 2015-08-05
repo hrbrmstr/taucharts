@@ -24,5 +24,4 @@
 #'   tau_legend() %>%
 #'   tau_trendline() %>%
 #'   tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
-
 NULL

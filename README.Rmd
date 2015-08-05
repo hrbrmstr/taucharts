@@ -23,7 +23,7 @@ Right now, you can make & customize (including manual color scales & ordered fac
 - scatterplots
 - scatterplot matrices
 - line charts
-- bar charts (veritical & horizontal)
+- bar charts (veritical, horizontal & stacked)
 
 Composite plots are on the road map for support but not in the R package yet.
 
@@ -35,6 +35,7 @@ The following functions are implemented:
 - `tau_line`:	Create a TauCharts line chart
 - `tau_point`:	Create a TauCharts scatterplot
 - `tau_bar`:	Create a TauCharts bar chart (horizontal or vertical)
+- `tau_stacked_bar`: Create a TauCharts stacked bar chart (veritcal only)
 - `tau_guide_gridlines`:	Control showing of axis gridlines
 - `tau_guide_padding`:	Set overall chart padding
 - `tau_guide_x`:	Control x-axis padding, label, scale & tick format
