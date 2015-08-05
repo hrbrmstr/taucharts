@@ -3,6 +3,7 @@
 export("%>%")
 export(JS)
 export(renderTaucharts)
+export(run_tau_app)
 export(saveWidget)
 export(tau_bar)
 export(tau_color_manual)
