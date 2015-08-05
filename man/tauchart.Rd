@@ -7,7 +7,7 @@
 tauchart(data, width = NULL, height = NULL)
 }
 \arguments{
-\item{data}{data.frame}
+\item{data}{\code{data.frame}-like or \code{xts} object}
 
 \item{width,height}{Must be a valid CSS unit (like \code{'100\%'},
 \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
@@ -16,6 +16,9 @@ string and have \code{'px'} appended.}
 \description{
 Performs basic widget setup and returns an object suitable for
 use with the other \code{tau_} functions.
+}
+\examples{
+tauchart(mtcars) \%>\% tau_point("mpg", "wt")
 }
 \references{
 \url{http://api.taucharts.com/}

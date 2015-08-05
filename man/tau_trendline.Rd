@@ -36,4 +36,13 @@ will be the initial model type used.}
 \description{
 Add a TauCharts trendline
 }
+\examples{
+data(cars_data)
+tauchart(cars_data) \%>\%
+  tau_point("milespergallon", c("class", "price"), color="class") \%>\%
+  tau_trendline()
+}
+\seealso{
+\code{\link{cars_data}} dataset
+}
 
