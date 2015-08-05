@@ -4,12 +4,12 @@
 \alias{tau_add_css_rule}
 \title{Add a CSS rule to the rendered htmlwidget}
 \usage{
-tau_add_css_rule(tau, rules)
+tau_add_css_rule(tau, rule)
 }
 \arguments{
 \item{tau}{taucharts object}
 
-\item{rules}{character vector of CSS rule(s) to add to the widget DOM}
+\item{rule}{character vector of CSS rule(s) to add to the widget DOM}
 }
 \value{
 taucharts htmlwidget object
@@ -31,13 +31,15 @@ This is for expert use only. You need to know quite a bit about the visualizatio
       and target DOM to effectively use this function.
 }
 \examples{
+# change the default white tooltip to black
+
 make_black_tooltip <- function(tau) {
   tau \%>\%
     tau_add_css_rule(".graphical-report__tooltip__gray-text { color: white; font-weight: bold; }") \%>\%
     tau_add_css_rule(".graphical-report__tooltip__list__elem:first-child { color: white; font-weight: bold; }") \%>\%
     tau_add_css_rule(".graphical-report__tooltip__exclude { color: white; }") \%>\%
     tau_add_css_rule(".graphical-report__tooltip__exclude:hover { color: #65717f; background: linear-gradient(to right, rgba(255, 255, 255, 0) 100\%, rgba(235, 238, 241, 0.9) 0\%); }") \%>\%
-    tau_add_css_rule(".graphical-report__tooltip { background: black; }")
+    tau_add_css_rule(".graphical-report__tooltip { background: black; color: white; }")
 }
 
 tauchart(mtcars) \%>\%

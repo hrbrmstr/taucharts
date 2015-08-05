@@ -39,8 +39,8 @@ The following datasets are included:
 
 ### News
 
--   Version 0.3.0.9000 released : `?tau_add_css_rule`
--   Version 0.2.6.9000 released : `?tau_tasks`
+-   Version 0.3.0.9000 released : `?tau_add_css_rule` (add CSS rules to a chart)
+-   Version 0.2.6.9000 released : `?tau_tasks` (add JavaScript to a chart)
 -   Version 0.2.5.9000 released : list & run example Shiny apps - see `?run_tau_app` for more info
 -   Version 0.2.5.9000 released : stacked bar charts
 -   Version 0.1.0 released : trendline, tooltips & dev fork (prod is pretty much stable & functional)
@@ -61,7 +61,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.3.0.9000'
+#> [1] '0.3.0.9002'
 ```
 
 ### Test Results
@@ -71,7 +71,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Wed Aug  5 13:53:16 2015"
+#> [1] "Wed Aug  5 14:05:44 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
