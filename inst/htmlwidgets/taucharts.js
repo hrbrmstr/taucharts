@@ -93,7 +93,7 @@ HTMLWidgets.widget({
       x.tasks.map(function(t){
         // for each tasks call the task with el supplied as `this`
         t.call({el:el,chart:chart});
-      })
+      });
     }
 
   },
