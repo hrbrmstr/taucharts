@@ -31,6 +31,7 @@ The following functions are implemented:
 -   `run_tau_app`: Run a built-in example Shiny app
 -   `tau_tasks`: Add post-render JavaScript tasks to taucharts
 -   `tau_add_css_rule`: Add a CSS rule to the rendered htmlwidget
+-   `tau_set_font`: Set `font-family` for the chart
 
 with many color palette options:
 
@@ -49,6 +50,7 @@ The following datasets are included:
 
 ### News
 
+-   Version 0.3.3 released : custom font for chart (`?tau_set_font`)
 -   Version 0.3.2 released : custom colors working in legend & trendlines
 -   Version 0.3.1 released : removed R 3.2.0 dependency (removed the dependent code)
 -   Version 0.3.0 released : color palettes galore!
@@ -74,7 +76,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.3.2'
+#> [1] '0.3.3'
 ```
 
 ### Test Results
@@ -84,7 +86,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Thu Aug  6 13:42:41 2015"
+#> [1] "Thu Aug  6 18:01:57 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

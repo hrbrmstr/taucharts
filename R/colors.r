@@ -58,7 +58,8 @@ tau_color_brewer <- function(tau, n=5, palette="Set2") {
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
     sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
-  ))}
+  ))
+}
 
 
 #' Use the Tableau palette in the charts
