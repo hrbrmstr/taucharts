@@ -31,9 +31,27 @@ HTMLWidgets.widget({
     document.head.appendChild(sheet_element) ;
     var sheet = sheet_element.sheet;
     if (x.forCSS !== null) {
+      if (typeof(x.forCSS) === "string") {
+        x.forCSS = [ x.forCSS ] ;
+      }
       x.forCSS.map(function(v) {
         v = v.replace("{{ID}}", '#'+el.id+' ');
         sheet.insertRule(v, sheet.cssRules.length);
+      });
+    }
+
+    if (x.forFonts !== null) {
+      if (typeof(x.forFonts) === "string") {
+        x.forFonts = [ x.forFonts ] ;
+      }
+      x.forFonts.map(function(v) {
+        var headID = document.getElementsByTagName("head")[0];
+        var cssNode = document.createElement('link');
+        cssNode.type = 'text/css';
+        cssNode.rel = 'stylesheet';
+        cssNode.href = v;
+        cssNode.media = 'screen';
+        headID.appendChild(cssNode);
       });
     }
 

@@ -78,7 +78,8 @@ tauchart <- function(data, width = NULL, height = NULL) {
     y=NULL,
     padding=NULL,
     guide=list(x=NULL, y=NULL, padding=NULL, color=NULL),
-    forCSS=NULL
+    forCSS=NULL,
+    forFonts="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600&subset=latin,cyrillic-ext"
   )
 
   # create widget

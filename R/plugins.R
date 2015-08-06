@@ -40,6 +40,10 @@ tau_tooltip <- function(tau, fields = NULL) {
 #'   tau_legend()
 tau_legend <- function(tau) {
 
+  if ((!is.null(tau$x$color)) | (!is.null(tau$x$size))) {
+    message("Neither color nor size aesthetics have been mapped. Legend plugin will be active but not displayed.")
+  }
+
   if(is.null(tau$x$plugins)){
     tau$x$plugins = list()
   }
