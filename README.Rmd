@@ -31,32 +31,34 @@ Have a look [on RPubs](http://rpubs.com/hrbrmstr/taucharts) to see what `tauchar
 
 The following functions are implemented:
 
-- `tauchart`:  Create a new TauChart
-- `tau_line`:  Create a TauCharts line chart
-- `tau_point`:  Create a TauCharts scatterplot
-- `tau_bar`:  Create a TauCharts bar chart (horizontal or vertical)
+- `tauchart`:	Create a new TauChart
+- `tau_line`:	Create a TauCharts line chart
+- `tau_point`:	Create a TauCharts scatterplot
+- `tau_bar`:	Create a TauCharts bar chart (horizontal or vertical)
 - `tau_stacked_bar`: Create a TauCharts stacked bar chart (veritcal only)
-- `tau_guide_gridlines`:  Control showing of axis gridlines
-- `tau_guide_padding`:  Set overall chart padding
-- `tau_guide_x`:  Control x-axis padding, label, scale & tick format
-- `tau_guide_y`:  Control y-axis padding, label, scale & tick format
-- `tau_legend`:  Add a TauCharts tooltip
-- `tau_tooltip`:  Add a TauCharts tooltip
-- `tau_trendline`:  Add a TauCharts trendline
-- `run_tau_app`:  Run a built-in example Shiny app
+- `tau_guide_gridlines`:	Control showing of axis gridlines
+- `tau_guide_padding`:	Set overall chart padding
+- `tau_guide_x`:	Control x-axis padding, label, scale & tick format
+- `tau_guide_y`:	Control y-axis padding, label, scale & tick format
+- `tau_legend`:	Add a TauCharts tooltip
+- `tau_tooltip`:	Add a TauCharts tooltip
+- `tau_trendline`:	Add a TauCharts trendline
+- `run_tau_app`:	Run a built-in example Shiny app
 - `tau_tasks`:  Add post-render JavaScript tasks to taucharts
 - `tau_add_css_rule`: Add a CSS rule to the rendered htmlwidget
 
 with many color palette options:
 
-- `tau_color_manual`:  Specify the colors used in the charts
-- `tau_color_brewer`:  Use the ColorBrewer palette in the charts
-- `tau_color_economist`:  Use the "Economist" palette used in the charts
-- `tau_color_few`:  Use the "Few" palette used in the charts
-- `tau_color_highcharts`:  Use the HighchartsJS palette used in the charts
-- `tau_color_manual`:  Specify the colors used in the charts
-- `tau_color_tableau`:  Use the Tableau palette in the charts
-- `tau_color_wsj`:  Use the "Wall Street Journal" palette used in the charts
+- `tau_color_manual`:	Specify the colors used in the charts
+- `tau_color_brewer`:	Use the ColorBrewer palette in the charts
+- `tau_color_economist`:	Use the "Economist" palette used in the charts
+- `tau_color_few`:	Use the "Few" palette used in the charts
+- `tau_color_highcharts`:	Use the HighchartsJS palette used in the charts
+- `tau_color_manual`:	Specify the colors used in the charts
+- `tau_color_tableau`:	Use the Tableau palette in the charts
+- `tau_color_wsj`:	Use the "Wall Street Journal" palette used in the charts
+
+NOTE that there is an issue with custom color palettes and `tau_legend` that is being addressed.
 
 The following datasets are included:
 
@@ -64,7 +66,6 @@ The following datasets are included:
 
 ### News
 
-- Version 0.3.2 released : custom colors working in legend & trendlines
 - Version 0.3.1 released : removed R 3.2.0 dependency (removed the dependent code)
 - Version 0.3.0 released : color palettes galore!
 - Version 0.3.0.9000 released : `?tau_add_css_rule` (add CSS rules to a chart)
