@@ -18,6 +18,7 @@ tau_color_manual <- function(tau, values=NULL) {
   tau_add_css_rule(tau, c(
     sprintf("{{ID}} .%s { fill: %s; }", eids, values),
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
+    sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
   ))
 }
@@ -55,6 +56,7 @@ tau_color_brewer <- function(tau, n=5, palette="Set2") {
   tau_add_css_rule(tau, c(
     sprintf("{{ID}} .%s { fill: %s; }", eids, values),
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
+    sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
   ))}
 
@@ -80,6 +82,7 @@ tau_color_tableau <- function(tau, palette="tableau20") {
   tau_add_css_rule(tau, c(
     sprintf("{{ID}} .%s { fill: %s; }", eids, values),
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
+    sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
   ))
 }
@@ -107,6 +110,7 @@ tau_color_economist <- function(tau, n=5) {
   tau_add_css_rule(tau, c(
     sprintf("{{ID}} .%s { fill: %s; }", eids, values),
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
+    sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
   ))
 }
@@ -134,6 +138,7 @@ tau_color_few <- function(tau, n=5, palette="medium") {
   tau_add_css_rule(tau, c(
     sprintf("{{ID}} .%s { fill: %s; }", eids, values),
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
+    sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
   ))
 }
@@ -161,6 +166,7 @@ tau_color_538 <- function(tau, n=5) {
   tau_add_css_rule(tau, c(
     sprintf("{{ID}} .%s { fill: %s; }", eids, values),
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
+    sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
   ))
 }
@@ -188,6 +194,7 @@ tau_color_highcharts <- function(tau, n=5, palette="default") {
   tau_add_css_rule(tau, c(
     sprintf("{{ID}} .%s { fill: %s; }", eids, values),
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
+    sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
   ))
 }
@@ -217,6 +224,7 @@ tau_color_wsj <- function(tau, n=5, palette="rgby") {
   tau_add_css_rule(tau, c(
     sprintf("{{ID}} .%s { fill: %s; }", eids, values),
     sprintf("{{ID}} div .graphical-report__legend__guide.%s { background: %s; border: 1px solid %s; }", eids, values, values),
+    sprintf("{{ID}} div .graphical-report__svg .graphical-report__trendline.%s { background: %s; border: 1px solid %s; stroke: %s; }", eids, values, values, values),
     sprintf("{{ID}} div .graphical-report__legend__item.disabled .graphical-report__legend__guide.%s { background: 0 0; background-color: transparent; }", eids, values, values)
   ))
 }
