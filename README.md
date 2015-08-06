@@ -43,14 +43,13 @@ with many color palette options:
 -   `tau_color_tableau`: Use the Tableau palette in the charts
 -   `tau_color_wsj`: Use the "Wall Street Journal" palette used in the charts
 
-NOTE that there is an issue with custom color palettes and `tau_legend` that is being addressed.
-
 The following datasets are included:
 
 -   `cars_data`: statistics on cars released from 1997 through 2013 (a data frame with 135 rows and 7 variables)
 
 ### News
 
+-   Version 0.3.2 released : custom colors working in legend & trendlines
 -   Version 0.3.1 released : removed R 3.2.0 dependency (removed the dependent code)
 -   Version 0.3.0 released : color palettes galore!
 -   Version 0.3.0.9000 released : `?tau_add_css_rule` (add CSS rules to a chart)
@@ -75,7 +74,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.3.1'
+#> [1] '0.3.2'
 ```
 
 ### Test Results
@@ -85,7 +84,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Wed Aug  5 16:03:17 2015"
+#> [1] "Thu Aug  6 13:42:41 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
