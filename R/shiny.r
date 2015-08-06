@@ -45,7 +45,7 @@ run_tau_app <- function(app_name=NULL) {
   } else {
 
     app_dir <- sprintf("%s/shinyapps/%s", pkg_dir, app_name)
-    if (file.exists(app_dir)) {
+    if (dir.exists(app_dir)) {
       message(paste0("Running shiny app [", app_name, "] from:\n  ", app_dir))
       shiny::runApp(app_dir)
     } else {
