@@ -50,6 +50,7 @@ The following datasets are included:
 
 ### News
 
+-   Version 0.3.3.9001 released : fix for custom colors and `tau_line`
 -   Version 0.3.3 released : custom font for chart (`?tau_set_font`)
 -   Version 0.3.2 released : custom colors working in legend & trendlines
 -   Version 0.3.1 released : removed R 3.2.0 dependency (removed the dependent code)
@@ -86,7 +87,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Thu Aug  6 18:01:57 2015"
+#> [1] "Mon Aug 10 20:17:36 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
