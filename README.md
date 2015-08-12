@@ -50,6 +50,7 @@ The following datasets are included:
 
 ### News
 
+-   Version 0.3.4.9000 released : added warning for global targeted CSS rules and font ref fix thx to @jlewis91
 -   Version 0.3.3.9001 released : fix for custom colors and `tau_line`
 -   Version 0.3.3 released : custom font for chart (`?tau_set_font`)
 -   Version 0.3.2 released : custom colors working in legend & trendlines
@@ -77,7 +78,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.3.3'
+#> [1] '0.3.4.9000'
 ```
 
 ### Test Results
@@ -87,7 +88,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Mon Aug 10 20:17:36 2015"
+#> [1] "Wed Aug 12 16:37:18 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
