@@ -4,12 +4,14 @@
 \alias{tau_add_css_rule}
 \title{Add a CSS rule to the rendered htmlwidget}
 \usage{
-tau_add_css_rule(tau, rule)
+tau_add_css_rule(tau, rule, warn = TRUE)
 }
 \arguments{
 \item{tau}{taucharts object}
 
 \item{rule}{character vector of CSS rule(s) to add to the widget DOM}
+
+\item{warn}{show warnings for global CSS rules? (default: \code{TRUE})}
 }
 \value{
 taucharts htmlwidget object
@@ -28,7 +30,8 @@ Vectorized over \code{rule}
 }
 \note{
 This is for expert use only. You need to know quite a bit about the visualization
-      and target DOM to effectively use this function.
+      and target DOM to effectively use this function. CSS rules without the \code{\{\{ID\}\}}
+      are applied to the entire DOM.
 }
 \examples{
 # change the default white tooltip to black
