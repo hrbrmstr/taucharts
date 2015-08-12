@@ -16,7 +16,7 @@
 #'   tau_set_font("'Montserrat', sans-serif", "http://fonts.googleapis.com/css?family=Montserrat:400,700")
 tau_set_font <- function(tau,
                          family="OpenSans, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-                         import_url="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,600italic,700italic,800,300,300italic,800italic") {
+                         import_url="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,600italic,700italic,800,300,300italic,800italic") {
 
  if (!is.null(import_url)) tau$x$forFonts <- c(tau$x$forFonts, import_url)
 
