@@ -5,7 +5,7 @@
 \title{Control x-axis padding, label, scale & tick format}
 \usage{
 tau_guide_x(tau, padding = NULL, label = NULL, label_padding = NULL,
-  auto_scale = TRUE, tick_period = NULL, tick_format = NULL, min = NULL,
+  auto_scale = NULL, tick_period = NULL, tick_format = NULL, min = NULL,
   max = NULL)
 }
 \arguments{

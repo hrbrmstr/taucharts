@@ -2,6 +2,7 @@
 
 export("%>%")
 export(JS)
+export(as_tauchart)
 export(renderTaucharts)
 export(run_tau_app)
 export(saveWidget)
