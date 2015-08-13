@@ -80,7 +80,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.4.9000'
+#> [1] '0.4.0'
 ```
 
 ### Test Results
@@ -90,7 +90,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Thu Aug 13 06:56:26 2015"
+#> [1] "Thu Aug 13 10:13:25 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

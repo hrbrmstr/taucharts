@@ -3,10 +3,19 @@
 #' Takes a ggplot object that has a single geom (it can be geom_line,
 #' geom_point or geom_histogram) and converts it to it's tauchart counterpart.
 #' It will do it's best to identify plot labels, mapped size & color aesthetics,
-#' and x/y limits.\cr
-#' \cr
+#' and x/y limits.
+#'
 #' If there are aesthetic mappings, \code{as_tauchart} will automaticlly add
 #' a legend.
+#'
+#' Currently supports:
+#'
+#' \itemize{
+#'   \item \code{geom_point}
+#'   \item \code{geom_line}
+#'   \item \code{geom_bar}
+#'   \item \code{geom_histogram}
+#' }
 #'
 #' @note More aesthetic mappings are planned
 #' @param gg ggplot object
@@ -37,6 +46,9 @@
 #' data(economics, package="ggplot2")
 #' gg <- ggplot(economics) + geom_line(aes(x=date, y=unemploy))
 #' as_tauchart(gg) %>% tau_guide_x(tick_format="%Y")
+#'
+#' gg <- ggplot(mtcars, aes(as.factor(cyl))) + geom_histogram()
+#' as_tauchart(gg)
 as_tauchart <- function(gg) {
 
   if (!inherits(gg, c("gg", "ggplot"))) {
@@ -56,6 +68,9 @@ as_tauchart <- function(gg) {
   color <- gb$plot$mapping$colour %||% gb$plot$layers[[1]]$mapping$colour %||% NULL
   size <- gb$plot$mapping$size %||% gb$plot$layers[[1]]$mapping$size %||% NULL
 
+  x <- grep("factor", as.character(x), value=TRUE, invert=TRUE)
+  y <- grep("factor", as.character(y), value=TRUE, invert=TRUE) %||% NULL
+
   color <- grep("factor", as.character(color), value=TRUE, invert=TRUE) %||% NULL
   size <- grep("factor", as.character(size), value=TRUE, invert=TRUE) %||% NULL
 
@@ -67,25 +82,45 @@ as_tauchart <- function(gg) {
   tc <- NULL
 
   if (plot_type=="line") {
+
     tau_guide_y(
       tau_guide_x(
         tau_line(tauchart(data), x=x, y=y, color=color, size=size),
         auto_scale=FALSE, label=gb$plot$labels$x, min=r_x[1], max=r_x[2]),
       auto_scale=FALSE, label=gb$plot$labels$y, min=r_y[1], max=r_y[2]) -> tc
+
   } else if (plot_type=="point") {
+
     tau_guide_y(
       tau_guide_x(
         tau_point(tauchart(data), x=x, y=y, color=color, size=size),
         auto_scale=FALSE, label=gb$plot$labels$x, min=r_x[1], max=r_x[2]),
       auto_scale=FALSE, label=gb$plot$labels$y, min=r_y[1], max=r_y[2]) -> tc
+
   } else if (plot_type=="bar") {
+
     tau_guide_y(
       tau_guide_x(
         tau_bar(tauchart(data), x=x, y=y, color=color, size=size),
         auto_scale=FALSE, label=gb$plot$labels$x, min=r_x[1], max=r_x[2]),
       auto_scale=FALSE, label=gb$plot$labels$y, min=r_y[1], max=r_y[2]) -> tc
+
+  } else if (plot_type=="histogram") {
+
+    data <- gb$data[[1]]
+    x <- "x"
+    y <- "y"
+
+    tau_guide_y(
+      tau_guide_x(
+        tau_bar(tauchart(data), x=x, y=y, color=color, size=size),
+        auto_scale=FALSE, label=gb$plot$labels$x, min=r_x[1], max=r_x[2]),
+      auto_scale=FALSE, label=gb$plot$labels$y, min=r_y[1], max=r_y[2]) -> tc
+
+    tc$x$dimensions$x$type <- "category"
+
   } else {
-    stop("as_tauchart only works with geom_line, geom_point and geom_histogram", call.=FALSE)
+    stop("as_tauchart only works with geom_line, geom_point, geom_bar and geom_histogram", call.=FALSE)
   }
 
   if (!is.null(color) | !is.null(size)) tc <- tau_legend(tc)
