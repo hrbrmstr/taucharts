@@ -32,7 +32,7 @@
 #' as_tauchart(gg)
 #'
 #' gg <- ggplot(mtcars, aes(x=mpg, y=wt, color=am, size=wt)) + geom_point()
-#' as_tauchart(gg_m2)
+#' as_tauchart(gg)
 #'
 #' data(economics, package="ggplot2")
 #' gg <- ggplot(economics) + geom_line(aes(x=date, y=unemploy))
