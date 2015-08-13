@@ -55,9 +55,11 @@ tau_guide_gridlines <- function(tau, show_x=TRUE, show_y=TRUE) {
 #'  tau_guide_y(label="Weight", auto_scale=FALSE)
 tau_guide_x <- function(tau, padding=NULL,
                         label=NULL, label_padding=NULL,
-                        auto_scale=TRUE, tick_period=NULL, tick_format=NULL,
-                        min = NULL, max = NULL ) {
-  tau$x$guide$x$autoScale <- auto_scale
+                        auto_scale=NULL, tick_period=NULL, tick_format=NULL,
+                        min=NULL, max=NULL ) {
+
+  tau$x$guide$x$autoScale <- auto_scale %^^% tau[["x"]][["guide"]][["x"]][["autoScale"]] %^^% TRUE
+
   if (!is.null(label_padding)) tau$x$guide$x$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$x$label$text <- label
   if (!is.null(tick_format)) tau$x$guide$x$tickFormat <- tick_format
@@ -65,6 +67,7 @@ tau_guide_x <- function(tau, padding=NULL,
   if (!is.null(padding)) tau$x$guide$x$padding <- padding
   if (!is.null(min)) tau$x$guide$x$min <- min
   if (!is.null(max)) tau$x$guide$x$max <- max
+
   tau
 }
 
@@ -92,9 +95,11 @@ tau_guide_x <- function(tau, padding=NULL,
 #'  tau_guide_y(label="Weight", auto_scale=FALSE)
 tau_guide_y <- function(tau, padding=NULL,
                         label=NULL, label_padding=NULL,
-                        auto_scale=TRUE, tick_period=NULL, tick_format=NULL,
+                        auto_scale=NULL, tick_period=NULL, tick_format=NULL,
                         min=NULL, max=NULL) {
-  tau$x$guide$y$autoScale <- auto_scale
+
+  tau$x$guide$x$autoScale <- auto_scale %^^% tau[["x"]][["guide"]][["y"]][["autoScale"]] %^^% TRUE
+
   if (!is.null(label_padding)) tau$x$guide$y$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$y$label$text <- label
   if (!is.null(tick_period)) tau$x$guide$y$tickPeriod <- tick_period
@@ -102,5 +107,6 @@ tau_guide_y <- function(tau, padding=NULL,
   if (!is.null(padding)) tau$x$guide$y$padding <- padding
   if (!is.null(min)) tau$x$guide$y$min <- min
   if (!is.null(max)) tau$x$guide$y$max <- max
+
   tau
 }

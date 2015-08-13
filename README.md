@@ -32,6 +32,7 @@ The following functions are implemented:
 -   `tau_tasks`: Add post-render JavaScript tasks to taucharts
 -   `tau_add_css_rule`: Add a CSS rule to the rendered htmlwidget
 -   `tau_set_font`: Set `font-family` for the chart
+-   `as_tauchart`: Turn a simple (single-geom) ggplot plot into an tauchart object
 
 with many color palette options:
 
@@ -50,6 +51,7 @@ The following datasets are included:
 
 ### News
 
+-   Version 0.4.0.9000 released : added `as_tauchart` & updated TauCharts JS lib
 -   Version 0.3.4.9000 released : added warning for global targeted CSS rules and font ref fix thx to @jlewis91
 -   Version 0.3.3.9001 released : fix for custom colors and `tau_line`
 -   Version 0.3.3 released : custom font for chart (`?tau_set_font`)
@@ -78,7 +80,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.3.4.9000'
+#> [1] '0.4.9000'
 ```
 
 ### Test Results
@@ -88,7 +90,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Wed Aug 12 16:37:18 2015"
+#> [1] "Thu Aug 13 06:56:26 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
