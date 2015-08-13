@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 #' dat <- data.frame(year=seq(1790, 1970, 10),
-#'                   uspop=as.numeric(usp
+#'                   uspop=as.numeric(uspop))
 #' set.seed(5689)
 #' data(movies, package="ggplot2")
 #' movies <- movies[sample(nrow(movies), 1000), ]
