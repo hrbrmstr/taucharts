@@ -1,7 +1,7 @@
 #' Turn a simple (single-geom) ggplot plot into an tauchart object
 #'
 #' Takes a ggplot object that has a single geom (it can be geom_line,
-#' geom_point or geom_histogram) and converts it to it's taucahrt counterpart.
+#' geom_point or geom_histogram) and converts it to it's tauchart counterpart.
 #' It will do it's best to identify plot labels, mapped size & color aesthetics,
 #' and x/y limits.\cr
 #' \cr
