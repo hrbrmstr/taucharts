@@ -10,14 +10,16 @@
 #' @references \url{http://api.taucharts.com/}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>% tau_point("mpg", "wt")
+#'}
 tauchart <- function(data, width = NULL, height = NULL) {
 
   # try to accomodate xts objects
   #  but this will require a dependency on xts
   if( inherits( data, "xts" ) ){
     data <- data.frame(
-      "Date" = index(data)
+      "Date" = zoo::index(data)
       ,as.data.frame(data)
       ,stringsAsFactors = FALSE
     )

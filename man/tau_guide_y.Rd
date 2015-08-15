@@ -27,17 +27,17 @@ information.}
 \href{https://github.com/mbostock/d3/wiki/Formatting#d3_format}{D3 format specifier}}
 
 \item{min,max}{manual minimum and maximum for the axis}
-
-\item{padding}{space between axis ticks and chart panel}
 }
 \description{
 Control y-axis padding, label, scale & tick format
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
  tau_point("mpg", "wt") \%>\%
  tau_guide_x(label="Miles/gallon", auto_scale=FALSE) \%>\%
  tau_guide_y(label="Weight", auto_scale=FALSE)
+}
 }
 \references{
 \url{http://api.taucharts.com/basic/guide.html},

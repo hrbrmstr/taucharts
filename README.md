@@ -51,6 +51,7 @@ The following datasets are included:
 
 ### News
 
+-   Version 0.4.2.9000 released : pre-CRAN flight check
 -   Version 0.4.0.9000 released : added `as_tauchart` & updated TauCharts JS lib
 -   Version 0.3.4.9000 released : added warning for global targeted CSS rules and font ref fix thx to @jlewis91
 -   Version 0.3.3.9001 released : fix for custom colors and `tau_line`
@@ -80,7 +81,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.4.0'
+#> [1] '0.4.2.9000'
 ```
 
 ### Test Results
@@ -90,7 +91,7 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Thu Aug 13 10:13:25 2015"
+#> [1] "Sat Aug 15 15:35:05 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

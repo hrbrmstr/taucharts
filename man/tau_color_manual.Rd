@@ -9,16 +9,18 @@ tau_color_manual(tau, values = NULL)
 \arguments{
 \item{tau}{taucharts object}
 
-\item{vector}{of colors, ideally names (e.g. "\code{black}") or
+\item{values}{vector of colors, ideally names (e.g. "\code{black}") or
 hex-format (e.g. "\code{#ffeeaa}")}
 }
 \description{
 Specify the colors used in the charts
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_manual(c("blue", "maroon", "black"))
+}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

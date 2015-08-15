@@ -6,9 +6,11 @@
 #' @references \url{http://api.taucharts.com/basic/guide.html}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #' tau_point("mpg", "wt") %>%
 #'   tau_guide_padding(40, 40, 40, 40)
+#' }
 tau_guide_padding <- function(tau, bottom=0, left=0, top=0, right=0) {
   tau$x$guide$padding <- list(b=bottom, l=left, t=top, r=right)
   tau
@@ -21,9 +23,11 @@ tau_guide_padding <- function(tau, bottom=0, left=0, top=0, right=0) {
 #' @references \url{http://api.taucharts.com/basic/guide.html}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("mpg", "wt") %>%
 #'   tau_guide_gridlines(FALSE, FALSE)
+#' }
 tau_guide_gridlines <- function(tau, show_x=TRUE, show_y=TRUE) {
   tau$x$guide$showGridLines <- paste0(switch(as.character(show_x),
                                              `TRUE`="x", `FALSE`=""),
@@ -49,10 +53,12 @@ tau_guide_gridlines <- function(tau, show_x=TRUE, show_y=TRUE) {
 #'             \url{https://github.com/mbostock/d3/wiki/Formatting#d3_format}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'  tau_point("mpg", "wt") %>%
 #'  tau_guide_x(label="Miles/gallon", auto_scale=FALSE) %>%
 #'  tau_guide_y(label="Weight", auto_scale=FALSE)
+#' }
 tau_guide_x <- function(tau, padding=NULL,
                         label=NULL, label_padding=NULL,
                         auto_scale=NULL, tick_period=NULL, tick_format=NULL,
@@ -75,7 +81,6 @@ tau_guide_x <- function(tau, padding=NULL,
 #'
 #' @param tau taucharts object
 #' @param padding space between axis ticks and chart panel
-#' @param padding space between axis ticks and chart panel
 #' @param label text of label for axis (overrides default use of variable name)
 #' @param label_padding space between axis ticks and axis label (can be negative)
 #' @param auto_scale auto-pick "best" scale for axis? (default: \code{TRUE} (yes))
@@ -89,10 +94,12 @@ tau_guide_x <- function(tau, padding=NULL,
 #'             \url{https://github.com/mbostock/d3/wiki/Formatting#d3_format}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'  tau_point("mpg", "wt") %>%
 #'  tau_guide_x(label="Miles/gallon", auto_scale=FALSE) %>%
 #'  tau_guide_y(label="Weight", auto_scale=FALSE)
+#' }
 tau_guide_y <- function(tau, padding=NULL,
                         label=NULL, label_padding=NULL,
                         auto_scale=NULL, tick_period=NULL, tick_format=NULL,

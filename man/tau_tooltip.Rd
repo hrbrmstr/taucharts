@@ -16,10 +16,12 @@ tau_tooltip(tau, fields = NULL)
 Add a TauCharts tooltip
 }
 \examples{
+if (interactive()) {
 data(cars_data)
 tauchart(cars_data) \%>\%
   tau_point("milespergallon", c("class", "price"), color="class") \%>\%
   tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
+}
 }
 \seealso{
 \code{\link{cars_data}} dataset

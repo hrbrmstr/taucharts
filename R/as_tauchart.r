@@ -22,6 +22,8 @@
 #' @return tauchart object
 #' @export
 #' @examples
+#' if (interactive()) {
+#' library(ggplot2)
 #' dat <- data.frame(year=seq(1790, 1970, 10),
 #'                   uspop=as.numeric(uspop))
 #' set.seed(5689)
@@ -49,13 +51,14 @@
 #'
 #' gg <- ggplot(mtcars, aes(as.factor(cyl))) + geom_histogram()
 #' as_tauchart(gg)
+#' }
 as_tauchart <- function(gg) {
 
   if (!inherits(gg, c("gg", "ggplot"))) {
     stop("as_tauchart only works with ggplot objects", call.=FALSE)
   }
 
-  gb <- ggplot_build(gg)
+  gb <- ggplot2::ggplot_build(gg)
 
   if (length(gb$plot$layers) > 1) {
     stop("as_tauchart only works with single-layer-geoms", call.=FALSE)

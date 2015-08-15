@@ -35,6 +35,8 @@ Currently supports:
 More aesthetic mappings are planned
 }
 \examples{
+if (interactive()) {
+library(ggplot2)
 dat <- data.frame(year=seq(1790, 1970, 10),
                   uspop=as.numeric(uspop))
 set.seed(5689)
@@ -62,5 +64,6 @@ as_tauchart(gg) \%>\% tau_guide_x(tick_format="\%Y")
 
 gg <- ggplot(mtcars, aes(as.factor(cyl))) + geom_histogram()
 as_tauchart(gg)
+}
 }
 

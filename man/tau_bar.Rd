@@ -23,6 +23,7 @@ tau_bar(tau, x, y, color = NULL, size = NULL, horizontal = FALSE)
 Create a TauCharts bar chart (horizontal or vertical)
 }
 \examples{
+if (interactive()) {
 data(mpg, package="ggplot2")
 tauchart(dplyr::count(mpg, class)) \%>\%
   tau_bar("class", "n")
@@ -42,6 +43,7 @@ mfclass$class <- factor(mfclass$class,
                         ordered=TRUE)
 tauchart(mfclass) \%>\%
   tau_bar(c("class", "manufacturer"), "n")
+}
 }
 \references{
 \url{http://api.taucharts.com/basic/line.html}

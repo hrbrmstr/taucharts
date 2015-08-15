@@ -18,10 +18,12 @@
 #' @note Last updated 2015-08-04.
 #' @format A data frame with 135 rows and 7 variables
 #' @examples
+#' if (interactive()) {
 #' data(cars_data)
 #' tauchart(cars_data) %>%
 #'   tau_point("milespergallon", c("class", "price"), color="class") %>%
 #'   tau_legend() %>%
 #'   tau_trendline() %>%
 #'   tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
+#' }
 NULL
