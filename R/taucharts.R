@@ -84,12 +84,19 @@ tauchart <- function(data, width = NULL, height = NULL) {
     forFonts="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600&subset=latin,cyrillic-ext"
   )
 
+
+  eid <- sprintf("tau-%s",
+                 paste(sample(c(letters[1:6], 0:9), 30, replace=TRUE), collapse=""))
+
+
   # create widget
   htmlwidgets::createWidget(
     name = 'taucharts',
-    x,
+    x=xx,
     width = width,
     height = height,
-    package = 'taucharts'
+    sizingPolicy = htmlwidgets::sizingPolicy(),
+    package = 'taucharts',
+    elementId = eid
   )
 }
