@@ -30,9 +30,11 @@ It is highly suggested that callers use the ColorBrewer qualitative palettes:
       since you're using this package).
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_brewer(3, "Set3")
+}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

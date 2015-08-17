@@ -16,9 +16,11 @@ The hues in the palette are blues, grays, and greens. Red is not included in
 these palettes and should be used to indicate important data.
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_economist()
+}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

@@ -1,14 +1,16 @@
 #' Specify the colors used in the charts
 #'
 #' @param tau taucharts object
-#' @param vector of colors, ideally names (e.g. "\code{black}") or
+#' @param values vector of colors, ideally names (e.g. "\code{black}") or
 #'        hex-format (e.g. "\code{#ffeeaa}")
 #' @references \url{http://api.taucharts.com/advanced/encoding.html}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_manual(c("blue", "maroon", "black"))
+#' }
 tau_color_manual <- function(tau, values=NULL) {
   if (is.null(values)) return(tau)
   eids <- sapply(1:length(values), function(i) {
@@ -44,9 +46,11 @@ tau_color_manual <- function(tau, values=NULL) {
 #'       especially if you are plotting categorical values (which you most liklely are
 #'       since you're using this package).
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_brewer(3, "Set3")
+#' }
 tau_color_brewer <- function(tau, n=5, palette="Set2") {
   values <- RColorBrewer::brewer.pal(n, palette)
   eids <- sapply(1:length(values), function(i) {
@@ -72,9 +76,11 @@ tau_color_brewer <- function(tau, n=5, palette="Set2") {
 #' @references \url{http://api.taucharts.com/advanced/encoding.html}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_tableau()
+#' }
 tau_color_tableau <- function(tau, palette="tableau20") {
   values <- tableau_colors(palette)
   eids <- sapply(1:length(values), function(i) {
@@ -101,9 +107,11 @@ tau_color_tableau <- function(tau, palette="tableau20") {
 #' @export
 #' @seealso \code{\link[ggthemes]{economist_pal}}
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_economist()
+#' }
 tau_color_economist <- function(tau, n=5) {
   values <- ggthemes::economist_pal()(n)
   eids <- sapply(1:length(values), function(i) {
@@ -130,9 +138,11 @@ tau_color_economist <- function(tau, n=5) {
 #' @export
 #' @seealso \code{\link[ggthemes]{few_pal}}
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_few()
+#' }
 tau_color_few <- function(tau, n=5, palette="medium") {
   values <- ggthemes::few_pal(palette)(n)
   eids <- sapply(1:length(values), function(i) {
@@ -159,9 +169,11 @@ tau_color_few <- function(tau, n=5, palette="medium") {
 #' @export
 #' @seealso \code{\link[ggthemes]{fivethirtyeight_pal}}
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_538()
+#' }
 tau_color_538 <- function(tau, n=5) {
   values <- ggthemes::fivethirtyeight_pal()(n)
   eids <- sapply(1:length(values), function(i) {
@@ -188,9 +200,11 @@ tau_color_538 <- function(tau, n=5) {
 #' @export
 #' @seealso \code{\link[ggthemes]{hc_pal}}
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_highcharts()
+#' }
 tau_color_highcharts <- function(tau, n=5, palette="default") {
   values <- ggthemes::hc_pal(palette)(n)
   eids <- sapply(1:length(values), function(i) {
@@ -219,9 +233,11 @@ tau_color_highcharts <- function(tau, n=5, palette="default") {
 #' @export
 #' @seealso \code{\link[ggthemes]{wsj_pal}}
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_wsj()
+#' }
 tau_color_wsj <- function(tau, n=5, palette="rgby") {
   values <- ggthemes::wsj_pal(palette)(n)
   eids <- sapply(1:length(values), function(i) {
