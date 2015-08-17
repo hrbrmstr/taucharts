@@ -92,7 +92,7 @@ tauchart <- function(data, width = NULL, height = NULL) {
   # create widget
   htmlwidgets::createWidget(
     name = 'taucharts',
-    x=xx,
+    x=x,
     width = width,
     height = height,
     sizingPolicy = htmlwidgets::sizingPolicy(),
