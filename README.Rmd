@@ -66,6 +66,7 @@ The following datasets are included:
 
 ### News
 
+- Version 0.4.3.9000 released : minor issue with guides
 - Version 0.4.2.9000 released : pre-CRAN flight check
 - Version 0.4.0.9000 released : added `as_tauchart` & updated TauCharts JS lib
 - Version 0.3.4.9000 released : added warning for global targeted CSS rules and font ref fix thx to @jlewis91 

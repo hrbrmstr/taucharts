@@ -69,7 +69,7 @@ tau_guide_x <- function(tau, padding=NULL,
   if (!is.null(label_padding)) tau$x$guide$x$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$x$label$text <- label
   if (!is.null(tick_format)) tau$x$guide$x$tickFormat <- tick_format
-  if (!is.null(tick_period)) tau$x$guide$y$tickPeriod <- tick_period
+  if (!is.null(tick_period)) tau$x$guide$x$tickPeriod <- tick_period
   if (!is.null(padding)) tau$x$guide$x$padding <- padding
   if (!is.null(min)) tau$x$guide$x$min <- min
   if (!is.null(max)) tau$x$guide$x$max <- max
@@ -109,8 +109,8 @@ tau_guide_y <- function(tau, padding=NULL,
 
   if (!is.null(label_padding)) tau$x$guide$y$label <- list(padding=label_padding)
   if (!is.null(label)) tau$x$guide$y$label$text <- label
-  if (!is.null(tick_period)) tau$x$guide$y$tickPeriod <- tick_period
   if (!is.null(tick_format)) tau$x$guide$y$tickFormat <- tick_format
+  if (!is.null(tick_period)) tau$x$guide$y$tickPeriod <- tick_period
   if (!is.null(padding)) tau$x$guide$y$padding <- padding
   if (!is.null(min)) tau$x$guide$y$min <- min
   if (!is.null(max)) tau$x$guide$y$max <- max
