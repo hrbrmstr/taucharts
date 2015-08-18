@@ -21,9 +21,11 @@ tau_point(tau, x, y, color = NULL, size = NULL)
 Create a TauCharts scatterplot
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\% tau_point("mpg", "wt")
 mtcars$cyl <- factor(mtcars$cyl)
 tauchart(mtcars) \%>\% tau_point("mpg", "wt", "cyl", "hp")
+}
 }
 \references{
 \url{http://api.taucharts.com/basic/scatterplot.html}

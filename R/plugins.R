@@ -6,10 +6,12 @@
 #' @seealso \code{\link{cars_data}} dataset
 #' @export
 #' @examples
+#' if (interactive()) {
 #' data(cars_data)
 #' tauchart(cars_data) %>%
 #'   tau_point("milespergallon", c("class", "price"), color="class") %>%
 #'   tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
+#' }
 tau_tooltip <- function(tau, fields = NULL) {
 
   if (is.null(fields)){

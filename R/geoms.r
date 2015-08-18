@@ -1,4 +1,3 @@
-
 #' Create a TauCharts scatterplot
 #'
 #' @param tau taucharts object
@@ -9,9 +8,11 @@
 #' @references \url{http://api.taucharts.com/basic/scatterplot.html}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>% tau_point("mpg", "wt")
 #' mtcars$cyl <- factor(mtcars$cyl)
 #' tauchart(mtcars) %>% tau_point("mpg", "wt", "cyl", "hp")
+#' }
 tau_point <- function(tau, x, y, color=NULL, size=NULL) {
   tau$x$x <- x
   tau$x$y <- y
@@ -32,6 +33,7 @@ tau_point <- function(tau, x, y, color=NULL, size=NULL) {
 #' @references \url{http://api.taucharts.com/basic/line.html}
 #' @export
 #' @examples
+#' if (interactive()) {
 #' data(mpg, package="ggplot2")
 #' tauchart(dplyr::count(mpg, class)) %>%
 #'   tau_bar("class", "n")
@@ -51,6 +53,7 @@ tau_point <- function(tau, x, y, color=NULL, size=NULL) {
 #'                         ordered=TRUE)
 #' tauchart(mfclass) %>%
 #'   tau_bar(c("class", "manufacturer"), "n")
+#' }
 tau_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
   tau$x$x <- x
   tau$x$y <- y

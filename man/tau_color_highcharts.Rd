@@ -17,9 +17,11 @@ tau_color_highcharts(tau, n = 5, palette = "default")
 Qualitative color palettes from Stephen Few, "Practical Rules for Using Color in Charts".
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_highcharts()
+}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

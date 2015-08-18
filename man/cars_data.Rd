@@ -25,12 +25,14 @@ This dataset contains statistics on cars released from 1997 through 2013.
 Last updated 2015-08-04.
 }
 \examples{
+if (interactive()) {
 data(cars_data)
 tauchart(cars_data) \%>\%
   tau_point("milespergallon", c("class", "price"), color="class") \%>\%
   tau_legend() \%>\%
   tau_trendline() \%>\%
   tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
+}
 }
 \keyword{datasets}
 

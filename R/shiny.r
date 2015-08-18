@@ -13,16 +13,16 @@
 #' # list the built-in apps
 #'
 #' run_tau_app()
-#' Available shiny example apps:
-#' -----------------------------
-#' tau01 - TauCharts Shiny Example 01
+#' ## Available shiny example apps:
+#' ## -----------------------------
+#' ## tau01 - TauCharts Shiny Example 01
 #'
 #' # run an app
 #'
-#' run_tau_app("tau01")
-#' Running shiny app [tau01] from:
-#  /Library/Frameworks/R.framework/Versions/3.2/Resources/library/taucharts/shinyapps/tau01
-#  Listening on http://127.0.0.1:6077
+#' # run_tau_app("tau01")
+#' ## Running shiny app [tau01] from:
+#  ## /Library/Frameworks/R.framework/Versions/3.2/Resources/library/taucharts/shinyapps/tau01
+#  ## Listening on http://127.0.0.1:6077
 #' }
 run_tau_app <- function(app_name=NULL) {
 
@@ -73,12 +73,12 @@ run_tau_app <- function(app_name=NULL) {
 #'
 #' @export
 tauchartsOutput <- function(outputId, width = '100%', height = '400px'){
-  shinyWidgetOutput(outputId, 'taucharts', width, height, package = 'taucharts')
+  htmlwidgets::shinyWidgetOutput(outputId, 'taucharts', width, height, package = 'taucharts')
 }
 
 #' @rdname taucharts-shiny
 #' @export
 renderTaucharts <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  shinyRenderWidget(expr, tauchartsOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, tauchartsOutput, env, quoted = TRUE)
 }

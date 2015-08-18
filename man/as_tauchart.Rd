@@ -14,17 +14,29 @@ tauchart object
 }
 \description{
 Takes a ggplot object that has a single geom (it can be geom_line,
-geom_point or geom_histogram) and converts it to it's taucahrt counterpart.
+geom_point or geom_histogram) and converts it to it's tauchart counterpart.
 It will do it's best to identify plot labels, mapped size & color aesthetics,
-and x/y limits.\cr
-\cr
+and x/y limits.
+}
+\details{
 If there are aesthetic mappings, \code{as_tauchart} will automaticlly add
 a legend.
+
+Currently supports:
+
+\itemize{
+  \item \code{geom_point}
+  \item \code{geom_line}
+  \item \code{geom_bar}
+  \item \code{geom_histogram}
+}
 }
 \note{
 More aesthetic mappings are planned
 }
 \examples{
+if (interactive()) {
+library(ggplot2)
 dat <- data.frame(year=seq(1790, 1970, 10),
                   uspop=as.numeric(uspop))
 set.seed(5689)
@@ -44,10 +56,14 @@ gg <- ggplot(mtcars) + geom_point(aes(x=mpg, y=wt, color=cyl))
 as_tauchart(gg)
 
 gg <- ggplot(mtcars, aes(x=mpg, y=wt, color=am, size=wt)) + geom_point()
-as_tauchart(gg_m2)
+as_tauchart(gg)
 
 data(economics, package="ggplot2")
 gg <- ggplot(economics) + geom_line(aes(x=date, y=unemploy))
 as_tauchart(gg) \%>\% tau_guide_x(tick_format="\%Y")
+
+gg <- ggplot(mtcars, aes(as.factor(cyl))) + geom_histogram()
+as_tauchart(gg)
+}
 }
 

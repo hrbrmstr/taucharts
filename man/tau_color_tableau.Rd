@@ -17,9 +17,11 @@ tau_color_tableau(tau, palette = "tableau20")
 Use the Tableau palette in the charts
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_tableau()
+}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

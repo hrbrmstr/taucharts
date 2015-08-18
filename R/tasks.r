@@ -11,6 +11,7 @@
 #' @importFrom htmlwidgets JS
 #' @export
 #' @examples
+#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("mpg", "wt") %>%
 #'   tau_tasks("function(){alert('I drew a chart')}") %>%
@@ -28,7 +29,7 @@
 #' }
 #' "
 #'  )
-
+#' }
 tau_tasks <- function ( tau, task = NULL ){
   if(is.null(task)) stop("please provide a non-NULL task.", call. = FALSE)
 
