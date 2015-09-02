@@ -18,9 +18,11 @@ tau_color_wsj(tau, n = 5, palette = "rgby")
 A subset of the plethora of palettes used by the WSJ.
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_wsj()
+}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

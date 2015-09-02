@@ -1,3 +1,19 @@
+noathenb <- function(a, b) {
+  if (length(a) > 0) a else b
+}
+
+"%||%" <- noathenb
+
+naathenb <- function(a, b) {
+  if (length(a) > 0) {
+    if (!is.na(a)) a else b
+  } else {
+    b
+  }
+}
+
+"%^^%" <- naathenb
+
 brewers <- c("BrBG", "PiYG", "PRGn", "PuOr", "RdBu", "RdGy", "RdYlBu", "RdYlGn",
 "Spectral", "Accent", "Dark2", "Paired", "Pastel1", "Pastel2",
 "Set1", "Set2", "Set3", "Blues", "BuGn", "BuPu", "GnBu", "Greens",

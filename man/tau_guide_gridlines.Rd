@@ -15,9 +15,11 @@ tau_guide_gridlines(tau, show_x = TRUE, show_y = TRUE)
 Control showing of axis gridlines
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("mpg", "wt") \%>\%
   tau_guide_gridlines(FALSE, FALSE)
+}
 }
 \references{
 \url{http://api.taucharts.com/basic/guide.html}

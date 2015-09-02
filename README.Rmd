@@ -40,13 +40,15 @@ The following functions are implemented:
 - `tau_guide_padding`:  Set overall chart padding
 - `tau_guide_x`:  Control x-axis padding, label, scale & tick format
 - `tau_guide_y`:  Control y-axis padding, label, scale & tick format
-- `tau_legend`:  Add a TauCharts tooltip
+- `tau_legend`:  Add a TauCharts legend
 - `tau_tooltip`:  Add a TauCharts tooltip
 - `tau_trendline`:  Add a TauCharts trendline
 - `run_tau_app`:  Run a built-in example Shiny app
 - `tau_tasks`:  Add post-render JavaScript tasks to taucharts
 - `tau_add_css_rule`: Add a CSS rule to the rendered htmlwidget
 - `tau_set_font`: Set `font-family` for the chart
+- `as_tauchart`:  Turn a simple (single-geom) ggplot plot into an tauchart object
+- `tau_title`:  Add a title to the tauchart plot
 
 with many color palette options:
 
@@ -65,6 +67,11 @@ The following datasets are included:
 
 ### News
 
+- Version 0.4.4.9000 released : `tau_title`
+- Version 0.4.3.9000 released : minor issue with guides
+- Version 0.4.2.9000 released : pre-CRAN flight check
+- Version 0.4.0.9000 released : added `as_tauchart` & updated TauCharts JS lib
+- Version 0.3.4.9000 released : added warning for global targeted CSS rules and font ref fix thx to @jlewis91 
 - Version 0.3.3.9001 released : fix for custom colors and `tau_line`
 - Version 0.3.3 released : custom font for chart (`?tau_set_font`)
 - Version 0.3.2 released : custom colors working in legend & trendlines

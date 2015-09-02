@@ -4,6 +4,7 @@
 #' @docType package
 #' @author Bob Rudis (@@hrbrmstr), Kent Russell (@@timelyportfolio)
 #' @import htmltools
+#' @importFrom zoo index
 NULL
 
 #' taucharts exported operators

@@ -17,9 +17,11 @@ tau_color_few(tau, n = 5, palette = "medium")
 Qualitative color palettes from Stephen Few, "Practical Rules for Using Color in Charts".
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_few()
+}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}
