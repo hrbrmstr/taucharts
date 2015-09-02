@@ -15,9 +15,11 @@ tau_guide_padding(tau, bottom = 0, left = 0, top = 0, right = 0)
 Set overall chart padding
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
 tau_point("mpg", "wt") \%>\%
   tau_guide_padding(40, 40, 40, 40)
+}
 }
 \references{
 \url{http://api.taucharts.com/basic/guide.html}

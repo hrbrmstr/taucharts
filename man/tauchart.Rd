@@ -18,7 +18,9 @@ Performs basic widget setup and returns an object suitable for
 use with the other \code{tau_} functions.
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\% tau_point("mpg", "wt")
+}
 }
 \references{
 \url{http://api.taucharts.com/}

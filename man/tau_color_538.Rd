@@ -15,9 +15,11 @@ tau_color_538(tau, n = 5)
 The standard fivethirtyeight.com palette for line plots is blue, red, green.
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_538()
+}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

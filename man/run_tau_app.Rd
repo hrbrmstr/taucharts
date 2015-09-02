@@ -22,14 +22,14 @@ easier to find and view the source) and then execute the app.
 # list the built-in apps
 
 run_tau_app()
-Available shiny example apps:
------------------------------
-tau01 - TauCharts Shiny Example 01
+## Available shiny example apps:
+## -----------------------------
+## tau01 - TauCharts Shiny Example 01
 
 # run an app
 
-run_tau_app("tau01")
-Running shiny app [tau01] from:
+# run_tau_app("tau01")
+## Running shiny app [tau01] from:
 }
 }
 

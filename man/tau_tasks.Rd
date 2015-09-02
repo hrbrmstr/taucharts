@@ -20,6 +20,7 @@ tau_tasks(tau, task = NULL)
 Add post-render JavaScript tasks to taucharts
 }
 \examples{
+if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("mpg", "wt") \%>\%
   tau_tasks("function(){alert('I drew a chart')}") \%>\%
@@ -37,5 +38,6 @@ function(){
 }
 "
  )
+}
 }
 
