@@ -81,6 +81,10 @@ HTMLWidgets.widget({
         if( plugin.type === "quick-filter"){
           plugins.push(tauCharts.api.plugins.get('quick-filter')());
         }
+
+        if( plugin.type === "exportTo"){
+          plugins.push(tauCharts.api.plugins.get('exportTo')());
+        }
       });
     }
 
