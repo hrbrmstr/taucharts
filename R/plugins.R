@@ -137,7 +137,7 @@ tau_quick_filter <- function(
   tau
 }
 
-#' Add a TauCharts settings plugin
+#' Add a TauCharts export plugin
 #'
 #' @param tau taucharts object
 #' @seealso \code{\link{cars_data}} dataset
@@ -164,6 +164,52 @@ tau_export_plugin <- function(
     #   showTrend = showTrend,
     #   models = models
     # )
+  )
+
+  tau
+}
+
+#' Add a TauCharts annotations plugin
+#'
+#' @param tau taucharts object
+#' @seealso \code{\link{cars_data}} dataset
+#' @export
+#' @examples
+#' data(cars_data)
+#' tauchart(cars_data) %>%
+#'   tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_annotations(data.frame(dim = "y", val = 50000,
+#'            text = "Whoa there!", position = "front",
+#'            color = '#4300FF'))
+tau_annotations <- function(
+  tau, annotation_df
+) {
+  if(!all(colnames(annotation_df) %in% c("dim", "val", "text", "position", "color"))){
+    warning('Columns must be in c("dim", "val", "text", "position", "color")')
+  }
+
+  if(is.null(tau$x$plugins)){
+    tau$x$plugins = list()
+  }
+
+# need to do d3 date conversion magic for
+# annotations_df$val
+# if(!all(annotations_df$value %in% c("x", "y"))){
+#   warning("All values must be either numeric or date")
+# }
+
+  annotation_df$text <- as.character(annotation_df$text)
+  if(!all(grepl("^#[[:alnum:]]{1,6}$", annotation_df$color))){
+    warning("All colors must be hex")
+  }
+
+  if(!all(annotation_df$dim %in% c("x", "y"))){
+    # warning("All dim must be either 'x' or 'y'")
+  }
+
+  tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
+    type = "annotations",
+    items = annotation_df
   )
 
   tau

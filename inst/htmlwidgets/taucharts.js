@@ -85,6 +85,13 @@ HTMLWidgets.widget({
         if( plugin.type === "exportTo"){
           plugins.push(tauCharts.api.plugins.get('exportTo')());
         }
+
+        if( plugin.type === "annotations"){
+          plugins.push(tauCharts.api.plugins.get('annotations')(
+            {items: HTMLWidgets.dataframeToD3(plugin.items)}
+          ));
+        }
+
       });
     }
 
