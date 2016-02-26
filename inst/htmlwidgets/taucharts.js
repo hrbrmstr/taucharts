@@ -77,6 +77,10 @@ HTMLWidgets.widget({
           }
           plugins.push(tauCharts.api.plugins.get('trendline')(plugin.settings));
         }
+
+        if( plugin.type === "quick-filter"){
+          plugins.push(tauCharts.api.plugins.get('quick-filter')());
+        }
       });
     }
 

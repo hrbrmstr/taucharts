@@ -111,3 +111,36 @@ tau_trendline <- function(
 
   tau
 }
+
+#' Add a TauCharts quick filter
+#'
+#' @param tau taucharts object
+#' @param hideError \code{logical} to show errors.
+#' @seealso \code{\link{cars_data}} dataset
+#' @export
+#' @examples
+#' data(cars_data)
+#' tauchart(cars_data) %>%
+#'   tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_quick_filter()
+tau_quick_filter <- function(
+  tau
+) {
+
+  if(is.null(tau$x$plugins)){
+    tau$x$plugins = list()
+  }
+
+  tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
+    type = "quick-filter"
+    # ,settings = list(
+    #   type = 'linear',
+    #   hideError = hideError,
+    #   showPanel = showPanel,
+    #   showTrend = showTrend,
+    #   models = models
+    # )
+  )
+
+  tau
+}
