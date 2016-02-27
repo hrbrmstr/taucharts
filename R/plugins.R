@@ -156,14 +156,8 @@ tau_export_plugin <- function(
   }
 
   tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
-    type = "exportTo"
-    # ,settings = list(
-    #   type = 'linear',
-    #   hideError = hideError,
-    #   showPanel = showPanel,
-    #   showTrend = showTrend,
-    #   models = models
-    # )
+    type = "exportTo",
+    cssPaths = list("lib/tauCharts-0.6.3/tauCharts.min.css")
   )
 
   tau
