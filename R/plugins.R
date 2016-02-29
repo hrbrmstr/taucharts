@@ -115,15 +115,16 @@ tau_trendline <- function(
 #' Add a TauCharts quick filter plugin
 #'
 #' @param tau taucharts object
+#' @param fields fields which should be shown in quick filter
 #' @seealso \code{\link{cars_data}} dataset
 #' @export
 #' @examples
 #' data(cars_data)
 #' tauchart(cars_data) %>%
 #'   tau_point("milespergallon", c("class", "price"), color="class") %>%
-#'   tau_quick_filter()
+#'   tau_quick_filter(fields = c("price"))
 tau_quick_filter <- function(
-  tau
+  tau, fields = NULL
 ) {
 
   if(is.null(tau$x$plugins)){
@@ -131,7 +132,8 @@ tau_quick_filter <- function(
   }
 
   tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
-    type = "quick-filter"
+    type = "quick-filter",
+    fields = fields
   )
 
   tau

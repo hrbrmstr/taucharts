@@ -79,7 +79,7 @@ HTMLWidgets.widget({
         }
 
         if( plugin.type === "quick-filter"){
-          plugins.push(tauCharts.api.plugins.get('quick-filter')());
+          plugins.push(tauCharts.api.plugins.get('quick-filter')(plugin.fields));
         }
 
         if( plugin.type === "exportTo"){
