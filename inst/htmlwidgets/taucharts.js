@@ -97,7 +97,6 @@ HTMLWidgets.widget({
       });
     }
 
-
     instance.chart = new tauCharts.Chart({
       data: datasource,
       type: x.type,
