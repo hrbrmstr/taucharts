@@ -91,7 +91,8 @@ tau_trendline <- function(
   hideError = FALSE,
   showPanel = TRUE,
   showTrend = TRUE,
-  models = c('linear', 'exponential', 'logarithmic')
+  models = c('linear', 'exponential', 'logarithmic', "loess",
+              "lastvalue", "polynomial", "power")
 ) {
 
   if(is.null(tau$x$plugins)){
