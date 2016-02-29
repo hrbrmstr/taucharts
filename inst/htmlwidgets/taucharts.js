@@ -98,7 +98,7 @@ HTMLWidgets.widget({
     }
 
 
-    var chart = new tauCharts.Chart({
+    instance.chart = new tauCharts.Chart({
       data: datasource,
       type: x.type,
       size: x.size,
@@ -110,9 +110,9 @@ HTMLWidgets.widget({
       plugins: plugins
     });
 
-    dbg_chart = chart ;
+    dbg_chart = instance.chart ;
 
-    chart.renderTo('#'+el.id);
+    instance.chart.renderTo('#'+el.id);
 
     // set up a container for tasks to perform after completion
     //  one example would be add callbacks for event handling
@@ -133,7 +133,7 @@ HTMLWidgets.widget({
   },
 
   resize: function(el, width, height, instance) {
-
+    instance.chart.refresh();
   }
 
 });
