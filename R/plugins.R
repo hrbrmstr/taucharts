@@ -60,9 +60,10 @@ tau_legend <- function(tau) {
 #' Add a TauCharts trendline
 #'
 #' @param tau taucharts object
-#' @param type \code{character} either 'linear', 'exponential', or 'logarithmic'
-#'                representing the default trend line to show.  NOTE:  this does not
-#'                seem to work as expected.  Use the \code{models} parameter instead.
+#' @param type \code{character} Model representing default trend line to show. Must be
+#'                one of models specified in models parameter.
+#'                If unspecified, will use the first model specified in models.
+#'
 #' @param hideError \code{logical} to show errors.
 #' @param showPanel \code{logical} to show the panel next to the chart to allow a user
 #'                to manipulate the trendlines.  When \code{FALSE}, the trendlines will
@@ -71,10 +72,7 @@ tau_legend <- function(tau) {
 #'                \code{showPanel = TRUE}, then the user will have the opportunity
 #'                to add/delete the trendlines.
 #' @param models \code{character} or \code{vector} of \code{characters} for the models
-#'                to show in the trendline panel if \code{showPanel = TRUE}.  As discussed
-#'                above in \code{type}, \code{models} also seems to be the only way
-#'                to change the initial \code{type} of the trendline.  So, if you would like
-#'                \code{exponential} to display, then set \code{models = "exponential"}. If you
+#'                to show in the trendline panel if \code{showPanel = TRUE}. If you
 #'                would like to change the order of the options, then you can do
 #'                \code{models = c("logarithmic","exponential")}, and the first provided
 #'                will be the initial model type used.
@@ -87,14 +85,15 @@ tau_legend <- function(tau) {
 #'   tau_trendline()
 tau_trendline <- function(
   tau,
-  type = 'linear',
+  type = NULL,
   hideError = FALSE,
   showPanel = TRUE,
   showTrend = TRUE,
   models = c('linear', 'exponential', 'logarithmic', "loess",
               "lastvalue", "polynomial", "power")
 ) {
-
+  if(is.null(type)) type <- models[1]
+  if(!type %in% models) {message("Trendline `type` not included in `models`.")}
   if(is.null(tau$x$plugins)){
     tau$x$plugins = list()
   }
@@ -102,7 +101,7 @@ tau_trendline <- function(
   tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
     type = "trendline"
     ,settings = list(
-      type = 'linear',
+      type = type,
       hideError = hideError,
       showPanel = showPanel,
       showTrend = showTrend,

@@ -75,6 +75,9 @@ HTMLWidgets.widget({
           if (!Array.isArray(plugin.settings.models)){
             plugin.settings.models = [plugin.settings.models];
           }
+          if (!Array.isArray(plugin.settings.type)){
+            plugin.settings.type = plugin.settings.type;
+          }
           plugins.push(tauCharts.api.plugins.get('trendline')(plugin.settings));
         }
 
@@ -109,7 +112,7 @@ HTMLWidgets.widget({
       plugins: plugins
     });
 
-    dbg_chart = instance.chart ;
+    dbg_chart = instance.chart;
 
     instance.chart.renderTo('#'+el.id);
 
