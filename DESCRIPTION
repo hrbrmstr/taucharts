@@ -15,7 +15,21 @@ Description: The TauCharts <http://taucharts.org> JavaScript (D3) library makes
     provides an htmlwidgets interface to the TauCharts JavaScript library and
     includes functions to translate simple ggplot2 objects into TauCharts
     visualizations.
-Depends: R (>= 3.0.0)
+Depends:
+    R (>= 3.0.0)
 License: MIT + file LICENSE
-Suggests: testthat, ggplot2, dplyr, tidyr, shiny
-Imports: htmlwidgets, htmltools, magrittr, RColorBrewer, ggthemes, zoo
+LazyData: true
+Suggests:
+    testthat,
+    ggplot2,
+    dplyr,
+    tidyr,
+    shiny
+Imports:
+    htmlwidgets,
+    htmltools,
+    magrittr,
+    RColorBrewer,
+    ggthemes,
+    zoo
+RoxygenNote: 5.0.1

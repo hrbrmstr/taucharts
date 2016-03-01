@@ -75,13 +75,32 @@ HTMLWidgets.widget({
           if (!Array.isArray(plugin.settings.models)){
             plugin.settings.models = [plugin.settings.models];
           }
+          if (!Array.isArray(plugin.settings.type)){
+            plugin.settings.type = plugin.settings.type;
+          }
           plugins.push(tauCharts.api.plugins.get('trendline')(plugin.settings));
         }
+
+        if( plugin.type === "quick-filter"){
+          plugins.push(tauCharts.api.plugins.get('quick-filter')(plugin.fields));
+        }
+
+        if( plugin.type === "exportTo"){
+          plugins.push(tauCharts.api.plugins.get('exportTo')(
+           {cssPaths: plugin.cssPaths}
+          ));
+        }
+
+        if( plugin.type === "annotations"){
+          plugins.push(tauCharts.api.plugins.get('annotations')(
+            {items: HTMLWidgets.dataframeToD3(plugin.items)}
+          ));
+        }
+
       });
     }
 
-
-    var chart = new tauCharts.Chart({
+    instance.chart = new tauCharts.Chart({
       data: datasource,
       type: x.type,
       size: x.size,
@@ -93,9 +112,9 @@ HTMLWidgets.widget({
       plugins: plugins
     });
 
-    dbg_chart = chart ;
+    dbg_chart = instance.chart;
 
-    chart.renderTo('#'+el.id);
+    instance.chart.renderTo('#'+el.id);
 
     // set up a container for tasks to perform after completion
     //  one example would be add callbacks for event handling
@@ -116,7 +135,7 @@ HTMLWidgets.widget({
   },
 
   resize: function(el, width, height, instance) {
-
+    instance.chart.refresh();
   }
 
 });

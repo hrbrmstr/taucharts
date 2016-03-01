@@ -124,3 +124,34 @@ tau_line <- function(tau, x, y, color=NULL, size=NULL) {
   tau$x$type <- "line"
   tau
 }
+
+#' Create a TauCharts area chart
+#'
+#' @param tau taucharts object
+#' @param x quoted name of \code{data} column to use for x-axis values
+#' @param y quoted name of \code{data} column to use for y-axis values
+#' @param color quoted name of \code{data} column to map color aesthetic to
+#' @references \url{http://api.taucharts.com/basic/bar.html},
+#'             \url{http://api.taucharts.com/basic/horizontal-bar.html}
+#' @export
+#' @examples
+#' data(economics, package="ggplot2")
+#' tauchart(economics) %>%
+#'   tau_area("date", "unemploy") %>%
+#'   tau_guide_x(tick_format="%Y")
+#'
+#' # facets
+#' library(dplyr)
+#' library(tidyr)
+#'
+#' crimes <- gather(add_rownames(USArrests, "State"), Crime, Amount, -State)
+#' tauchart(crimes) %>%
+#'   tau_area("State", c("Crime", "Amount"), "Crime") %>%
+#'   tau_guide_y(auto_scale = FALSE)
+tau_area <- function(tau, x, y, color=NULL) {
+  tau$x$x <- x
+  tau$x$y <- y
+  tau$x$color <- color
+  tau$x$type <- "area"
+  tau
+}

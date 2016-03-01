@@ -60,9 +60,10 @@ tau_legend <- function(tau) {
 #' Add a TauCharts trendline
 #'
 #' @param tau taucharts object
-#' @param type \code{character} either 'linear', 'exponential', or 'logarithmic'
-#'                representing the default trend line to show.  NOTE:  this does not
-#'                seem to work as expected.  Use the \code{models} parameter instead.
+#' @param type \code{character} Model representing default trend line to show. Must be
+#'                one of models specified in models parameter.
+#'                If unspecified, will use the first model specified in models.
+#'
 #' @param hideError \code{logical} to show errors.
 #' @param showPanel \code{logical} to show the panel next to the chart to allow a user
 #'                to manipulate the trendlines.  When \code{FALSE}, the trendlines will
@@ -71,10 +72,7 @@ tau_legend <- function(tau) {
 #'                \code{showPanel = TRUE}, then the user will have the opportunity
 #'                to add/delete the trendlines.
 #' @param models \code{character} or \code{vector} of \code{characters} for the models
-#'                to show in the trendline panel if \code{showPanel = TRUE}.  As discussed
-#'                above in \code{type}, \code{models} also seems to be the only way
-#'                to change the initial \code{type} of the trendline.  So, if you would like
-#'                \code{exponential} to display, then set \code{models = "exponential"}. If you
+#'                to show in the trendline panel if \code{showPanel = TRUE}. If you
 #'                would like to change the order of the options, then you can do
 #'                \code{models = c("logarithmic","exponential")}, and the first provided
 #'                will be the initial model type used.
@@ -87,13 +85,15 @@ tau_legend <- function(tau) {
 #'   tau_trendline()
 tau_trendline <- function(
   tau,
-  type = 'linear',
+  type = NULL,
   hideError = FALSE,
   showPanel = TRUE,
   showTrend = TRUE,
-  models = c('linear', 'exponential', 'logarithmic')
+  models = c('linear', 'exponential', 'logarithmic', "loess",
+              "lastvalue", "polynomial", "power")
 ) {
-
+  if(is.null(type)) type <- models[1]
+  if(!type %in% models) {message("Trendline `type` not included in `models`.")}
   if(is.null(tau$x$plugins)){
     tau$x$plugins = list()
   }
@@ -101,12 +101,111 @@ tau_trendline <- function(
   tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
     type = "trendline"
     ,settings = list(
-      type = 'linear',
+      type = type,
       hideError = hideError,
       showPanel = showPanel,
       showTrend = showTrend,
       models = models
     )
+  )
+
+  tau
+}
+
+#' Add a TauCharts quick filter plugin
+#'
+#' @param tau taucharts object
+#' @param fields fields which should be shown in quick filter
+#' @seealso \code{\link{cars_data}} dataset
+#' @export
+#' @examples
+#' data(cars_data)
+#' tauchart(cars_data) %>%
+#'   tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_quick_filter(fields = c("price"))
+tau_quick_filter <- function(
+  tau, fields = NULL
+) {
+
+  if(is.null(tau$x$plugins)){
+    tau$x$plugins = list()
+  }
+
+  tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
+    type = "quick-filter",
+    fields = fields
+  )
+
+  tau
+}
+
+#' Add a TauCharts export plugin
+#'
+#' @param tau taucharts object
+#' @seealso \code{\link{cars_data}} dataset
+#' @export
+#' @examples
+#' data(cars_data)
+#' tauchart(cars_data) %>%
+#'   tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_quick_filter()
+tau_export_plugin <- function(
+  tau
+) {
+
+  if(is.null(tau$x$plugins)){
+    tau$x$plugins = list()
+  }
+
+  tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
+    type = "exportTo",
+    cssPaths = list("lib/tauCharts-0.6.3/tauCharts.min.css")
+  )
+
+  tau
+}
+
+#' Add a TauCharts annotations plugin
+#'
+#' @param tau taucharts object
+#' @seealso \code{\link{cars_data}} dataset
+#' @export
+#' @examples
+#' data(cars_data)
+#' tauchart(cars_data) %>%
+#'   tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_annotations(data.frame(dim = "y", val = 50000,
+#'            text = "Whoa there!", position = "front",
+#'            color = '#4300FF'))
+tau_annotations <- function(
+  tau, annotation_df
+) {
+  if(!all(colnames(annotation_df) %in% c("dim", "val", "text", "position", "color"))){
+    warning('Columns must be in c("dim", "val", "text", "position", "color")')
+  }
+
+  if(is.null(tau$x$plugins)){
+    tau$x$plugins = list()
+  }
+
+# need to do d3 date conversion magic for
+# annotations_df$val
+# if(!all(annotations_df$value %in% c("x", "y"))){
+#   warning("All values must be either numeric or date")
+# }
+
+  annotation_df$text <- as.character(annotation_df$text)
+  if(!all(grepl("^#[[:alnum:]]{1,6}$", annotation_df$color))){
+    warning("All colors must be hex")
+  }
+
+  if(!all(annotation_df$dim %in% c("x", "y"))){
+    # warning("All dim must be either 'x' or 'y'")
+  }
+
+  tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
+    type = "annotations",
+    items = annotation_df
   )
 
   tau
