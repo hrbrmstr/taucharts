@@ -11,9 +11,5 @@ dependencies:
   version: 0.6.3
   src: htmlwidgets/lib/taucharts
   script: tauCharts.min.js
-#    - tauCharts.js
-#    - plugins/tauCharts.tooltip.js
-#    - plugins/tauCharts.legend.js
   stylesheet:
     - tauCharts.min.css
-#    - tauCharts.normalize.min.css
