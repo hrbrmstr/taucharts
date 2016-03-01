@@ -28,21 +28,15 @@ tauchart <- function(data, width = NULL, height = NULL) {
   # this takes care of silly tbl_df/tbl_dt/data.table issues
   data <- data.frame(data)
 
-  # try to handle dates smoothly between JS and R
-  #   this is very much a work in progress
-  date_columns <- which(sapply(data,function(x) inherits(x,c("Date", "POSIXct", "date", "yearmon", "yearqtr"))))
-  if (length(date_columns) > 0) {
-    data[,date_columns] <- asISO8601Time(data[,date_columns])
-    # temporarily set class to iso8601 for dimension logic below
-    class(data[,date_columns]) <- "iso8601"
-  }
-
   # try to determine the associated tau-type based on
   # column type/class.
   #
   # TODO: this is far from robust. amongst other things
   # it should figure out the date/time better if a character
   # and it should add the ordering of ordered factors
+
+  # Currently supported date classes:
+  dateClasses <- c("Date", "POSIXct", "date", "yearmon", "yearqtr")
 
   dimensions <- lapply(data, function(v) {
     # if factor handle separately
@@ -52,7 +46,7 @@ tauchart <- function(data, width = NULL, height = NULL) {
       } else {
         list(type = "category")
       }
-    } else if(inherits(v, c("Date","iso8601"))) {
+    } else if(inherits(v, dateClasses)) {
       # some crude handling of dates
       list( type = "order", scale = "time" )
     } else {
@@ -69,8 +63,11 @@ tauchart <- function(data, width = NULL, height = NULL) {
 
   })
 
-  # remove our temporary iso8601 class
-  class(data[,which(sapply(data,function(x) inherits(x,"iso8601")))]) <- "character"
+  # try to handle dates smoothly between JS and R
+  #   this is very much a work in progress
+  for (i in 1:ncol(data)) {
+    data[, i] <- asISO8601Time(data[, i], dateClasses)
+  }
 
   # forward options using x
   x <- list(

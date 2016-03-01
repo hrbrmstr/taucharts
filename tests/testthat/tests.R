@@ -1,3 +1,6 @@
+library(zoo)
+library(lubridate)
+
 testdata <- data.frame(date = seq(as.Date("2016-02-29") - 300, as.Date("2016-02-29"), by = "day"), val = rnorm(43))
 
 # Test selecting specific fields for quick filter
@@ -10,6 +13,31 @@ testdate <- testdata
 testdate$date2 <- testdate$date
 tauchart(testdate) %>%
   tau_point("date", "date2")
+
+#### Test Date Conversion
+
+# POSIXct
+testdate$date2 <- as.POSIXct(Sys.Date())
+tauchart(testdate) %>%
+  tau_point("date", "val")
+
+# yearmon
+testdate$date2 <- zoo::as.yearmon("mar07", "%b%y")
+tauchart(testdate) %>%
+  tau_point("date", "val")
+
+# yearqtr
+testdate$date2 <- zoo::as.yearqtr("2001 Q2")
+tauchart(testdate) %>%
+  tau_point("date", "val")
+
+# lubridate ymd
+testdate$date2 <- lubridate::ymd("2015-01-10")
+tauchart(testdate) %>%
+  tau_point("date", "val")
+
+
+
 
 
 # Trendline default can be changed to exponential
@@ -40,3 +68,4 @@ tauchart(testdata) %>%
 tauchart(testdata) %>%
   tau_line("val", "val") %>%
   tau_export_plugin()
+
