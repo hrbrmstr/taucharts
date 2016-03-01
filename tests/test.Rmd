@@ -1,0 +1,43 @@
+---
+title: "test"
+output:
+  html_document:
+    theme: united
+---
+
+```{r setup, include=FALSE}
+library(taucharts)
+knitr::opts_chunk$set(echo = FALSE)
+testdata <- data.frame(date = seq(as.Date("2016-02-29") - 300, Sys.Date(), by = "day"), val = rnorm(43))
+```
+
+# Tabs {.tabset}
+
+## Tab One
+```{r}
+tauchart(testdata) %>%
+  tau_line("date", "val") %>%
+  tau_guide_x(tick_format = "%b-%y")
+```
+
+## Tab Two (test rescalaing issue)
+```{r}
+tauchart(testdata) %>%
+  tau_line("date", "val") %>%
+  tau_guide_x(tick_format = "%b-%y")
+```
+
+## Adjust viz size with chunk settings
+### Super Small
+```{r fig.width=2, fig.height=2}
+tauchart(testdata) %>%
+  tau_line("date", "val") %>%
+  tau_guide_x(tick_format = "%b-%y")
+```
+
+### Super big
+```{r fig.width=10, fig.height=10}
+tauchart(testdata) %>%
+  tau_line("date", "val") %>%
+  tau_guide_x(tick_format = "%b-%y")
+```
