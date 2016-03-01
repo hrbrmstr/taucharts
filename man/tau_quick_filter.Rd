@@ -4,10 +4,12 @@
 \alias{tau_quick_filter}
 \title{Add a TauCharts quick filter plugin}
 \usage{
-tau_quick_filter(tau)
+tau_quick_filter(tau, fields = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
+
+\item{fields}{fields which should be shown in quick filter}
 }
 \description{
 Add a TauCharts quick filter plugin
@@ -16,7 +18,7 @@ Add a TauCharts quick filter plugin
 data(cars_data)
 tauchart(cars_data) \%>\%
   tau_point("milespergallon", c("class", "price"), color="class") \%>\%
-  tau_quick_filter()
+  tau_quick_filter(fields = c("price"))
 }
 \seealso{
 \code{\link{cars_data}} dataset

@@ -4,7 +4,7 @@
 \alias{tau_area}
 \title{Create a TauCharts area chart}
 \usage{
-tau_area(tau, x, y, color = NULL, size = NULL)
+tau_area(tau, x, y, color = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
