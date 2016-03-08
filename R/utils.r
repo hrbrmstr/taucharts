@@ -20,6 +20,8 @@ brewers <- c("BrBG", "PiYG", "PRGn", "PuOr", "RdBu", "RdGy", "RdYlBu", "RdYlGn",
   "Greys", "Oranges", "OrRd", "PuBu", "PuBuGn", "PuRd", "Purples",
   "RdPu", "Reds", "YlGn", "YlGnBu", "YlOrBr", "YlOrRd")
 
+# Currently supported date classes:
+dateClasses <- c("Date", "POSIXct", "date", "yearmon", "yearqtr")
 
 # from rstudio/dygraphs https://github.com/rstudio/dygraphs
 asISO8601Time <- function(x, dateClasses) {

@@ -188,11 +188,10 @@ tau_annotations <- function(
     tau$x$plugins = list()
   }
 
-# need to do d3 date conversion magic for
-# annotations_df$val
-# if(!all(annotations_df$value %in% c("x", "y"))){
-#   warning("All values must be either numeric or date")
-# }
+  # Date conversion
+  annotation_df$val <- asISO8601Time(annotation_df$val, dateClasses)
+
+
 
   annotation_df$text <- as.character(annotation_df$text)
   if(!all(grepl("^#[[:alnum:]]{1,6}$", annotation_df$color))){

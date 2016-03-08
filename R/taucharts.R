@@ -35,9 +35,6 @@ tauchart <- function(data, width = NULL, height = NULL) {
   # it should figure out the date/time better if a character
   # and it should add the ordering of ordered factors
 
-  # Currently supported date classes:
-  dateClasses <- c("Date", "POSIXct", "date", "yearmon", "yearqtr")
-
   dimensions <- lapply(data, function(v) {
     # if factor handle separately
     if(inherits(v, "factor")) {
