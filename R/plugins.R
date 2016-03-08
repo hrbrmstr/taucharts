@@ -168,15 +168,22 @@ tau_export_plugin <- function(
 #' Add a TauCharts annotations plugin
 #'
 #' @param tau taucharts object
+#' @param annotation_df a data frame with the following columns:
+#'  dim: the data dimension to annotate (i.e. name of data column)
+#'  val: the value (axis intercept) of the annotation
+#'  text: the text to be displayed at the annotation
+#'  front: if the annotation should be at in "front" of or "behind" the other data points
+#'  color: hex color for annotation
 #' @seealso \code{\link{cars_data}} dataset
 #' @export
 #' @examples
 #' data(cars_data)
 #' tauchart(cars_data) %>%
 #'   tau_point("milespergallon", c("class", "price"), color="class") %>%
-#'   tau_annotations(data.frame(dim = "y", val = 50000,
-#'            text = "Whoa there!", position = "front",
-#'            color = '#4300FF'))
+#'   tau_annotations(data.frame(dim = "price", val = 50000,
+#'                         text = "Whoa there!", position = "front",
+#'                         color = '#4300FF'))
+
 tau_annotations <- function(
   tau, annotation_df
 ) {
