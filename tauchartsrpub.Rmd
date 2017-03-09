@@ -17,7 +17,7 @@ An R [htmlwidget](http://htmlwidgets.org/) interface to [TauCharts](http://www.t
 Re-create TauCharts web site examples, starting with the data needed for the charts:
 
 ```{r init}
-# devtools::install_github("hrbrmstr/taucharts")
+# devtools::install_github("AdeelK93/taucharts")
 library(taucharts)
 
 scatter_dat <- structure(list(team = c("d", "d", "d", "d", "l", "l", "l", "l", 
@@ -228,6 +228,7 @@ make_black_tooltip <- function(tau) {
     tau_add_css_rule(".graphical-report__tooltip { background: black; color: white; }") %>% 
     tau_add_css_rule(".graphical-report__tooltip__exclude:hover { color: #65717f; background: linear-gradient(to right, rgba(255, 255, 255, 0) 100%, rgba(235, 238, 241, 0.9) 0%); }") %>%
     tau_add_css_rule(".graphical-report__tooltip__exclude { color: white; }") %>%
+    tau_add_css_rule(".graphical-report__tooltip__list__elem { color: white; }") %>% 
     tau_add_css_rule(".graphical-report__tooltip__list__elem:first-child { color: white; font-weight: bold; }") %>% 
     tau_add_css_rule(".graphical-report__tooltip__gray-text { color: white; font-weight: bold; }")
 }
@@ -249,6 +250,7 @@ tauchart(mtcars) %>%
   tau_add_css_rule(c(".graphical-report__tooltip { background: black; color: white; }", 
                      ".graphical-report__tooltip__exclude:hover { color: #65717f; background: linear-gradient(to right, rgba(255, 255, 255, 0) 100%, rgba(235, 238, 241, 0.9) 0%); }",
                      ".graphical-report__tooltip__exclude { color: white; }",
+                     ".graphical-report__tooltip__list__elem { color: white; }",
                      ".graphical-report__tooltip__list__elem:first-child { color: white; font-weight: bold; }",
                      ".graphical-report__tooltip__gray-text { color: white; font-weight: bold; }"))
 ```

@@ -25,7 +25,7 @@ The following functions are implemented:
 -   `tau_guide_padding`: Set overall chart padding
 -   `tau_guide_x`: Control x-axis padding, label, scale & tick format
 -   `tau_guide_y`: Control y-axis padding, label, scale & tick format
--   `tau_legend`: Add a TauCharts tooltip
+-   `tau_legend`: Add a TauCharts legend
 -   `tau_tooltip`: Add a TauCharts tooltip
 -   `tau_trendline`: Add a TauCharts trendline
 -   `run_tau_app`: Run a built-in example Shiny app
@@ -74,7 +74,7 @@ The following datasets are included:
 ### Installation
 
 ``` r
-devtools::install_github("hrbrmstr/taucharts")
+devtools::install_github("AdeelK93/taucharts")
 ```
 
 ### Usage
@@ -94,13 +94,13 @@ library(taucharts)
 library(testthat)
 
 date()
-#> [1] "Mon Aug 17 15:03:01 2015"
+#> [1] "Wed Mar  8 21:45:01 2017"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
 #> OK: 0 SKIPPED: 0 FAILED: 0
 #> 
-#> DONE
+#> DONE ===================================================================================================================
 ```
 
 ### Code of Conduct
