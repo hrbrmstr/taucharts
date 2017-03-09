@@ -43,4 +43,3 @@ tauchart(mtcars) \%>\%
 \url{http://api.taucharts.com/basic/guide.html},
             \url{https://github.com/mbostock/d3/wiki/Formatting#d3_format}
 }
-

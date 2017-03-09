@@ -24,4 +24,3 @@ tau_point("mpg", "wt") \%>\%
 \references{
 \url{http://api.taucharts.com/basic/guide.html}
 }
-

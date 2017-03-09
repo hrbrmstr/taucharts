@@ -23,4 +23,3 @@ tauchart(cars_data) \%>\%
 \seealso{
 \code{\link{cars_data}} dataset
 }
-

@@ -10,12 +10,13 @@
 #' \cr
 #' This is most certainly a temporary hack.
 #'
+#' @param tau taucharts object
 #' @param title title for the chart
 #' @param div_css style to apply to the surrounding \code{div}. You should probably set
 #'        the width here.
-#' @param css_style CSS style to apply to the title \code{span}. The default is to center-align
+#' @param span_css CSS style to apply to the title \code{span}. The default is to center-align
 #'        the text and using a bold font. Go. Crazy.
-#' @param Not tested in a Shiny context yet
+#' Not tested in a Shiny context yet
 #' @return THIS DOES NOT RETURN AN \code{htmlwidget}!! It returns a \code{shiny.tag}
 #'         class HTML (the widget is wrapped in a \code{<div>}). It should be the LAST
 #'         call in a magrittr pipe chain or called to wrap a streamgraph object for

@@ -30,4 +30,3 @@ tauchart(mtcars) \%>\%
 \seealso{
 \code{\link[ggthemes]{wsj_pal}}
 }
-

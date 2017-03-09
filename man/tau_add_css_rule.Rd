@@ -59,4 +59,3 @@ tauchart(mtcars) \%>\%
   make_black_tooltip()
 }
 }
-

@@ -27,4 +27,3 @@ tauchart(mtcars) \%>\%
 \seealso{
 \code{\link[ggthemes]{fivethirtyeight_pal}}
 }
-

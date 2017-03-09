@@ -66,4 +66,3 @@ gg <- ggplot(mtcars, aes(as.factor(cyl))) + geom_histogram()
 as_tauchart(gg)
 }
 }
-
