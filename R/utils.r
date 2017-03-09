@@ -15,23 +15,26 @@ naathenb <- function(a, b) {
 "%^^%" <- naathenb
 
 brewers <- c("BrBG", "PiYG", "PRGn", "PuOr", "RdBu", "RdGy", "RdYlBu", "RdYlGn",
-"Spectral", "Accent", "Dark2", "Paired", "Pastel1", "Pastel2",
-"Set1", "Set2", "Set3", "Blues", "BuGn", "BuPu", "GnBu", "Greens",
-"Greys", "Oranges", "OrRd", "PuBu", "PuBuGn", "PuRd", "Purples",
-"RdPu", "Reds", "YlGn", "YlGnBu", "YlOrBr", "YlOrRd")
+  "Spectral", "Accent", "Dark2", "Paired", "Pastel1", "Pastel2",
+  "Set1", "Set2", "Set3", "Blues", "BuGn", "BuPu", "GnBu", "Greens",
+  "Greys", "Oranges", "OrRd", "PuBu", "PuBuGn", "PuRd", "Purples",
+  "RdPu", "Reds", "YlGn", "YlGnBu", "YlOrBr", "YlOrRd")
 
+# Currently supported date classes:
+dateClasses <- c("Date", "POSIXct", "date", "yearmon", "yearqtr")
 
 # from rstudio/dygraphs https://github.com/rstudio/dygraphs
-asISO8601Time <- function(x) {
-  if (!inherits(x, "POSIXct"))
-    x <- try({as.POSIXct(x, tz = "GMT")})
-  # if posix conversion worked
-  if (inherits(x, "POSIXct")) {
-    format(x, format="%04Y-%m-%dT%H:%M:%SZ", tz='GMT')
-  } else {
-    # if not just return x and keep pluggin away
-    x
-  }
+asISO8601Time <- function(x, dateClasses) {
+  if (inherits(x, dateClasses)) {
+    x <- try({ as.POSIXct(x, tz = "GMT") })
+    # if posix conversion worked
+    if (inherits(x, "POSIXct")) {
+      format(x, format="%04Y-%m-%dT%H:%M:%SZ", tz='GMT')
+    } else {
+      warning("Date conversion to ISO8601 failed. Classes ",
+        paste(dateClasses, ", "), " are supported.")
+    }
+  } else { return(x) }
 }
 
 
