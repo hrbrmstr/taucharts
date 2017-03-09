@@ -25,4 +25,3 @@ tauchart(mtcars) \%>\%
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}
 }
-

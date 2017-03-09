@@ -8,15 +8,16 @@ tau_title(tau, title = "", div_css = "width:100\%",
   span_css = "font-weight:bold;margin:auto;text-align:center")
 }
 \arguments{
+\item{tau}{taucharts object}
+
 \item{title}{title for the chart}
 
 \item{div_css}{style to apply to the surrounding \code{div}. You should probably set
 the width here.}
 
-\item{css_style}{CSS style to apply to the title \code{span}. The default is to center-align
-the text and using a bold font. Go. Crazy.}
-
-\item{Not}{tested in a Shiny context yet}
+\item{span_css}{CSS style to apply to the title \code{span}. The default is to center-align
+       the text and using a bold font. Go. Crazy.
+Not tested in a Shiny context yet}
 }
 \value{
 THIS DOES NOT RETURN AN \code{htmlwidget}!! It returns a \code{shiny.tag}
@@ -54,4 +55,3 @@ tauchart(mtcars, width="500px") \%>\%
   tau_title("Some Really Good Plot Title",
             "width:500px;font-weight:bold;margin:auto;text-align:left;font-size:24px;color:#7f7f7f;font-family:sans-serif")
 }
-

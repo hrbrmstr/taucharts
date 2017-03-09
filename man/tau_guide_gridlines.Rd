@@ -24,4 +24,3 @@ tauchart(mtcars) \%>\%
 \references{
 \url{http://api.taucharts.com/basic/guide.html}
 }
-

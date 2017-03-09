@@ -30,4 +30,3 @@ tauchart(mtcars) \%>\% tau_point("mpg", "wt", "cyl", "hp")
 \references{
 \url{http://api.taucharts.com/basic/scatterplot.html}
 }
-

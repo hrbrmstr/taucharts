@@ -71,7 +71,7 @@ The following datasets are included:
 - Version 0.4.3.9000 released : minor issue with guides
 - Version 0.4.2.9000 released : pre-CRAN flight check
 - Version 0.4.0.9000 released : added `as_tauchart` & updated TauCharts JS lib
-- Version 0.3.4.9000 released : added warning for global targeted CSS rules and font ref fix thx to @jlewis91 
+- Version 0.3.4.9000 released : added warning for global targeted CSS rules and font ref fix thx to @jlewis91
 - Version 0.3.3.9001 released : fix for custom colors and `tau_line`
 - Version 0.3.3 released : custom font for chart (`?tau_set_font`)
 - Version 0.3.2 released : custom colors working in legend & trendlines
@@ -89,7 +89,7 @@ The following datasets are included:
 ### Installation
 
 ```{r eval=FALSE}
-devtools::install_github("hrbrmstr/taucharts")
+devtools::install_github("AdeelK93/taucharts")
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
@@ -119,5 +119,5 @@ test_dir("tests/")
 
 ### Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md).
 By participating in this project you agree to abide by its terms.

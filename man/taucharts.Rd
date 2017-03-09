@@ -13,4 +13,3 @@ An \code{htmlwidget} interface to the
 \author{
 Bob Rudis (@hrbrmstr), Kent Russell (@timelyportfolio)
 }
-

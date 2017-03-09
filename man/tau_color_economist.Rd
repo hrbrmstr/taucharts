@@ -28,4 +28,3 @@ tauchart(mtcars) \%>\%
 \seealso{
 \code{\link[ggthemes]{economist_pal}}
 }
-

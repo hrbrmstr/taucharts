@@ -12,6 +12,7 @@
 #'   tau_color_manual(c("blue", "maroon", "black"))
 #' }
 tau_color_manual <- function(tau, values=NULL) {
+  tau$x$dimensions[tau$x$color] <- "category"
   if (is.null(values)) return(tau)
   eids <- sapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,
@@ -52,6 +53,7 @@ tau_color_manual <- function(tau, values=NULL) {
 #'   tau_color_brewer(3, "Set3")
 #' }
 tau_color_brewer <- function(tau, n=5, palette="Set2") {
+  tau$x$dimensions[tau$x$color] <- "category"
   values <- RColorBrewer::brewer.pal(n, palette)
   eids <- sapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,
@@ -82,6 +84,7 @@ tau_color_brewer <- function(tau, n=5, palette="Set2") {
 #'   tau_color_tableau()
 #' }
 tau_color_tableau <- function(tau, palette="tableau20") {
+  tau$x$dimensions[tau$x$color] <- "category"
   values <- tableau_colors(palette)
   eids <- sapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,
@@ -113,6 +116,7 @@ tau_color_tableau <- function(tau, palette="tableau20") {
 #'   tau_color_economist()
 #' }
 tau_color_economist <- function(tau, n=5) {
+  tau$x$dimensions[tau$x$color] <- "category"
   values <- ggthemes::economist_pal()(n)
   eids <- sapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,
@@ -144,6 +148,7 @@ tau_color_economist <- function(tau, n=5) {
 #'   tau_color_few()
 #' }
 tau_color_few <- function(tau, n=5, palette="medium") {
+  tau$x$dimensions[tau$x$color] <- "category"
   values <- ggthemes::few_pal(palette)(n)
   eids <- sapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,
@@ -175,6 +180,7 @@ tau_color_few <- function(tau, n=5, palette="medium") {
 #'   tau_color_538()
 #' }
 tau_color_538 <- function(tau, n=5) {
+  tau$x$dimensions[tau$x$color] <- "category"
   values <- ggthemes::fivethirtyeight_pal()(n)
   eids <- sapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,
@@ -206,6 +212,7 @@ tau_color_538 <- function(tau, n=5) {
 #'   tau_color_highcharts()
 #' }
 tau_color_highcharts <- function(tau, n=5, palette="default") {
+  tau$x$dimensions[tau$x$color] <- "category"
   values <- ggthemes::hc_pal(palette)(n)
   eids <- sapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,
@@ -239,6 +246,7 @@ tau_color_highcharts <- function(tau, n=5, palette="default") {
 #'   tau_color_wsj()
 #' }
 tau_color_wsj <- function(tau, n=5, palette="rgby") {
+  tau$x$dimensions[tau$x$color] <- "category"
   values <- ggthemes::wsj_pal(palette)(n)
   eids <- sapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,

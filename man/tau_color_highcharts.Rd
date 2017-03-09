@@ -29,4 +29,3 @@ tauchart(mtcars) \%>\%
 \seealso{
 \code{\link[ggthemes]{hc_pal}}
 }
-

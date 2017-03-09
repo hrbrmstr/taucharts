@@ -39,4 +39,3 @@ tauchart(crimes) \%>\%
 \url{http://api.taucharts.com/basic/bar.html},
             \url{http://api.taucharts.com/basic/horizontal-bar.html}
 }
-

@@ -31,4 +31,3 @@ tauchart(dplyr::count(mpg, class, drv)) \%>\%
 \references{
 \url{http://api.taucharts.com/basic/line.html}
 }
-

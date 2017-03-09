@@ -35,4 +35,3 @@ tauchart(cars_data) \%>\%
 }
 }
 \keyword{datasets}
-
