@@ -35,8 +35,8 @@ tau_point <- function(tau, x, y, color=NULL, size=NULL) {
 #' @examples
 #' if (interactive()) {
 #' tauchart(mtcars) %>%
-#' tau_boxplot("gear","mpg",mode="hide-scatter") %>%
-#' tau_guide_y(auto_scale=F)
+#'   tau_boxplot("gear", "mpg", mode="hide-scatter") %>%
+#'   tau_guide_y(nice=F)
 #' }
 tau_boxplot <- function(tau, x, y, horizontal=FALSE, mode="outliers-only") {
   tau$x$x <- x

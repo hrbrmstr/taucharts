@@ -13,13 +13,16 @@ tau_color_manual(tau, values = NULL)
 hex-format (e.g. "\code{#ffeeaa}")}
 }
 \description{
-Specify the colors used in the charts
+Vector can be optionally named in order to give explicit color/value mapping.
 }
 \examples{
 if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_manual(c("blue", "maroon", "black"))
+tauchart(mtcars) \%>\%
+  tau_point("wt", "mpg", color="cyl") \%>\%
+  tau_color_manual(c(`4`="blue",`6`= "maroon",`8`= "black"))
 }
 }
 \references{

@@ -75,10 +75,10 @@ tau_guide_x <- function(tau, padding=NULL,
   if (!is.null(padding)) tau$x$guide$x$padding <- padding
   if (!is.null(min)) tau$x$guide$x$min <- min
   if (!is.null(max)) tau$x$guide$x$max <- max
-  if (!is.null(nice)) tau$x$guide$y$nice <- nice
+  if (!is.null(nice)) tau$x$guide$x$nice <- nice
   else {
-    if (!is.null(min) && !is.null(max)) tau$x$guide$y$nice <- FALSE
-    else tau$x$guide$y$nice <- TRUE
+    if (!is.null(min) && !is.null(max)) tau$x$guide$x$nice <- FALSE
+    else tau$x$guide$x$nice <- TRUE
   }
 
   tau

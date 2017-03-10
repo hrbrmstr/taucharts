@@ -1,5 +1,7 @@
 #' Specify the colors used in the charts
 #'
+#' Vector can be optionally named in order to give explicit color/value mapping.
+#'
 #' @param tau taucharts object
 #' @param values vector of colors, ideally names (e.g. "\code{black}") or
 #'        hex-format (e.g. "\code{#ffeeaa}")
@@ -10,11 +12,21 @@
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_manual(c("blue", "maroon", "black"))
+#' tauchart(mtcars) %>%
+#'   tau_point("wt", "mpg", color="cyl") %>%
+#'   tau_color_manual(c(`4`="blue",`6`= "maroon",`8`= "black"))
 #' }
 tau_color_manual <- function(tau, values=NULL) {
   tau$x$dimensions[tau$x$color] <- "category"
   if (is.null(values)) return(tau)
-  eids <- sapply(1:length(values), function(i) {
+  if(!is.null(names(values))) {
+    tau$x$guide$color$brewer <- lapply(values,function(x) {
+      rgb <- grDevices::col2rgb(x)
+      sprintf("rgb(%d,%d,%d)",rgb[1],rgb[2],rgb[3])
+    })
+    return(tau)
+  }
+  eids <- lapply(1:length(values), function(i) {
     sprintf("tau-fill-%d-%s", i,
             paste(sample(c(letters[1:6], 0:9), 6, replace=TRUE), collapse="")) })
   tau$x$guide$color$brewer <- eids ;
@@ -245,7 +257,7 @@ tau_color_highcharts <- function(tau, n=5, palette="default") {
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_wsj()
 #' }
-tau_color_wsj <- function(tau, n=5, palette="rgby") {
+tau_color_wsj <- function(tau, n=4, palette="rgby") {
   tau$x$dimensions[tau$x$color] <- "category"
   values <- ggthemes::wsj_pal(palette)(n)
   eids <- sapply(1:length(values), function(i) {

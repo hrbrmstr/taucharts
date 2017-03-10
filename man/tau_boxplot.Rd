@@ -23,7 +23,7 @@ There is no option for color mappings as the tauCharts plugin does not support t
 \examples{
 if (interactive()) {
 tauchart(mtcars) \%>\%
-tau_boxplot("gear","mpg",mode="hide-scatter") \%>\%
-tau_guide_y(auto_scale=F)
+  tau_boxplot("gear", "mpg", mode="hide-scatter") \%>\%
+  tau_guide_y(nice=F)
 }
 }

@@ -60,7 +60,6 @@ HTMLWidgets.widget({
       x.plugins.map( function(plugin) {
         if( plugin.type === "tooltip" ) {
           plugin.fields = Array.isArray(plugin.fields) ? plugin.fields : [plugin.fields];
-          console.log(plugin);
           plugins.push(
             tauCharts.api.plugins.get('tooltip')(
               {fields: plugin.fields}
