@@ -100,6 +100,8 @@ HTMLWidgets.widget({
 
       });
     }
+    // Non-categorical facets do nothing
+    x.dimensions.facets = 'category';
 
     instance.chart = new tauCharts.Chart({
       data: datasource,
