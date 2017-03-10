@@ -18,7 +18,7 @@ HTMLWidgets.widget({
     var datasource = HTMLWidgets.dataframeToD3(x.datasource);
 
     // for debugging data/parameter issues- remove for production version
-    dbg_x = x ;
+    // dbg_x = x ;
 
     // we have to use CSS styles for the chart object colors so we
     // create a new stylesheet for every chart on a page (since there could be many charts)
@@ -98,6 +98,11 @@ HTMLWidgets.widget({
           ));
         }
 
+        if( plugin.type === "box-whiskers"){
+          plugins.push(tauCharts.api.plugins.get('box-whiskers')(
+            {flip: plugin.settings.flip, mode: plugin.settings.mode}
+          ));
+        }
       });
     }
     // Non-categorical facets do nothing
