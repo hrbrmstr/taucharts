@@ -109,12 +109,10 @@ packageVersion("taucharts")
 ### Test Results
 
 ```{r}
-library(taucharts)
 library(testthat)
-
 date()
 
-test_dir("tests/")
+test_dir("tests/testthat")
 ```
 
 ### Code of Conduct

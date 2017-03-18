@@ -90,15 +90,12 @@ packageVersion("taucharts")
 ### Test Results
 
 ``` r
-library(taucharts)
 library(testthat)
-
 date()
-#> [1] "Thu Mar  9 22:42:18 2017"
+#> [1] "Sat Mar 18 18:31:17 2017"
 
-test_dir("tests/")
-#> testthat results ========================================================================================================
-#> OK: 0 SKIPPED: 0 FAILED: 0
+test_dir("tests/testthat")
+#> basic functionality: 
 #> 
 #> DONE ===================================================================================================================
 ```
