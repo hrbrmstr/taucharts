@@ -74,7 +74,7 @@ The following datasets are included:
 ### Installation
 
 ``` r
-devtools::install_github("AdeelK93/taucharts")
+devtools::install_github("hrbrmstr/taucharts")
 ```
 
 ### Usage
@@ -92,7 +92,7 @@ packageVersion("taucharts")
 ``` r
 library(testthat)
 date()
-#> [1] "Sat Mar 18 18:31:17 2017"
+#> [1] "Thu Mar 30 09:32:53 2017"
 
 test_dir("tests/testthat")
 #> basic functionality: 

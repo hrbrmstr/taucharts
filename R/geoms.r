@@ -111,6 +111,7 @@ tau_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
 #' @param color quoted name of \code{data} column to map color aesthetic to.
 #'        NOTE that the parameter to this is what really defines the stacking.
 #' @param size quoted name of \code{data} column to make size aesthetic to
+#' @param horizontal should the bar chart be horizontal? (default: \code{FALSE} (no))
 #' @references \url{http://api.taucharts.com/basic/line.html}
 #' @export
 #' @examples
@@ -119,12 +120,14 @@ tau_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
 #'   tau_stacked_bar("class", "n", "drv") %>%
 #'   tau_guide_gridlines(FALSE, FALSE) %>%
 #'   tau_tooltip()
-tau_stacked_bar <- function(tau, x, y, color=NULL, size=NULL) {
+tau_stacked_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
   tau$x$x <- x
   tau$x$y <- y
   tau$x$color <- color
   tau$x$size <- size
-  tau$x$type <- "stacked-bar"
+  tau$x$type <- switch(as.character(horizontal),
+                       `TRUE`="horizontal-stacked-bar",
+                       `FALSE`="stacked-bar")
   tau
 }
 
