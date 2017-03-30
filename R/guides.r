@@ -42,7 +42,9 @@ tau_guide_gridlines <- function(tau, show_x=TRUE, show_y=TRUE) {
 #' @param padding space between axis ticks and chart panel
 #' @param label text of label for axis (overrides default use of variable name)
 #' @param label_padding space between axis ticks and axis label (can be negative)
-#' @param auto_scale auto-pick "best" scale for axis? (default: \code{TRUE} (yes))
+#' @param nice Taucharts engine tries to make axis scale "nice" by trying to start measure-based scale from 0 and adds some margins to complete scale with "nice" numbers. For example, if original scale domain contains values [8, 20, ... 40], then axis will have ticks from 0 to 45.
+#' (default: \code{TRUE}, if min and max values are set: \code{FALSE}).
+#' @param auto_scale (Deprecated) auto-pick "best" scale for axis? (default: \code{TRUE} (yes))
 #' @param tick_period if axis is auto-determined to be a "period scale",
 #'        this allows specification of the period size. See \code{References} for more
 #'        information.
@@ -56,13 +58,13 @@ tau_guide_gridlines <- function(tau, show_x=TRUE, show_y=TRUE) {
 #' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'  tau_point("mpg", "wt") %>%
-#'  tau_guide_x(label="Miles/gallon", auto_scale=FALSE) %>%
-#'  tau_guide_y(label="Weight", auto_scale=FALSE)
+#'  tau_guide_x(label="Miles/gallon", nice=FALSE) %>%
+#'  tau_guide_y(label="Weight", nice=FALSE)
 #' }
 tau_guide_x <- function(tau, padding=NULL,
-                        label=NULL, label_padding=NULL,
+                        label=NULL, label_padding=NULL, nice=NULL,
                         auto_scale=NULL, tick_period=NULL, tick_format=NULL,
-                        min=NULL, max=NULL ) {
+                        min=NULL, max=NULL) {
 
   tau$x$guide$x$autoScale <- auto_scale %^^% tau[["x"]][["guide"]][["x"]][["autoScale"]] %^^% TRUE
 
@@ -73,6 +75,11 @@ tau_guide_x <- function(tau, padding=NULL,
   if (!is.null(padding)) tau$x$guide$x$padding <- padding
   if (!is.null(min)) tau$x$guide$x$min <- min
   if (!is.null(max)) tau$x$guide$x$max <- max
+  if (!is.null(nice)) tau$x$guide$x$nice <- nice
+  else {
+    if (!is.null(min) && !is.null(max)) tau$x$guide$x$nice <- FALSE
+    else tau$x$guide$x$nice <- TRUE
+  }
 
   tau
 }
@@ -83,7 +90,9 @@ tau_guide_x <- function(tau, padding=NULL,
 #' @param padding space between axis ticks and chart panel
 #' @param label text of label for axis (overrides default use of variable name)
 #' @param label_padding space between axis ticks and axis label (can be negative)
-#' @param auto_scale auto-pick "best" scale for axis? (default: \code{TRUE} (yes))
+#' @param nice Taucharts engine tries to make axis scale "nice" by trying to start measure-based scale from 0 and adds some margins to complete scale with "nice" numbers. For example, if original scale domain contains values [8, 20, ... 40], then axis will have ticks from 0 to 45.
+#' (default: \code{TRUE}, if min and max values are set: \code{FALSE}).
+#' @param auto_scale (Deprecated) auto-pick "best" scale for axis? (default: \code{TRUE} (yes))
 #' @param tick_period if axis is auto-determined to be a "period scale",
 #'        this allows specification of the period size. See \code{References} for more
 #'        information.
@@ -97,11 +106,11 @@ tau_guide_x <- function(tau, padding=NULL,
 #' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'  tau_point("mpg", "wt") %>%
-#'  tau_guide_x(label="Miles/gallon", auto_scale=FALSE) %>%
-#'  tau_guide_y(label="Weight", auto_scale=FALSE)
+#'  tau_guide_x(label="Miles/gallon", nice=FALSE) %>%
+#'  tau_guide_y(label="Weight", nice=FALSE)
 #' }
 tau_guide_y <- function(tau, padding=NULL,
-                        label=NULL, label_padding=NULL,
+                        label=NULL, label_padding=NULL, nice=NULL,
                         auto_scale=NULL, tick_period=NULL, tick_format=NULL,
                         min=NULL, max=NULL) {
 
@@ -114,6 +123,11 @@ tau_guide_y <- function(tau, padding=NULL,
   if (!is.null(padding)) tau$x$guide$y$padding <- padding
   if (!is.null(min)) tau$x$guide$y$min <- min
   if (!is.null(max)) tau$x$guide$y$max <- max
+  if (!is.null(nice)) tau$x$guide$y$nice <- nice
+  else {
+    if (!is.null(min) && !is.null(max)) tau$x$guide$y$nice <- FALSE
+    else tau$x$guide$y$nice <- TRUE
+  }
 
   tau
 }

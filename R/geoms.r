@@ -22,6 +22,42 @@ tau_point <- function(tau, x, y, color=NULL, size=NULL) {
   tau
 }
 
+#' Create a TauCharts box plot (horizontal or vertical)
+#'
+#' There is no option for color mappings as the tauCharts plugin does not support this yet.
+#'
+#' @param tau taucharts object
+#' @param x quoted name of \code{data} column to use for x-axis values
+#' @param y quoted name of \code{data} column to use for y-axis values
+#' @param horizontal should the bar chart be horizontal? (default: \code{FALSE} (no))
+#' @param mode when to show scatter points? e.g. "hide-scatter", "show-scatter", "outliers-only"
+#' @export
+#' @examples
+#' if (interactive()) {
+#' tauchart(mtcars) %>%
+#'   tau_boxplot("gear", "mpg", mode="hide-scatter") %>%
+#'   tau_guide_y(nice=F)
+#' }
+tau_boxplot <- function(tau, x, y, horizontal=FALSE, mode="outliers-only") {
+  tau$x$x <- x
+  tau$x$y <- y
+  tau$x$type <- "scatterplot"
+
+  if (is.null(tau$x$plugins)){
+    tau$x$plugins = list()
+  }
+
+  tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
+    type = "box-whiskers"
+    ,settings = list(
+      flip = horizontal,
+      mode = `mode`
+    )
+  )
+
+  tau
+}
+
 #' Create a TauCharts bar chart (horizontal or vertical)
 #'
 #' @param tau taucharts object
@@ -75,6 +111,7 @@ tau_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
 #' @param color quoted name of \code{data} column to map color aesthetic to.
 #'        NOTE that the parameter to this is what really defines the stacking.
 #' @param size quoted name of \code{data} column to make size aesthetic to
+#' @param horizontal should the bar chart be horizontal? (default: \code{FALSE} (no))
 #' @references \url{http://api.taucharts.com/basic/line.html}
 #' @export
 #' @examples
@@ -83,12 +120,14 @@ tau_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
 #'   tau_stacked_bar("class", "n", "drv") %>%
 #'   tau_guide_gridlines(FALSE, FALSE) %>%
 #'   tau_tooltip()
-tau_stacked_bar <- function(tau, x, y, color=NULL, size=NULL) {
+tau_stacked_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
   tau$x$x <- x
   tau$x$y <- y
   tau$x$color <- color
   tau$x$size <- size
-  tau$x$type <- "stacked-bar"
+  tau$x$type <- switch(as.character(horizontal),
+                       `TRUE`="horizontal-stacked-bar",
+                       `FALSE`="stacked-bar")
   tau
 }
 

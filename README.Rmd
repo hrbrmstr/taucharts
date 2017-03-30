@@ -89,7 +89,7 @@ The following datasets are included:
 ### Installation
 
 ```{r eval=FALSE}
-devtools::install_github("AdeelK93/taucharts")
+devtools::install_github("hrbrmstr/taucharts")
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
@@ -109,12 +109,10 @@ packageVersion("taucharts")
 ### Test Results
 
 ```{r}
-library(taucharts)
 library(testthat)
-
 date()
 
-test_dir("tests/")
+test_dir("tests/testthat")
 ```
 
 ### Code of Conduct

@@ -74,7 +74,7 @@ The following datasets are included:
 ### Installation
 
 ``` r
-devtools::install_github("AdeelK93/taucharts")
+devtools::install_github("hrbrmstr/taucharts")
 ```
 
 ### Usage
@@ -90,15 +90,12 @@ packageVersion("taucharts")
 ### Test Results
 
 ``` r
-library(taucharts)
 library(testthat)
-
 date()
-#> [1] "Wed Mar  8 21:45:01 2017"
+#> [1] "Thu Mar 30 09:32:53 2017"
 
-test_dir("tests/")
-#> testthat results ========================================================================================================
-#> OK: 0 SKIPPED: 0 FAILED: 0
+test_dir("tests/testthat")
+#> basic functionality: 
 #> 
 #> DONE ===================================================================================================================
 ```

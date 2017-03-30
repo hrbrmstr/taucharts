@@ -4,7 +4,7 @@
 \alias{tau_stacked_bar}
 \title{Create a TauCharts stacked bar chart (experimental)}
 \usage{
-tau_stacked_bar(tau, x, y, color = NULL, size = NULL)
+tau_stacked_bar(tau, x, y, color = NULL, size = NULL, horizontal = FALSE)
 }
 \arguments{
 \item{tau}{taucharts object}
@@ -17,6 +17,8 @@ tau_stacked_bar(tau, x, y, color = NULL, size = NULL)
 NOTE that the parameter to this is what really defines the stacking.}
 
 \item{size}{quoted name of \code{data} column to make size aesthetic to}
+
+\item{horizontal}{should the bar chart be horizontal? (default: \code{FALSE} (no))}
 }
 \description{
 The API supports it but it's not documented at all

@@ -4,7 +4,7 @@
 \alias{tau_color_wsj}
 \title{Use the "Wall Street Journal" palette used in the charts}
 \usage{
-tau_color_wsj(tau, n = 5, palette = "rgby")
+tau_color_wsj(tau, n = 4, palette = "rgby")
 }
 \arguments{
 \item{tau}{taucharts object}
