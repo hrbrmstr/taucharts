@@ -61,14 +61,14 @@ HTMLWidgets.widget({
         if( plugin.type === "tooltip" ) {
           plugin.fields = Array.isArray(plugin.fields) ? plugin.fields : [plugin.fields];
           plugins.push(
-            tauCharts.api.plugins.get('tooltip')(
+            Taucharts.api.plugins.get('tooltip')(
               {fields: plugin.fields}
             )
           );
         }
 
         if( plugin.type === "legend" ){
-          plugins.push(tauCharts.api.plugins.get('legend')());
+          plugins.push(Taucharts.api.plugins.get('legend')());
         }
 
         if( plugin.type === "trendline" ){
@@ -78,27 +78,27 @@ HTMLWidgets.widget({
           if (!Array.isArray(plugin.settings.type)){
             plugin.settings.type = plugin.settings.type;
           }
-          plugins.push(tauCharts.api.plugins.get('trendline')(plugin.settings));
+          plugins.push(Taucharts.api.plugins.get('trendline')(plugin.settings));
         }
 
         if( plugin.type === "quick-filter"){
-          plugins.push(tauCharts.api.plugins.get('quick-filter')(plugin.fields));
+          plugins.push(Taucharts.api.plugins.get('quick-filter')(plugin.fields));
         }
 
         if( plugin.type === "exportTo"){
-          plugins.push(tauCharts.api.plugins.get('exportTo')(
+          plugins.push(Taucharts.api.plugins.get('exportTo')(
            {cssPaths: plugin.cssPaths}
           ));
         }
 
         if( plugin.type === "annotations"){
-          plugins.push(tauCharts.api.plugins.get('annotations')(
+          plugins.push(Taucharts.api.plugins.get('annotations')(
             {items: HTMLWidgets.dataframeToD3(plugin.items)}
           ));
         }
 
         if( plugin.type === "box-whiskers"){
-          plugins.push(tauCharts.api.plugins.get('box-whiskers')(
+          plugins.push(Taucharts.api.plugins.get('box-whiskers')(
             {flip: plugin.settings.flip, mode: plugin.settings.mode}
           ));
         }
@@ -107,7 +107,7 @@ HTMLWidgets.widget({
     // Non-categorical facets do nothing
     x.dimensions.facets = 'category';
 
-    instance.chart = new tauCharts.Chart({
+    instance.chart = new Taucharts.Chart({
       data: datasource,
       type: x.type,
       size: x.size,
