@@ -10,13 +10,13 @@ library(taucharts)
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("TauCharts Demo"),
 
   # Sidebar with a slider input for number of bins
   sidebarPanel(width = 3,
                selectInput(
                    "data", label = h4("Data available:"),
-                   choices = c("none", "little", "some", "lots"),
+                   choices = c("none"=0, "little"=1, "some"=2, "lots"=3),
                    selected = 1
                )),
   mainPanel(
