@@ -148,7 +148,7 @@ tau_quick_filter <- function(
 #' data(cars_data)
 #' tauchart(cars_data) %>%
 #'   tau_point("milespergallon", c("class", "price"), color="class") %>%
-#'   tau_quick_filter()
+#'   tau_export_plugin()
 tau_export_plugin <- function(
   tau
 ) {

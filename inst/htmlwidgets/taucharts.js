@@ -80,7 +80,7 @@ HTMLWidgets.widget({
             }
 
             if( plugin.type === "exportTo"){
-              plugins.push(Taucharts.api.plugins.get('exportTo')(
+              plugins.push(Taucharts.api.plugins.get('export-to')(
                {cssPaths: plugin.cssPaths}
               ));
             }
