@@ -131,13 +131,13 @@ shinyServer(function(input, output) {
     )
 
   output$bar <- renderTaucharts({
-    tauchart(bar_dat[runif(nrow(bar_dat), max = 3) <= input$data,]) %>%
+    tauchart(bar_dat[runif(nrow(bar_dat), max = 3) <= input$data,], inputId = "click") %>%
       tau_bar("team", "effort", color = "priority") %>%
       tau_legend() %>% tau_tooltip()
   })
 
   output$line <- renderTaucharts({
-    tauchart(line_dat[runif(nrow(line_dat), max = 3) <= input$data,]) %>%
+    tauchart(line_dat[runif(nrow(line_dat), max = 3) <= input$data,], inputId = "click") %>%
       tau_line("date", "count", color = "type") %>%
       tau_guide_x(label="Month") %>%
       tau_guide_y(label="Count of completed entities", label_padding=50) %>%
@@ -145,4 +145,6 @@ shinyServer(function(input, output) {
       tau_legend() %>%
       tau_tooltip()
   })
+
+  output$click <- renderPrint(input$click)
 })

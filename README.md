@@ -114,7 +114,7 @@ packageVersion("taucharts")
 ``` r
 library(testthat)
 date()
-#> [1] "Mon May  7 00:34:21 2018"
+#> [1] "Mon May  7 21:28:23 2018"
 
 test_dir("tests/testthat", reporter = SummaryReporter)
 #> basic functionality: S

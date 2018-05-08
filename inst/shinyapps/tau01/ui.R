@@ -18,7 +18,9 @@ shinyUI(fluidPage(
                    "data", label = h4("Data available:"),
                    choices = c("none"=0, "little"=1, "some"=2, "lots"=3),
                    selected = 1
-               )),
+               ),
+               helpText("Most recently clicked on:"),
+               verbatimTextOutput("click")),
   mainPanel(
     tabsetPanel(
         tabPanel("bar", tauchartsOutput("bar")),

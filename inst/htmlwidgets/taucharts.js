@@ -120,6 +120,11 @@ HTMLWidgets.widget({
 
         chart.renderTo('#'+el.id);
 
+        // Update Shiny inputs, if applicable
+        if (x.input) chart.on('elementclick', function (_, e) {
+          Shiny.onInputChange(x.input, e.data)
+        })
+
         // set up a container for tasks to perform after completion
         //  one example would be add callbacks for event handling
         //  styling
