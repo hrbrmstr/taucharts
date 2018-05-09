@@ -25,16 +25,16 @@
 #' make_black_tooltip <- function(tau) {
 #'  tau %>%
 #'   tau_add_css_rule(
-#'    ".graphical-report__tooltip__gray-text { color: white; font-weight: bold; }") %>%
+#'    ".tau-chart__tooltip__gray-text { color: white; font-weight: bold; }") %>%
 #'   tau_add_css_rule(
-#'    ".graphical-report__tooltip__list__elem:first-child {color:white;font-weight:bold;}") %>%
+#'    ".tau-chart__tooltip__list__elem:first-child {color:white;font-weight:bold;}") %>%
 #'   tau_add_css_rule(
-#'    ".graphical-report__tooltip__exclude { color: white; }") %>%
+#'    ".tau-chart__tooltip__exclude { color: white; }") %>%
 #'   tau_add_css_rule(
-#'     paste0(c(".graphical-report__tooltip__exclude:hover { color: #65717f; ",
+#'     paste0(c(".tau-chart__tooltip__exclude:hover { color: #65717f; ",
 #'              "background: linear-gradient(to right, rgba(255, 255, 255, 0) 100%, ",
 #'              "rgba(235, 238, 241, 0.9) 0%); }"), collapse="\n")) %>%
-#'  tau_add_css_rule(".graphical-report__tooltip { background: black; color: white; }")
+#'  tau_add_css_rule(".tau-chart__tooltip { background: black; color: white; }")
 #' }
 #'
 #' tauchart(mtcars) %>%
@@ -50,7 +50,7 @@ tau_add_css_rule <- function(tau, rule, warn=TRUE) {
     if (!any(grepl("\\{\\{ID\\}\\}", rule))) {
       # special case for the tooltip since that resides outsie the widget div
       # it has to be targeted globally unless the TauCharts folks change the behavior
-      if (!all(grepl("graphical-report__tooltip", rule[which(!grepl("\\{\\{ID\\}\\}", rule))]))) {
+      if (!all(grepl("tau-chart__tooltip", rule[which(!grepl("\\{\\{ID\\}\\}", rule))]))) {
         message("NOTE: CSS rules without {{ID}} are applied to the entire DOM.")
       }
     }

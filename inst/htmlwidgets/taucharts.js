@@ -6,8 +6,8 @@ HTMLWidgets.widget({
   factory: function(el, width, height) {
     var chart = null
     var sheet_element = document.createElement('style');
-    document.head.appendChild(sheet_element) ;
-    var sheet = sheet_element.sheet;
+    sheet_element.id = el.id + '-style';
+    document.head.appendChild(sheet_element);
 
     return {
       renderValue: function(x) {
@@ -22,6 +22,7 @@ HTMLWidgets.widget({
         // by creating a sheet we're also ensured it will exist
         // then we further ensure proper CSS rule targeting by using the element id
         // along with the color style
+        var sheet = document.getElementById(el.id + '-style').sheet;
 
         if (x.forCSS !== null) {
           if (typeof(x.forCSS) === "string") {
@@ -147,8 +148,7 @@ HTMLWidgets.widget({
         chart.refresh();
       },
 
-      chart: chart,
-      sheet: sheet
+      chart: chart
     }
   }
 });
