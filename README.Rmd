@@ -67,6 +67,7 @@ The following datasets are included:
 
 ### News
 
+- Version 0.4.5 released : Shiny click events, color themes for faceted charts, updated TauCharts JS lib
 - Version 0.4.4.9000 released : `tau_title`
 - Version 0.4.3.9000 released : minor issue with guides
 - Version 0.4.2.9000 released : pre-CRAN flight check
@@ -90,10 +91,6 @@ The following datasets are included:
 
 ```{r eval=FALSE}
 devtools::install_github("hrbrmstr/taucharts")
-```
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-options(width=120)
 ```
 
 ### Usage

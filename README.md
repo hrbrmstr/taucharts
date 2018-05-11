@@ -64,6 +64,8 @@ The following datasets are included:
 
 ### News
 
+  - Version 0.4.5 released : Shiny click events, color themes for
+    faceted charts, updated TauCharts JS lib
   - Version 0.4.4.9000 released : `tau_title`
   - Version 0.4.3.9000 released : minor issue with guides
   - Version 0.4.2.9000 released : pre-CRAN flight check
@@ -106,7 +108,7 @@ library(taucharts)
 
 # current verison
 packageVersion("taucharts")
-#> [1] '0.4.4.9000'
+#> [1] '0.4.5'
 ```
 
 ### Test Results
@@ -114,7 +116,7 @@ packageVersion("taucharts")
 ``` r
 library(testthat)
 date()
-#> [1] "Mon May  7 21:28:23 2018"
+#> [1] "Fri May 11 00:02:12 2018"
 
 test_dir("tests/testthat", reporter = SummaryReporter)
 #> basic functionality: S

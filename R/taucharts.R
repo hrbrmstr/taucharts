@@ -11,9 +11,7 @@
 #' @references \url{http://api.taucharts.com/}
 #' @export
 #' @examples
-#' if (interactive()) {
 #' tauchart(mtcars) %>% tau_point("mpg", "wt")
-#'}
 tauchart <- function(data, width = NULL, height = NULL, inputId = NULL) {
 
   # try to accomodate xts objects
