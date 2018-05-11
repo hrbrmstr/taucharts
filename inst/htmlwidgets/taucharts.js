@@ -101,6 +101,10 @@ HTMLWidgets.widget({
         }
         // Non-categorical facets do nothing
         x.dimensions.facets = 'category';
+        // Use special guide if chart has facets
+        if (x.x.constructor===Array || x.y.constructor===Array) {
+          x.guide = [{}, x.guide]
+        }
 
         var config = {
           data: datasource,

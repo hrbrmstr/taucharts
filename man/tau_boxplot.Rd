@@ -21,9 +21,7 @@ tau_boxplot(tau, x, y, horizontal = FALSE, mode = "outliers-only")
 There is no option for color mappings as the tauCharts plugin does not support this yet.
 }
 \examples{
-if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_boxplot("gear", "mpg", mode="hide-scatter") \%>\%
-  tau_guide_y(nice=F)
-}
+  tau_guide_y(nice=FALSE)
 }

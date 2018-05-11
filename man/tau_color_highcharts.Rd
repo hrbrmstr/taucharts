@@ -4,7 +4,7 @@
 \alias{tau_color_highcharts}
 \title{Use the HighchartsJS palette used in the charts}
 \usage{
-tau_color_highcharts(tau, n = 5, palette = "default")
+tau_color_highcharts(tau, n = NULL, palette = "default")
 }
 \arguments{
 \item{tau}{taucharts object}
@@ -17,11 +17,9 @@ tau_color_highcharts(tau, n = 5, palette = "default")
 Qualitative color palettes from Stephen Few, "Practical Rules for Using Color in Charts".
 }
 \examples{
-if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_highcharts()
-}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

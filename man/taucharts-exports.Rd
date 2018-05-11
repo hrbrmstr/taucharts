@@ -4,7 +4,6 @@
 \alias{taucharts-exports}
 \alias{\%>\%}
 \alias{JS}
-\alias{saveWidget}
 \title{taucharts exported operators}
 \description{
 The following functions are imported and then re-exported

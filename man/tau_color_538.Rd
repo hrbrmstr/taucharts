@@ -4,7 +4,7 @@
 \alias{tau_color_538}
 \title{Use the "fivethirtyeight.com" palette used in the charts}
 \usage{
-tau_color_538(tau, n = 5)
+tau_color_538(tau, n = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
@@ -15,11 +15,9 @@ tau_color_538(tau, n = 5)
 The standard fivethirtyeight.com palette for line plots is blue, red, green.
 }
 \examples{
-if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_538()
-}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

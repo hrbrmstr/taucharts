@@ -25,7 +25,6 @@ Set the font family (standard CSS \code{font-family} specification, comma-separa
 font names only) and an optional font CSS URL to load the font from.
 }
 \examples{
-if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("mpg", "wt", "cyl") \%>\%
   tau_legend() \%>\%
@@ -33,5 +32,4 @@ tauchart(mtcars) \%>\%
   tau_tooltip() \%>\%
   tau_set_font("Montserrat, sans-serif",
                "http://fonts.googleapis.com/css?family=Montserrat:400,700")
-}
 }

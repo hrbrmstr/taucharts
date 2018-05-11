@@ -41,17 +41,20 @@ tauchart(mtcars) \%>\%
   tau_point("mpg", "wt") \%>\%
   tau_guide_y(auto_scale=FALSE) \%>\%
   tau_title("Some Really Good Plot Title",
-            "font-weight:bold;margin:auto;text-align:center;font-size:24px;color:#7f7f7f;font-family:sans-serif")
+            "font-weight:bold;margin:auto;text-align:center;font-size:24px;
+            color:#7f7f7f;font-family:sans-serif")
 
 tauchart(mtcars) \%>\%
   tau_point("mpg", "wt") \%>\%
   tau_guide_y(auto_scale=FALSE) \%>\%
   tau_title("Some Really Good Plot Title",
-            "font-weight:bold;margin:auto;text-align:right;font-size:24px;color:#7f7f7f;font-family:sans-serif")
+            "font-weight:bold;margin:auto;text-align:right;font-size:24px;
+            color:#7f7f7f;font-family:sans-serif")
 
 tauchart(mtcars, width="500px") \%>\%
   tau_point("mpg", "wt") \%>\%
   tau_guide_y(auto_scale=FALSE) \%>\%
   tau_title("Some Really Good Plot Title",
-            "width:500px;font-weight:bold;margin:auto;text-align:left;font-size:24px;color:#7f7f7f;font-family:sans-serif")
+            "width:500px;font-weight:bold;margin:auto;text-align:left;
+            font-size:24px;color:#7f7f7f;font-family:sans-serif")
 }

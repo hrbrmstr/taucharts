@@ -4,7 +4,7 @@
 \alias{tau_color_economist}
 \title{Use the "Economist" palette used in the charts}
 \usage{
-tau_color_economist(tau, n = 5)
+tau_color_economist(tau, n = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
@@ -16,11 +16,9 @@ The hues in the palette are blues, grays, and greens. Red is not included in
 these palettes and should be used to indicate important data.
 }
 \examples{
-if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_economist()
-}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

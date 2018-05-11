@@ -4,7 +4,7 @@
 \alias{tau_color_brewer}
 \title{Use the ColorBrewer palette in the charts}
 \usage{
-tau_color_brewer(tau, n = 5, palette = "Set2")
+tau_color_brewer(tau, n = NULL, palette = "Set2")
 }
 \arguments{
 \item{tau}{taucharts object}
@@ -30,11 +30,9 @@ It is highly suggested that callers use the ColorBrewer qualitative palettes:
       since you're using this package).
 }
 \examples{
-if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_brewer(3, "Set3")
-}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

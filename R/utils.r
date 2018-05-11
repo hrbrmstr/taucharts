@@ -77,5 +77,5 @@ tableau_colors <- function(palette="tableau20") {
           "#8061B4", "#6F63BB")
     )
 
-  return(x[[palette]])
+  x[[palette]]
 }
