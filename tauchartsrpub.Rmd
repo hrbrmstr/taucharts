@@ -225,12 +225,12 @@ tauchart(cars_data) %>%
 ```{r custom_styles}
 make_black_tooltip <- function(tau) {
   tau %>%
-    tau_add_css_rule(".graphical-report__tooltip { background: black; color: white; }") %>%
-    tau_add_css_rule(".graphical-report__tooltip__exclude:hover { color: #65717f; background: linear-gradient(to right, rgba(255, 255, 255, 0) 100%, rgba(235, 238, 241, 0.9) 0%); }") %>%
-    tau_add_css_rule(".graphical-report__tooltip__exclude { color: white; }") %>%
-    tau_add_css_rule(".graphical-report__tooltip__list__elem { color: white; }") %>%
-    tau_add_css_rule(".graphical-report__tooltip__list__elem:first-child { color: white; font-weight: bold; }") %>%
-    tau_add_css_rule(".graphical-report__tooltip__gray-text { color: white; font-weight: bold; }")
+    tau_add_css_rule(".tau-chart__tooltip { background: black; color: white; }") %>%
+    tau_add_css_rule(".tau-chart__tooltip__exclude:hover { color: #65717f; background: linear-gradient(to right, rgba(255, 255, 255, 0) 100%, rgba(235, 238, 241, 0.9) 0%); }") %>%
+    tau_add_css_rule(".tau-chart__tooltip__exclude { color: white; }") %>%
+    tau_add_css_rule(".tau-chart__tooltip__list__elem { color: white; }") %>%
+    tau_add_css_rule(".tau-chart__tooltip__list__elem:first-child { color: white; font-weight: bold; }") %>%
+    tau_add_css_rule(".tau-chart__tooltip__gray-text { color: white; font-weight: bold; }")
 }
 
 tauchart(mtcars) %>%
@@ -247,12 +247,12 @@ tauchart(mtcars) %>%
   tau_point("wt", "mpg", color="cyl") %>%
   tau_color_manual(c("blue", "maroon", "black")) %>%
   tau_tooltip() %>%
-  tau_add_css_rule(c(".graphical-report__tooltip { background: black; color: white; }",
-                     ".graphical-report__tooltip__exclude:hover { color: #65717f; background: linear-gradient(to right, rgba(255, 255, 255, 0) 100%, rgba(235, 238, 241, 0.9) 0%); }",
-                     ".graphical-report__tooltip__exclude { color: white; }",
-                     ".graphical-report__tooltip__list__elem { color: white; }",
-                     ".graphical-report__tooltip__list__elem:first-child { color: white; font-weight: bold; }",
-                     ".graphical-report__tooltip__gray-text { color: white; font-weight: bold; }"))
+  tau_add_css_rule(c(".tau-chart__tooltip { background: black; color: white; }",
+                     ".tau-chart__tooltip__exclude:hover { color: #65717f; background: linear-gradient(to right, rgba(255, 255, 255, 0) 100%, rgba(235, 238, 241, 0.9) 0%); }",
+                     ".tau-chart__tooltip__exclude { color: white; }",
+                     ".tau-chart__tooltip__list__elem { color: white; }",
+                     ".tau-chart__tooltip__list__elem:first-child { color: white; font-weight: bold; }",
+                     ".tau-chart__tooltip__gray-text { color: white; font-weight: bold; }"))
 ```
 
 FIN

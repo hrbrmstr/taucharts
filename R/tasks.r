@@ -21,7 +21,7 @@
 #'   tau_tasks(
 #'     "
 #' function(){
-#'   d3.select(this.el).selectAll('.graphical-report__dot')
+#'   d3.select(this.el).selectAll('.tau-chart__dot')
 #'     .transition().style('opacity',0.1)
 #'     .transition().style('opacity',0.9)
 #'     .transition().style('opacity',0.1)

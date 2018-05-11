@@ -16,7 +16,7 @@ Add a TauCharts export plugin
 data(cars_data)
 tauchart(cars_data) \%>\%
   tau_point("milespergallon", c("class", "price"), color="class") \%>\%
-  tau_quick_filter()
+  tau_export_plugin()
 }
 \seealso{
 \code{\link{cars_data}} dataset

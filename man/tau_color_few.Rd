@@ -4,7 +4,7 @@
 \alias{tau_color_few}
 \title{Use the "Few" palette used in the charts}
 \usage{
-tau_color_few(tau, n = 5, palette = "medium")
+tau_color_few(tau, n = NULL, palette = "medium")
 }
 \arguments{
 \item{tau}{taucharts object}
@@ -17,11 +17,9 @@ tau_color_few(tau, n = 5, palette = "medium")
 Qualitative color palettes from Stephen Few, "Practical Rules for Using Color in Charts".
 }
 \examples{
-if (interactive()) {
 tauchart(mtcars) \%>\%
   tau_point("wt", "mpg", color="cyl") \%>\%
   tau_color_few()
-}
 }
 \references{
 \url{http://api.taucharts.com/advanced/encoding.html}

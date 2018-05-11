@@ -8,11 +8,9 @@
 #' @references \url{http://api.taucharts.com/basic/scatterplot.html}
 #' @export
 #' @examples
-#' if (interactive()) {
 #' tauchart(mtcars) %>% tau_point("mpg", "wt")
 #' mtcars$cyl <- factor(mtcars$cyl)
 #' tauchart(mtcars) %>% tau_point("mpg", "wt", "cyl", "hp")
-#' }
 tau_point <- function(tau, x, y, color=NULL, size=NULL) {
   tau$x$x <- x
   tau$x$y <- y
@@ -33,11 +31,9 @@ tau_point <- function(tau, x, y, color=NULL, size=NULL) {
 #' @param mode when to show scatter points? e.g. "hide-scatter", "show-scatter", "outliers-only"
 #' @export
 #' @examples
-#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_boxplot("gear", "mpg", mode="hide-scatter") %>%
-#'   tau_guide_y(nice=F)
-#' }
+#'   tau_guide_y(nice=FALSE)
 tau_boxplot <- function(tau, x, y, horizontal=FALSE, mode="outliers-only") {
   tau$x$x <- x
   tau$x$y <- y
@@ -69,7 +65,6 @@ tau_boxplot <- function(tau, x, y, horizontal=FALSE, mode="outliers-only") {
 #' @references \url{http://api.taucharts.com/basic/line.html}
 #' @export
 #' @examples
-#' if (interactive()) {
 #' data(mpg, package="ggplot2")
 #' tauchart(dplyr::count(mpg, class)) %>%
 #'   tau_bar("class", "n")
@@ -89,7 +84,6 @@ tau_boxplot <- function(tau, x, y, horizontal=FALSE, mode="outliers-only") {
 #'                         ordered=TRUE)
 #' tauchart(mfclass) %>%
 #'   tau_bar(c("class", "manufacturer"), "n")
-#' }
 tau_bar <- function(tau, x, y, color=NULL, size=NULL, horizontal=FALSE) {
   tau$x$x <- x
   tau$x$y <- y

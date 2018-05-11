@@ -7,13 +7,12 @@
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 #'   string and have \code{'px'} appended.
+#' @param inputId the input slot used to access the clicked point (for Shiny).
 #' @references \url{http://api.taucharts.com/}
 #' @export
 #' @examples
-#' if (interactive()) {
 #' tauchart(mtcars) %>% tau_point("mpg", "wt")
-#'}
-tauchart <- function(data, width = NULL, height = NULL) {
+tauchart <- function(data, width = NULL, height = NULL, inputId = NULL) {
 
   # try to accomodate xts objects
   #  but this will require a dependency on xts
@@ -74,6 +73,7 @@ tauchart <- function(data, width = NULL, height = NULL) {
     y=NULL,
     padding=NULL,
     guide=list(x=NULL, y=NULL, padding=NULL, color=NULL),
+    input=inputId,
     forCSS=NULL,
     forFonts="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600&subset=latin,cyrillic-ext"
   )

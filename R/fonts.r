@@ -9,7 +9,6 @@
 #' @return taucharts object
 #' @export
 #' @examples
-#' if (interactive()) {
 #' tauchart(mtcars) %>%
 #'   tau_point("mpg", "wt", "cyl") %>%
 #'   tau_legend() %>%
@@ -17,7 +16,6 @@
 #'   tau_tooltip() %>%
 #'   tau_set_font("Montserrat, sans-serif",
 #'                "http://fonts.googleapis.com/css?family=Montserrat:400,700")
-#' }
 tau_set_font <- function(tau,
                          family="OpenSans, 'Helvetica Neue', Helvetica, Arial, sans-serif",
                          import_url=paste0(c("https://fonts.googleapis.com/css?family=Open+Sans:400,",

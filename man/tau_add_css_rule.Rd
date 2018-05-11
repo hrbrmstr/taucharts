@@ -40,16 +40,16 @@ if (interactive()) {
 make_black_tooltip <- function(tau) {
  tau \%>\%
   tau_add_css_rule(
-   ".graphical-report__tooltip__gray-text { color: white; font-weight: bold; }") \%>\%
+   ".tau-chart__tooltip__gray-text { color: white; font-weight: bold; }") \%>\%
   tau_add_css_rule(
-   ".graphical-report__tooltip__list__elem:first-child {color:white;font-weight:bold;}") \%>\%
+   ".tau-chart__tooltip__list__elem:first-child {color:white;font-weight:bold;}") \%>\%
   tau_add_css_rule(
-   ".graphical-report__tooltip__exclude { color: white; }") \%>\%
+   ".tau-chart__tooltip__exclude { color: white; }") \%>\%
   tau_add_css_rule(
-    paste0(c(".graphical-report__tooltip__exclude:hover { color: #65717f; ",
+    paste0(c(".tau-chart__tooltip__exclude:hover { color: #65717f; ",
              "background: linear-gradient(to right, rgba(255, 255, 255, 0) 100\%, ",
              "rgba(235, 238, 241, 0.9) 0\%); }"), collapse="\\n")) \%>\%
- tau_add_css_rule(".graphical-report__tooltip { background: black; color: white; }")
+ tau_add_css_rule(".tau-chart__tooltip { background: black; color: white; }")
 }
 
 tauchart(mtcars) \%>\%

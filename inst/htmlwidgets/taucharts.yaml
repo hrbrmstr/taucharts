@@ -1,14 +1,10 @@
 dependencies:
-- name: underscore
-  version: 1.8.3
-  src: htmlwidgets/lib/underscore
-  script: underscore-min.js
 - name: d3
-  version: 3.5.6
+  version: 4.8.0
   src: htmlwidgets/lib/d3
   script: d3.min.js
 - name: tauCharts
-  version: 0.10.0
+  version: 2.2.1
   src: htmlwidgets/lib/taucharts
   script: tauCharts.min.js
   stylesheet:

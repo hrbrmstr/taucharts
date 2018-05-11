@@ -1,7 +1,7 @@
 ---
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -67,6 +67,7 @@ The following datasets are included:
 
 ### News
 
+- Version 0.4.5 released : Shiny click events, color themes for faceted charts, updated TauCharts JS lib
 - Version 0.4.4.9000 released : `tau_title`
 - Version 0.4.3.9000 released : minor issue with guides
 - Version 0.4.2.9000 released : pre-CRAN flight check
@@ -92,10 +93,6 @@ The following datasets are included:
 devtools::install_github("hrbrmstr/taucharts")
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-options(width=120)
-```
-
 ### Usage
 
 ```{r}
@@ -112,7 +109,7 @@ packageVersion("taucharts")
 library(testthat)
 date()
 
-test_dir("tests/testthat")
+test_dir("tests/testthat", reporter = SummaryReporter)
 ```
 
 ### Code of Conduct

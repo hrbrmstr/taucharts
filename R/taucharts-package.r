@@ -27,9 +27,3 @@ NULL
 #' @export
 #' @rdname taucharts-exports
 NULL
-
-#' @importFrom htmlwidgets saveWidget
-#' @name saveWidget
-#' @export
-#' @rdname taucharts-exports
-NULL
