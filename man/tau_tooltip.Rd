@@ -4,13 +4,16 @@
 \alias{tau_tooltip}
 \title{Add a TauCharts tooltip}
 \usage{
-tau_tooltip(tau, fields = NULL)
+tau_tooltip(tau, fields = NULL, formatters = NULL)
 }
 \arguments{
 \item{tau}{taucharts object}
 
 \item{fields}{character vector of fields to display in the tooltip
 (default is to use all columns in \code{data})}
+
+\item{formatters}{a named list of options to format the tooltip values
+(see \url{https://api.taucharts.com/plugins/tooltip.html})}
 }
 \description{
 Add a TauCharts tooltip
@@ -20,6 +23,21 @@ data(cars_data)
 tauchart(cars_data) \%>\%
   tau_point("milespergallon", c("class", "price"), color="class") \%>\%
   tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
+
+tauchart(cars_data) \%>\%
+tau_point("milespergallon", c("class", "price"), color="class") \%>\%
+  tau_tooltip(
+    fields = c("vehicle", "year", "class", "price", "milespergallon"),
+    formatters = list(
+      milespergallon = list(label = "Miles per Gallon"),
+      price = list(format = "3f"),
+      vehicle = list(format = htmlwidgets::JS(
+        "function(str) {
+        return str.toUpperCase();
+        }")
+      )
+    )
+ )
 }
 \seealso{
 \code{\link{cars_data}} dataset

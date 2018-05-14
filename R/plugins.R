@@ -3,6 +3,8 @@
 #' @param tau taucharts object
 #' @param fields character vector of fields to display in the tooltip
 #'        (default is to use all columns in \code{data})
+#' @param formatters a named list of options to format the tooltip values
+#'        (see \url{https://api.taucharts.com/plugins/tooltip.html})
 #' @seealso \code{\link{cars_data}} dataset
 #' @export
 #' @examples
@@ -10,7 +12,22 @@
 #' tauchart(cars_data) %>%
 #'   tau_point("milespergallon", c("class", "price"), color="class") %>%
 #'   tau_tooltip(c("vehicle", "year", "class", "price", "milespergallon"))
-tau_tooltip <- function(tau, fields = NULL) {
+#'
+#' tauchart(cars_data) %>%
+#' tau_point("milespergallon", c("class", "price"), color="class") %>%
+#'   tau_tooltip(
+#'     fields = c("vehicle", "year", "class", "price", "milespergallon"),
+#'     formatters = list(
+#'       milespergallon = list(label = "Miles per Gallon"),
+#'       price = list(format = "3f"),
+#'       vehicle = list(format = htmlwidgets::JS(
+#'         "function(str) {
+#'         return str.toUpperCase();
+#'         }")
+#'       )
+#'     )
+#'  )
+tau_tooltip <- function(tau, fields = NULL, formatters = NULL) {
 
   if (is.null(fields)){
     fields <- colnames(tau$x$datasource)
@@ -23,6 +40,7 @@ tau_tooltip <- function(tau, fields = NULL) {
   tau$x$plugins[[length(tau$x$plugins) + 1]] =  list(
     type = "tooltip"
     ,fields = fields
+    ,formatters = formatters
   )
 
   tau
