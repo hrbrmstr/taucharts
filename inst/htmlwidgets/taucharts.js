@@ -55,11 +55,16 @@ HTMLWidgets.widget({
           x.plugins.map( function(plugin) {
             if( plugin.type === "tooltip" ) {
               plugin.fields = Array.isArray(plugin.fields) ? plugin.fields : [plugin.fields];
-              plugins.push(
-                Taucharts.api.plugins.get('tooltip')(
-                  {fields: plugin.fields}
-                )
-              );
+              if( plugin.formatters === null ) {
+                tooltip = Taucharts.api.plugins.get('tooltip')(
+                    {fields: plugin.fields}
+                  );
+              } else {
+                tooltip = Taucharts.api.plugins.get('tooltip')(
+                    {fields: plugin.fields, formatters: plugin.formatters}
+                  );
+              }
+              plugins.push(tooltip);
             }
 
             if( plugin.type === "legend" ){
