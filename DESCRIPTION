@@ -6,6 +6,7 @@ Authors@R: c(
     person("Adeel", "Khan", email = "AdeelK@gwu.edu", role = c("aut", "ctb")),
     person("Kent", "Russell", email = "kent.russell@timelyportfolio.com", role = c("aut", "ctb")),
     person("Tho", "Nguyen", role = "ctb"),
+    person("Pierre", "Formont", email = "pierre.formont@gmail.com", role = "ctb"),
     person("Mike", "Bostock", role = c("aut", "cph"), comment = "d3.js library in htmlwidgets/lib, http://d3js.org"),
     person("Jeremy", "Ashkenas", role = c("aut", "cph"), comment = "underscore.js library in htmlwidgets/lib, http://underscorejs.org"),
     person("Vladimir", "Petriko", role = c("aut", "cph"), comment = "taucharts.js library in htmlwidgets/lib, http://taucharts.com/")
