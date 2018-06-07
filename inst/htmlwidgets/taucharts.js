@@ -131,9 +131,30 @@ HTMLWidgets.widget({
         chart.renderTo('#'+el.id);
 
         // Update Shiny inputs, if applicable
-        if (x.input) chart.on('elementclick', function (_, e) {
-          Shiny.onInputChange(x.input, e.data)
-        })
+        if (x.input) {
+          chart.on('elementclick', function (_, e) {
+            Shiny.onInputChange(x.input, e.data)
+          })
+
+          // Return the legend label if different from the previous one
+          // if the same or reset button clicked, reset the value to 'null'
+          var clickedLegend = null;
+          el.addEventListener('click', function(l) {
+            if (l.target.className == 'tau-chart__legend__guide__label') {
+              if (l.target.innerText !== clickedLegend) {
+                clickedLegend = l.target.innerText;
+              } else {
+                clickedLegend = null;
+              }
+              Shiny.onInputChange(x.input + '-legend', clickedLegend);
+            }
+
+            if (l.target.parentNode.className =='tau-chart__legend__reset ') {
+              clickedLegend = null;
+              Shiny.onInputChange(x.input + '-legend', clickedLegend);
+            }
+          })
+        }
 
         // set up a container for tasks to perform after completion
         //  one example would be add callbacks for event handling
