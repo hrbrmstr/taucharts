@@ -136,22 +136,31 @@ HTMLWidgets.widget({
             Shiny.onInputChange(x.input, e.data)
           })
 
-          // Return the legend label if different from the previous one
-          // if the same or reset button clicked, reset the value to 'null'
-          var clickedLegend = null;
+          // Return the legend label clicked on
+          // If the reset button is clicked, reset the value to 'null'
+          // If the same value is clicked twice, reset to 'null' as well
+          var previousLegend = null;
+
           el.addEventListener('click', function(l) {
-            if (l.target.className == 'tau-chart__legend__guide__label') {
-              if (l.target.innerText !== clickedLegend) {
-                clickedLegend = l.target.innerText;
-              } else {
-                clickedLegend = null;
-              }
-              Shiny.onInputChange(x.input + '-legend', clickedLegend);
+            var updateLegend = false;
+            var className = l.target.classList[0];
+
+            if (className == 'tau-chart__legend__item') {
+              newLegend = l.target.getElementsByClassName("tau-chart__legend__guide__label")[0].innerText;
+              updateLegend = true;
+            }
+            if (className == 'tau-chart__legend__guide__label') {
+              newLegend = l.target.innerText;
+              updateLegend = true;
+            }
+            if (l.target.parentNode.className =='tau-chart__legend__reset ') {
+              newLegend = null;
+              updateLegend = true;
             }
 
-            if (l.target.parentNode.className =='tau-chart__legend__reset ') {
-              clickedLegend = null;
-              Shiny.onInputChange(x.input + '-legend', clickedLegend);
+            if (updateLegend) {
+              previousLegend = newLegend != previousLegend ? newLegend : null;
+              Shiny.onInputChange(x.input + '-legend', previousLegend);
             }
           })
         }
