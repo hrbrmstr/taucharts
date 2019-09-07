@@ -144,7 +144,7 @@ tau_color_economist <- function(tau, n=NULL) {
 #'
 #' @param tau taucharts object
 #' @param n number of desired colors
-#' @param palette name of Few palette. One of \code{"medium"}, \code{"dark"} or \code{"light"}
+#' @param palette name of Few palette. One of \code{"Medium"}, \code{"Dark"} or \code{"Light"}
 #' @references \url{http://api.taucharts.com/advanced/encoding.html}
 #' @export
 #' @seealso \code{\link[ggthemes]{few_pal}}
