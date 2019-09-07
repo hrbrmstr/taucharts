@@ -4,7 +4,8 @@
 \alias{tau_stacked_bar}
 \title{Create a TauCharts stacked bar chart (experimental)}
 \usage{
-tau_stacked_bar(tau, x, y, color = NULL, size = NULL, horizontal = FALSE)
+tau_stacked_bar(tau, x, y, color = NULL, size = NULL,
+  horizontal = FALSE)
 }
 \arguments{
 \item{tau}{taucharts object}

@@ -152,7 +152,7 @@ tau_color_economist <- function(tau, n=NULL) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_few()
-tau_color_few <- function(tau, n=NULL, palette="medium") {
+tau_color_few <- function(tau, n=NULL, palette="Medium") {
   tau$x$dimensions[tau$x$color] <- "category"
   if (is.null(n)) n <- length(unique(tau$x$datasource[[tau$x$color]]))
   values <- ggthemes::few_pal(palette)(n)

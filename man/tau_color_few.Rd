@@ -4,7 +4,7 @@
 \alias{tau_color_few}
 \title{Use the "Few" palette used in the charts}
 \usage{
-tau_color_few(tau, n = NULL, palette = "medium")
+tau_color_few(tau, n = NULL, palette = "Medium")
 }
 \arguments{
 \item{tau}{taucharts object}
