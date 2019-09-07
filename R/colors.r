@@ -144,7 +144,7 @@ tau_color_economist <- function(tau, n=NULL) {
 #'
 #' @param tau taucharts object
 #' @param n number of desired colors
-#' @param palette name of Few palette. One of \code{"medium"}, \code{"dark"} or \code{"light"}
+#' @param palette name of Few palette. One of \code{"Medium"}, \code{"Dark"} or \code{"Light"}
 #' @references \url{http://api.taucharts.com/advanced/encoding.html}
 #' @export
 #' @seealso \code{\link[ggthemes]{few_pal}}
@@ -152,7 +152,7 @@ tau_color_economist <- function(tau, n=NULL) {
 #' tauchart(mtcars) %>%
 #'   tau_point("wt", "mpg", color="cyl") %>%
 #'   tau_color_few()
-tau_color_few <- function(tau, n=NULL, palette="medium") {
+tau_color_few <- function(tau, n=NULL, palette="Medium") {
   tau$x$dimensions[tau$x$color] <- "category"
   if (is.null(n)) n <- length(unique(tau$x$datasource[[tau$x$color]]))
   values <- ggthemes::few_pal(palette)(n)

@@ -7,8 +7,8 @@
 tau_set_font(tau,
   family = "OpenSans, 'Helvetica Neue', Helvetica, Arial, sans-serif",
   import_url = paste0(c("https://fonts.googleapis.com/css?family=Open+Sans:400,",
-  "400italic,600,700,600italic,700italic,800,300,300italic,800italic"), collapse
-  = ""))
+  "400italic,600,700,600italic,700italic,800,300,300italic,800italic"),
+  collapse = ""))
 }
 \arguments{
 \item{tau}{taucharts object}

@@ -4,14 +4,14 @@
 \alias{tau_color_few}
 \title{Use the "Few" palette used in the charts}
 \usage{
-tau_color_few(tau, n = NULL, palette = "medium")
+tau_color_few(tau, n = NULL, palette = "Medium")
 }
 \arguments{
 \item{tau}{taucharts object}
 
 \item{n}{number of desired colors}
 
-\item{palette}{name of Few palette. One of \code{"medium"}, \code{"dark"} or \code{"light"}}
+\item{palette}{name of Few palette. One of \code{"Medium"}, \code{"Dark"} or \code{"Light"}}
 }
 \description{
 Qualitative color palettes from Stephen Few, "Practical Rules for Using Color in Charts".
